@@ -314,7 +314,7 @@ function checkout() {
 async function loadProducts() {
     const grid = document.getElementById('productsGrid');
     // ✅ MODO ESTÁTICO: usar products.json si window.STATIC_MODE está activo
-    const endpoint = window.STATIC_MODE ? '/products.json' : '/api/products';
+    const endpoint = window.STATIC_MODE ? './products.json' : '/api/products';
     try {
         const response = await fetch(endpoint);
         if (!response.ok) throw new Error('Error al cargar productos');
@@ -875,7 +875,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // ✅ CARGAR CONFIGURACIÓN DESDE EL SERVIDOR O ARCHIVO ESTÁTICO
 async function loadConfig() {
     // ✅ MODO ESTÁTICO: usar config.json si window.STATIC_MODE está activo
-    const endpoint = window.STATIC_MODE ? '/config.json' : '/api/config';
+    const endpoint = window.STATIC_MODE ? './config.json' : '/api/config';
     try {
         const response = await fetch(endpoint);
         if (!response.ok) throw new Error('Error al cargar configuración');
