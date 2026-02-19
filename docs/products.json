@@ -67,7 +67,7 @@
     "glbFile": null
   },
   {
-    "id": "1771488688777cc8m3si6h",
+    "id": "1771520508064vyuggmrnw",
     "name": "Bardock",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -95,7 +95,7 @@
     "allVariants": []
   },
   {
-    "id": "177148868877756upb6sbu",
+    "id": "17715205080644zna1t1ic",
     "name": "Black Goku Rosé",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -124,7 +124,7 @@
     "allVariants": []
   },
   {
-    "id": "17714886887770kfykq3ar",
+    "id": "1771520508065o190uexyg",
     "name": "Broly",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -153,7 +153,7 @@
     "allVariants": []
   },
   {
-    "id": "17714886887781a2ul6287",
+    "id": "1771520508065pj1a0zca5",
     "name": "Gogeta Blue",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -182,7 +182,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688778oxeqwzjxc",
+    "id": "1771520508065srfea2cw4",
     "name": "Gohan Futuro",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -211,7 +211,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688778ydeilunqd",
+    "id": "1771520508065wph99oc9s",
     "name": "Gohan SSJ2",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -240,7 +240,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688778i3wdnk9uz",
+    "id": "17715205080669lpx82hd0",
     "name": "Goku 16cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -273,7 +273,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688778enhkv7mpt",
+    "id": "1771520508066jc7v40gci",
     "name": "Goku Niño",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -301,7 +301,7 @@
     "allVariants": []
   },
   {
-    "id": "177148868877989g55ibqw",
+    "id": "1771520508066323sb9lyu",
     "name": "Majin Vegeta",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -329,7 +329,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688779qg5jrzi0v",
+    "id": "1771520508066ll9hr3pox",
     "name": "Perfect Cell",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -358,7 +358,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688779rumutwes3",
+    "id": "17715205080671ajuqzga8",
     "name": "Shenron",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -387,7 +387,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688779fnycyqntu",
+    "id": "1771520508067gft3n3dro",
     "name": "Vegeto Blue",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -415,7 +415,7 @@
     "allVariants": []
   },
   {
-    "id": "17714886887795oe3grt35",
+    "id": "1771520508067sqjprl9ek",
     "name": "Thresh Forajido",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -444,7 +444,7 @@
     "allVariants": []
   },
   {
-    "id": "177148868877985jnl096e",
+    "id": "1771520508067leposrx0o",
     "name": "Kaisa",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -467,11 +467,11 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": null,
+    "glbFile": "League of Legends/1-Kaisa(390)/Kaisa.glb",
     "allVariants": []
   },
   {
-    "id": "1771488688780595fbtkrs",
+    "id": "17715205080677wrexfira",
     "name": "Lee Sin",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -500,7 +500,7 @@
     "allVariants": []
   },
   {
-    "id": "17714886887802krk7jvg3",
+    "id": "17715205080675u15x1a7j",
     "name": "Sion",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -529,7 +529,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688780ki0xq25ky",
+    "id": "1771520508067ygfljz5xb",
     "name": "Velkoz",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -558,7 +558,7 @@
     "allVariants": []
   },
   {
-    "id": "17714886887802ap8796wg",
+    "id": "1771520508068twh74hybl",
     "name": "Afro Luffy 21cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -587,7 +587,36 @@
     "allVariants": []
   },
   {
-    "id": "1771488688780ga8tbiseo",
+    "id": "1771520508068vfwrcd9b5",
+    "name": "Barbilla Roja 16cm",
+    "type": "1",
+    "typeName": "Kit de Armado",
+    "category": "Otros",
+    "price": 10390,
+    "description": "Arma tu figura de Barbilla Roja 16cm con este kit de magickblocks Otros. Incluye las piezas necesarias y el acceso a las plantillas digitales. Nota: El color real puede diferir.",
+    "specs": [
+      "Piezas: 863",
+      "Tiempo de Armado: 3 hora(s)",
+      "¡Diseño Exclusivo!",
+      "Para Mayores de 6 Años"
+    ],
+    "pieces": 863,
+    "buildHours": 3,
+    "images": [
+      "Otros/1-Barbilla Roja 16cm(863)/0 (1).webp",
+      "Otros/1-Barbilla Roja 16cm(863)/0 (2).webp",
+      "Otros/1-Barbilla Roja 16cm(863)/0 (3).webp",
+      "Otros/1-Barbilla Roja 16cm(863)/0 (4).webp"
+    ],
+    "mainImage": "Otros/1-Barbilla Roja 16cm(863)/0 (1).webp",
+    "isVariable": false,
+    "variableName": null,
+    "customPrice": null,
+    "glbFile": "Otros/1-Barbilla Roja 16cm(863)/Barbilla Roja.glb",
+    "allVariants": []
+  },
+  {
+    "id": "1771520508068r56iqbtwc",
     "name": "Chavo del 8",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -616,7 +645,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688780fybc3uw9j",
+    "id": "1771520508068u9kasy0yy",
     "name": "Chimuelo",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -645,7 +674,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688781fy97p2x37",
+    "id": "1771520508068zkvsoqlud",
     "name": "Duffman",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -670,11 +699,11 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": null,
+    "glbFile": "Otros/1-Duffman(760)/Duffman.glb",
     "allVariants": []
   },
   {
-    "id": "1771488688781cq842l2n5",
+    "id": "1771520508069duwpbpr8i",
     "name": "Ezzio Auditore",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -703,7 +732,7 @@
     "allVariants": []
   },
   {
-    "id": "17714886887819wgbbmzsa",
+    "id": "1771520508069ctwd4hg8o",
     "name": "Frieren 12cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -732,7 +761,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688781mqot1rix2",
+    "id": "1771520508069ch8ojlimx",
     "name": "Furia Luminosa",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -761,7 +790,7 @@
     "allVariants": []
   },
   {
-    "id": "17714886887817cp2a1x7m",
+    "id": "177152050806924t937czy",
     "name": "Juan Carlos Bodoque",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -790,7 +819,7 @@
     "allVariants": []
   },
   {
-    "id": "17714886887816vjr6epfx",
+    "id": "17715205080692okoti3a8",
     "name": "Senko",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -818,7 +847,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688781k8igzw9o1",
+    "id": "1771520508069xwi2fe2rf",
     "name": "Spiderman",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -847,7 +876,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688782snxwpk8rd",
+    "id": "1771520508070g14zxku0y",
     "name": "Absol 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -875,7 +904,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688782e3lczlpk9",
+    "id": "1771520508070qtzl9elri",
     "name": "Ampharos 12cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -904,7 +933,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688782ykw6rmzfq",
+    "id": "1771520508070n1lnqltez",
     "name": "Arceus 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -933,7 +962,7 @@
     "allVariants": []
   },
   {
-    "id": "17714886887827ha4y0w1l",
+    "id": "177152050807094bq72jka",
     "name": "Blastoise 12cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -962,7 +991,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688782627l5d7t7",
+    "id": "1771520508070n9348xpsm",
     "name": "Buizel 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -990,7 +1019,7 @@
     "allVariants": []
   },
   {
-    "id": "17714886887827jl6f7cul",
+    "id": "1771520508070z06p2m6pn",
     "name": "Bulbasaur 6cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1019,7 +1048,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688783mhfvhf4rc",
+    "id": "1771520508070irix05eo3",
     "name": "Carterpie 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1048,7 +1077,7 @@
     "allVariants": []
   },
   {
-    "id": "17714886887834bzmjzzqa",
+    "id": "17715205080719o10d7wqh",
     "name": "Charizard 10cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1076,7 +1105,7 @@
     "allVariants": []
   },
   {
-    "id": "177148868878350agnvanw",
+    "id": "1771520508071p18gg8pdl",
     "name": "Charmander 7cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1105,7 +1134,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688783tdzrhg7o8",
+    "id": "17715205080711v6slwp5x",
     "name": "Chespin 10cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1134,7 +1163,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688783c54lhoe11",
+    "id": "17715205080713o92g1f03",
     "name": "Chikorita 7cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1163,7 +1192,7 @@
     "allVariants": []
   },
   {
-    "id": "177148868878363st0v0zi",
+    "id": "1771520508071j2fg33giz",
     "name": "Chimchar 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1191,7 +1220,7 @@
     "allVariants": []
   },
   {
-    "id": "17714886887849qzqasizd",
+    "id": "1771520508071lxt9ajlc5",
     "name": "Cyndaquil 7cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1220,7 +1249,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688784na0mpo9el",
+    "id": "177152050807237hz1efhj",
     "name": "Eevee 8cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1249,7 +1278,7 @@
     "allVariants": []
   },
   {
-    "id": "17714886887842ycr948tx",
+    "id": "17715205080729yx4eij80",
     "name": "Espeon 10cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1279,7 +1308,7 @@
     "allVariants": []
   },
   {
-    "id": "177148868878434h8cd73o",
+    "id": "1771520508072xeztstai0",
     "name": "Fennekin 6cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1308,7 +1337,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688784ra50ddoer",
+    "id": "1771520508072d2rh4dg1w",
     "name": "Flareon 7cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1337,7 +1366,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688784pvrv327xm",
+    "id": "17715205080737g35kq5e9",
     "name": "Flygon 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1364,7 +1393,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688785zd8hfc0sm",
+    "id": "1771520508073e98b7q57i",
     "name": "Froakie 8cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1393,7 +1422,7 @@
     "allVariants": []
   },
   {
-    "id": "17714886887855hk5no43z",
+    "id": "17715205080738638rhxfu",
     "name": "Fuecoco 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1422,7 +1451,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688785sq9ftnbz1",
+    "id": "1771520508073dfl89zpuv",
     "name": "Gengar 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1451,7 +1480,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688785mtr8fwr08",
+    "id": "1771520508073jty3s1dm9",
     "name": "Glaceon 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1480,7 +1509,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688786066zqoitf",
+    "id": "1771520508073qmpi240us",
     "name": "Grookey 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1509,7 +1538,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688786llm840fc5",
+    "id": "17715205080735qduapaqd",
     "name": "Growlithe 8cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1538,7 +1567,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688786qc0hrlhry",
+    "id": "1771520508074vxyv18c8c",
     "name": "Gyarado 22cm largo",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1565,7 +1594,7 @@
     "allVariants": []
   },
   {
-    "id": "177148868878640tq57atc",
+    "id": "1771520508074u2047vaok",
     "name": "Jigglypuff 8cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1594,7 +1623,7 @@
     "allVariants": []
   },
   {
-    "id": "17714886887860hant6zdz",
+    "id": "1771520508074hs8ib3yuq",
     "name": "Jolteon 6cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1623,7 +1652,7 @@
     "allVariants": []
   },
   {
-    "id": "17714886887862li6aewdr",
+    "id": "1771520508074112e469cv",
     "name": "Larvitar 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1651,7 +1680,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688786nzqp3odhz",
+    "id": "1771520508074svmdl2p3i",
     "name": "Leafeon 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1680,7 +1709,7 @@
     "allVariants": []
   },
   {
-    "id": "17714886887870ui9xy7gw",
+    "id": "17715205080745cyl8o1b3",
     "name": "Litten 8cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1709,7 +1738,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688787gbxdk4l39",
+    "id": "1771520508075ohvaworah",
     "name": "Lopunny 11cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1738,7 +1767,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688787x37uygxrv",
+    "id": "1771520508075viywhy2we",
     "name": "Meowscarada 15cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1767,7 +1796,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688787ubb9uz5wo",
+    "id": "1771520508075wnq84iru4",
     "name": "Mewtwo 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1796,7 +1825,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688787ruhiyjh6u",
+    "id": "1771520508075uyo5wucw5",
     "name": "Mudkip 10cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1825,7 +1854,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688787m62sokbfb",
+    "id": "1771520508075hvp6km448",
     "name": "Nidoking 7cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1853,7 +1882,7 @@
     "allVariants": []
   },
   {
-    "id": "17714886887873z2kdy87d",
+    "id": "1771520508075vwhxn6euk",
     "name": "Nidoqueen 7cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1881,7 +1910,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688788vhupgidmb",
+    "id": "1771520508075hqcurit47",
     "name": "Oshowatt 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1910,7 +1939,36 @@
     "allVariants": []
   },
   {
-    "id": "17714886887880py90mwze",
+    "id": "1771520508075ibkrih7wb",
+    "name": "Pichu 7cm",
+    "type": "1",
+    "typeName": "Kit de Armado",
+    "category": "Pokémon",
+    "price": 3890,
+    "description": "Arma tu figura de Pichu 7cm con este kit de magickblocks Pokémon. Incluye las piezas necesarias y el acceso a las plantillas digitales. Nota: El color real puede diferir.",
+    "specs": [
+      "Piezas: 321",
+      "Tiempo de Armado: 1 hora(s)",
+      "¡Diseño Exclusivo!",
+      "Para Mayores de 6 Años"
+    ],
+    "pieces": 321,
+    "buildHours": 1,
+    "images": [
+      "Pokémon/1-Pichu 7cm(321)/0 (1).webp",
+      "Pokémon/1-Pichu 7cm(321)/0 (2).webp",
+      "Pokémon/1-Pichu 7cm(321)/0 (3).webp",
+      "Pokémon/1-Pichu 7cm(321)/0 (4).webp"
+    ],
+    "mainImage": "Pokémon/1-Pichu 7cm(321)/0 (1).webp",
+    "isVariable": false,
+    "variableName": null,
+    "customPrice": null,
+    "glbFile": "Pokémon/1-Pichu 7cm(321)/Pichu.glb",
+    "allVariants": []
+  },
+  {
+    "id": "1771520508076m1f71k5dn",
     "name": "Pikachu 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1941,7 +1999,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688788y33euodzv",
+    "id": "1771520508076pp0u2b4sf",
     "name": "Piplup 8cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1969,7 +2027,7 @@
     "allVariants": []
   },
   {
-    "id": "17714886887881rvjrllhg",
+    "id": "177152050807620mx04by9",
     "name": "Poliwag 6cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1996,7 +2054,7 @@
     "allVariants": []
   },
   {
-    "id": "17714886887882jeezk49z",
+    "id": "1771520508076ru4q53c4g",
     "name": "Popplio 7cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2025,7 +2083,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688788voiwqki50",
+    "id": "1771520508076svb3zq1op",
     "name": "Quaxly 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2054,7 +2112,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688789xlbzjf7io",
+    "id": "1771520508076pu2q2f755",
     "name": "Rayquaza 10cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2083,7 +2141,7 @@
     "allVariants": []
   },
   {
-    "id": "17714886887892zpy2v1k8",
+    "id": "1771520508076mya5dbdyn",
     "name": "Rowlet 8cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2112,7 +2170,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688789mutjlylsd",
+    "id": "1771520508077n9iqd6p4r",
     "name": "Scorbunny 11cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2141,7 +2199,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688789piqfqpxi1",
+    "id": "17715205080778l63d8ouj",
     "name": "Scyther 8cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2170,7 +2228,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688789cqr68h3t1",
+    "id": "177152050807700vde5386",
     "name": "Slowpoke 6cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2199,7 +2257,7 @@
     "allVariants": []
   },
   {
-    "id": "17714886887895m078eomp",
+    "id": "17715205080778siinsnmn",
     "name": "Snivy 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2228,7 +2286,7 @@
     "allVariants": []
   },
   {
-    "id": "17714886887898rmytuyxx",
+    "id": "1771520508077yd3f9799a",
     "name": "Sobble 10cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2257,7 +2315,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688790qivq3tfz9",
+    "id": "177152050807832k6dt7yc",
     "name": "Sprigatito 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2286,7 +2344,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688790hcl9dkcgn",
+    "id": "17715205080789di7gw33k",
     "name": "Squirtle 8cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2315,7 +2373,7 @@
     "allVariants": []
   },
   {
-    "id": "17714886887906x1k0y6w2",
+    "id": "17715205080784fi4lvu7v",
     "name": "Sylveon 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2344,7 +2402,7 @@
     "allVariants": []
   },
   {
-    "id": "177148868879008vxndsar",
+    "id": "1771520508078ckrwmyfhn",
     "name": "Tepig 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2373,7 +2431,7 @@
     "allVariants": []
   },
   {
-    "id": "17714886887900hsonjyaw",
+    "id": "1771520508078q6ocj8gzm",
     "name": "Torchic 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2401,7 +2459,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688790n8evqn22n",
+    "id": "1771520508078qrejwov9e",
     "name": "Totodile 8cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2430,7 +2488,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688791nwpqjhllk",
+    "id": "1771520508079it50p12pt",
     "name": "Treecko 8cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2459,7 +2517,7 @@
     "allVariants": []
   },
   {
-    "id": "17714886887919a2hzails",
+    "id": "1771520508079r0cfwgo6v",
     "name": "Turtwig 8cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2488,7 +2546,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688791a16hvrv2r",
+    "id": "1771520508079pkhywntdu",
     "name": "Umbreon 8cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2517,7 +2575,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688791n6igk32xo",
+    "id": "17715205080792mq6jo3h2",
     "name": "Vaporeon 8cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2546,7 +2604,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688791gzyn1l0i6",
+    "id": "1771520508079mfunaxlsw",
     "name": "Venasaur 11cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2575,7 +2633,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688792tsioqsami",
+    "id": "17715205080798qnoomu9l",
     "name": "Zorua 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2603,7 +2661,7 @@
     "allVariants": []
   },
   {
-    "id": "17714886887921wnzaunui",
+    "id": "1771520508079oz0z59b10",
     "name": "Aura 10cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2631,7 +2689,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688792fft2kvkaw",
+    "id": "1771520508080bxei1i0jr",
     "name": "Bruno 10cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2659,7 +2717,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688792tukzaedjy",
+    "id": "1771520508080sw315h2dy",
     "name": "Dawn 10cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2687,7 +2745,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688793gc0hvkse5",
+    "id": "1771520508080oo9yv1odr",
     "name": "Hilbert 10cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2716,7 +2774,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688793ntd61jvrk",
+    "id": "1771520508080noyaxyych",
     "name": "Hilda 10cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2744,7 +2802,7 @@
     "allVariants": []
   },
   {
-    "id": "17714886887937iuswdm0t",
+    "id": "1771520508080juy2rkbpr",
     "name": "Lucas 10cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2772,7 +2830,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688794p9228ce2e",
+    "id": "1771520508081ha5mhxmad",
     "name": "Kasane Teto",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2801,7 +2859,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688794ri2ggqvrm",
+    "id": "1771520508081hfwwqyyih",
     "name": "Miku",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2830,7 +2888,7 @@
     "allVariants": []
   },
   {
-    "id": "1771488688794ibwgl3xmv",
+    "id": "1771520508081eb0jaf6ap",
     "name": "Teto Pera",
     "type": "1",
     "typeName": "Kit de Armado",
