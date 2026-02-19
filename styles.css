@@ -1266,3 +1266,211 @@ body {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
 }
+/* ─────────────────────────────────────────────────────────────────────────────
+   ✅ CORRECCIONES MÓVIL DEL MODAL
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* Evitar overflow horizontal en el modal en móvil */
+.modal-content {
+    overflow-x: hidden;
+}
+
+/* Fila del título con botón 3D */
+.modal-title-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+}
+
+.modal-title-row .modal-title {
+    margin-bottom: 0;
+    flex: 1;
+    min-width: 0;
+}
+
+/* Botón Ver en 3D */
+.btn-3d {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.45rem 0.9rem;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(102,126,234,0.4);
+}
+
+.btn-3d:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(102,126,234,0.55);
+}
+
+.btn-3d svg {
+    flex-shrink: 0;
+}
+
+/* Imagen principal tipo 2 (reactiva al selector de variante) */
+.modal-image-type2 {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    max-height: 380px;
+    object-fit: contain;
+    border-radius: 8px;
+    transition: opacity 0.2s;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   ✅ OVERLAY VISOR 3D
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.viewer3d-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0, 0, 0, 0.85);
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    backdrop-filter: blur(4px);
+}
+
+.viewer3d-overlay.show {
+    display: flex;
+}
+
+.viewer3d-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: min(80vh, 600px);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.viewer3d-close {
+    position: absolute;
+    top: -3rem;
+    right: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: white;
+    color: #333;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    z-index: 10;
+}
+
+.viewer3d-close:hover {
+    background: #f0f0f0;
+}
+
+.viewer3d-content {
+    flex: 1;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #1a1a2e;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+.viewer3d-hint {
+    text-align: center;
+    color: rgba(255,255,255,0.7);
+    font-size: 0.8rem;
+    padding: 0.25rem;
+}
+
+/* Barra de progreso dentro de model-viewer */
+.viewer3d-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: rgba(255,255,255,0.15);
+    transition: opacity 0.4s;
+}
+
+.viewer3d-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    width: 0%;
+    transition: width 0.2s;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   ✅ RESPONSIVE MÓVIL — FIXES ADICIONALES
+   ───────────────────────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+    /* Modal no debe desbordarse horizontalmente */
+    .modal-content {
+        margin: 0.75rem;
+        max-height: 95vh;
+        width: calc(100% - 1.5rem);
+    }
+
+    .modal-body {
+        overflow-x: hidden;
+    }
+
+    /* Selector de cantidad — evitar scroll horizontal */
+    .quantity-input-wrapper {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .qty-input-btn {
+        flex: 0 0 auto;
+    }
+
+    /* Imagen tipo 2 en móvil */
+    .modal-image-type2 {
+        max-height: 260px;
+    }
+
+    /* Visor 3D en móvil */
+    .viewer3d-container {
+        height: min(75vh, 500px);
+    }
+
+    .viewer3d-close {
+        top: -2.75rem;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.875rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        margin: 0.5rem;
+        width: calc(100% - 1rem);
+        border-radius: 10px;
+    }
+
+    .btn-3d {
+        font-size: 0.78rem;
+        padding: 0.4rem 0.75rem;
+    }
+
+    .modal-title-row {
+        gap: 0.5rem;
+    }
+}

@@ -272,7 +272,17 @@ function main() {
     const products = scanRootDirectory(ROOT);
     console.log(`   ✅ ${products.length} producto(s) encontrados.\n`);
 
-    // 3. Escribir products.json y config.json en docs/
+    // 3. Normalizar rutas de imágenes a relativas (sin / inicial)
+    // GitHub Pages sirve desde /tu-repo/, no desde /, así que rutas absolutas no funcionan
+    const fixPath = p => (p ? p.replace(/^\/+/, '') : p);
+    products.forEach(product => {
+        product.images      = (product.images      || []).map(fixPath);
+        product.mainImage   =  fixPath(product.mainImage);
+        product.allVariants = (product.allVariants  || []).map(fixPath);
+        if (product.variantImage) product.variantImage = fixPath(product.variantImage);
+    });
+
+    // 3b. Escribir products.json y config.json en docs/
     fs.writeFileSync(path.join(OUT_DIR, 'products.json'), JSON.stringify(products, null, 2), 'utf8');
     fs.writeFileSync(path.join(OUT_DIR, 'config.json'),   JSON.stringify(config,   null, 2), 'utf8');
     console.log('📄 products.json y config.json generados.');
@@ -287,13 +297,14 @@ function main() {
     let html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
     html = html.replace(
         '<script src="script.js"></script>',
-        '<script>window.STATIC_MODE = true;</script>\n    <script src="script.js"></script>'
+        '<script>window.STATIC_MODE = true;</script>\n    <script src="./script.js"></script>'
     );
+    html = html.replace('href="styles.css"', 'href="./styles.css"');
     fs.writeFileSync(path.join(OUT_DIR, 'index.html'), html, 'utf8');
     console.log('📄 index.html copiado (modo estático activado).');
 
     // 7. Copiar carpetas de productos (imágenes)
-    const imageExts = new Set(['.jpg', '.jpeg', '.png', '.gif', '.svg', '.webp', '.ico']);
+    const imageExts = new Set(['.jpg', '.jpeg', '.png', '.gif', '.svg', '.webp', '.ico', '.glb', '.gltf']);
     let copiedFolders = 0;
     let copiedImages  = 0;
 

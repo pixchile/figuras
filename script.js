@@ -314,7 +314,7 @@ function checkout() {
 async function loadProducts() {
     const grid = document.getElementById('productsGrid');
     // ✅ MODO ESTÁTICO: usar products.json si window.STATIC_MODE está activo
-    const endpoint = window.STATIC_MODE ? '/products.json' : '/api/products';
+    const endpoint = window.STATIC_MODE ? './products.json' : '/api/products';
     try {
         const response = await fetch(endpoint);
         if (!response.ok) throw new Error('Error al cargar productos');
@@ -461,20 +461,25 @@ function showProductDetails(productId) {
     const product = allProducts.find(p => p.id === productId);
     if (!product) return;
 
-    // ✅ GUARDAR REFERENCIA DEL PRODUCTO ACTUAL
     window.currentProduct = product;
-
     currentImageIndex = 0;
     const modalBody = document.getElementById('modalBody');
 
-    // ✅ PARA TIPO 2: Mostrar todas las imágenes como variantes
+    // ─── IMAGEN PRINCIPAL ───────────────────────────────────────────────────
     let imagesHtml = '';
-    const hasMultipleImages = product.type === '2' ? 
-        (product.allVariants && product.allVariants.length > 1) : 
-        (product.images && product.images.length > 1);
 
-    if (hasMultipleImages) {
-        // Carrusel con controles
+    if (product.type === '2') {
+        // Tipo 2: imagen única que se actualiza con el selector de variante
+        imagesHtml = `
+            <div class="single-image-container">
+                <img src="${product.mainImage}"
+                     alt="${product.name}"
+                     class="modal-image modal-image-type2"
+                     id="type2MainImage"
+                     width="500" height="400" decoding="async">
+            </div>
+        `;
+    } else if (product.images && product.images.length > 1) {
         imagesHtml = `
             <div class="carousel-container">
                 <div class="carousel-main">
@@ -483,69 +488,66 @@ function showProductDetails(productId) {
                             <polyline points="15 18 9 12 15 6"></polyline>
                         </svg>
                     </button>
-
                     <div class="carousel-image-wrapper">
-                        <img src="${product.type === '2' ? product.allVariants[0] : product.images[0]}"
+                        <img src="${product.images[0]}"
                              alt="${product.name}"
                              class="carousel-main-image"
                              id="carouselMainImage"
-                             width="500"
-                             height="400"
-                             decoding="async">
+                             width="500" height="400" decoding="async">
                         <div class="carousel-counter">
-                            <span id="currentImageNum">1</span> / ${product.type === '2' ? product.allVariants.length : product.images.length}
+                            <span id="currentImageNum">1</span> / ${product.images.length}
                         </div>
                     </div>
-
                     <button class="carousel-btn carousel-next" onclick="navigateCarousel(1)" aria-label="Imagen siguiente">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <polyline points="9 18 15 12 9 6"></polyline>
                         </svg>
                     </button>
                 </div>
-
                 <div class="carousel-thumbnails">
-                    ${(product.type === '2' ? product.allVariants : product.images).map((img, idx) => `
-                        <img src="${img}"
-                             alt="${product.name} ${idx + 1}"
+                    ${product.images.map((img, idx) => `
+                        <img src="${img}" alt="${product.name} ${idx + 1}"
                              class="carousel-thumbnail ${idx === 0 ? 'active' : ''}"
-                             data-index="${idx}"
-                             width="80"
-                             height="80"
-                             loading="lazy"
-                             decoding="async"
+                             data-index="${idx}" width="80" height="80"
+                             loading="lazy" decoding="async"
                              onclick="jumpToImage(${idx})">
                     `).join('')}
                 </div>
             </div>
         `;
     } else {
-        // Imagen única
         imagesHtml = `
             <div class="single-image-container">
                 <img src="${product.mainImage}"
                      alt="${product.name}"
                      class="modal-image"
-                     width="500"
-                     height="400"
-                     decoding="async">
+                     width="500" height="400" decoding="async">
             </div>
         `;
     }
 
-    // Crear lista de especificaciones
+    window.currentProductImages = product.type === '2'
+        ? product.allVariants
+        : (product.images || [product.mainImage]);
+
+    // ─── BOTÓN VER EN 3D ────────────────────────────────────────────────────
+    const safeName = (product.name || '').replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+    const view3dBtn = product.glbFile
+        ? `<button class="btn-3d" onclick="open3dViewer('${product.glbFile}', '${safeName}')">
+               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                   <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+               </svg>
+               Ver en 3D
+           </button>`
+        : '';
+
+    // ─── SPECS ──────────────────────────────────────────────────────────────
     const specsHtml = product.specs && product.specs.length > 0
-        ? `<ul class="product-specs">
-            ${product.specs.map(spec => `<li>${spec}</li>`).join('')}
-           </ul>`
-        : '';
+        ? `<ul class="product-specs">${product.specs.map(s => `<li>${s}</li>`).join('')}</ul>` : '';
 
-    // ✅ MOSTRAR VARIABLE SI ES UNA VARIANTE
     const variableBadge = product.isVariable
-        ? `<span class="variable-badge variable-badge-modal">${product.variableName}</span>`
-        : '';
+        ? `<span class="variable-badge variable-badge-modal">${product.variableName}</span>` : '';
 
-    // ✅ TIPO 1: MOSTRAR BOTÓN EXTRA "SÓLO PLANTILLA DIGITAL"
     const templateButtonHtml = product.type === '1'
         ? `<button class="add-to-cart-btn add-to-cart-modal template-btn" onclick="addTemplateOnly('${product.id}')">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -554,14 +556,12 @@ function showProductDetails(productId) {
                 <line x1="16" y1="13" x2="8" y2="13"></line>
                 <line x1="16" y1="17" x2="8" y2="17"></line>
             </svg>
-            ${formatPrice(roundTo90(config.tipos['1']?.precioPlantillaDigital || 5))} - Sóla Plantilla Digital
-           </button>`
-        : '';
+            ${formatPrice(roundTo90(config.tipos['1']?.precioPlantillaDigital || 5))} - Solo Plantilla Digital
+           </button>` : '';
 
-    // ✅ APLICAR REDONDEO A 90 PARA TIPO 1 EN EL MODAL
     const modalDisplayPrice = product.type === '1' ? roundTo90(product.price) : product.price;
 
-    // ✅ TIPO 2: SELECTOR DE IMÁGENES COMO VARIANTES
+    // ─── SELECTOR DE VARIANTES (TIPO 2) ─────────────────────────────────────
     let variantSelectorHtml = '';
     if (product.type === '2' && product.allVariants && product.allVariants.length > 1) {
         variantSelectorHtml = `
@@ -569,27 +569,23 @@ function showProductDetails(productId) {
                 <label>Seleccionar Variante:</label>
                 <div class="variant-images">
                     ${product.allVariants.map((img, idx) => {
-                        // Buscar el producto correspondiente a esta imagen
-                        const variantProduct = allProducts.find(p => 
-                            p.parentProduct === product.parentProduct && 
-                            p.images && p.images[0] === img
+                        const vp = allProducts.find(p =>
+                            p.parentProduct === product.parentProduct && p.images && p.images[0] === img
                         );
-                        const variantName = variantProduct ? variantProduct.variableName : `Variante ${idx + 1}`;
-                        return `
-                            <div class="variant-image-container ${product.mainImage === img ? 'selected' : ''}" 
+                        const vname = vp ? vp.variableName : `Variante ${idx + 1}`;
+                        return `<div class="variant-image-container ${product.mainImage === img ? 'selected' : ''}"
                                  onclick="selectImageVariant('${product.parentProduct || product.id}', ${idx})"
-                                 title="${variantName}">
-                                <img src="${img}" alt="${variantName}" class="variant-thumbnail">
-                                <span class="variant-tooltip">${variantName}</span>
-                            </div>
-                        `;
+                                 title="${vname}">
+                                <img src="${img}" alt="${vname}" class="variant-thumbnail">
+                                <span class="variant-tooltip">${vname}</span>
+                            </div>`;
                     }).join('')}
                 </div>
             </div>
         `;
     }
 
-    // ✅ TIPO 2: MOSTRAR SELECTOR DE UNIDADES CON BOTONES DE 100, 10, 1
+    // ─── SELECTOR CANTIDAD Y PRECIO (TIPO 2) ─────────────────────────────────
     const quantitySelectorHtml = product.type === '2'
         ? `<div class="quantity-selector">
             <label for="productQuantity">Cantidad:</label>
@@ -597,27 +593,26 @@ function showProductDetails(productId) {
                 <button class="qty-input-btn" onclick="adjustModalQuantity(-100)">-100</button>
                 <button class="qty-input-btn" onclick="adjustModalQuantity(-10)">-10</button>
                 <button class="qty-input-btn" onclick="adjustModalQuantity(-1)">-1</button>
-                <input type="number" id="productQuantity" value="1" min="1" class="quantity-input" 
+                <input type="number" id="productQuantity" value="1" min="1" class="quantity-input"
                        onchange="updateModalPrice()" step="1">
                 <button class="qty-input-btn" onclick="adjustModalQuantity(1)">+1</button>
                 <button class="qty-input-btn" onclick="adjustModalQuantity(10)">+10</button>
                 <button class="qty-input-btn" onclick="adjustModalQuantity(100)">+100</button>
             </div>
             <span class="unit-price">Precio unitario: ${formatPrice(product.price)}</span>
-           </div>`
-        : '';
+           </div>` : '';
 
-    // ✅ MOSTRAR PRECIO CALCULADO PARA TIPO 2
     const priceDisplayHtml = product.type === '2'
-        ? `<div class="modal-price modal-price-total">
-            Total: <span id="modalTotalPrice">${formatPrice(product.price)}</span>
-           </div>`
+        ? `<div class="modal-price modal-price-total">Total: <span id="modalTotalPrice">${formatPrice(product.price)}</span></div>`
         : `<div class="modal-price">${formatPrice(modalDisplayPrice)}</div>`;
 
     modalBody.innerHTML = `
         ${imagesHtml}
         <div class="modal-details">
-            <h2 class="modal-title">${product.name}</h2>
+            <div class="modal-title-row">
+                <h2 class="modal-title">${product.name}</h2>
+                ${view3dBtn}
+            </div>
             ${variableBadge}
             <span class="modal-category">${product.category}</span>
             <p class="modal-description">${product.description}</p>
@@ -637,12 +632,10 @@ function showProductDetails(productId) {
         </div>
     `;
 
-    // Guardar referencia a las imágenes para el carrusel
-    window.currentProductImages = product.type === '2' ? product.allVariants : (product.images || [product.mainImage]);
-
     document.getElementById('productModal').classList.add('show');
     document.body.style.overflow = 'hidden';
 }
+
 
 // ✅ NUEVO: SELECCIONAR VARIANTE POR IMAGEN (PARA TIPO 2)
 function selectImageVariant(parentProductId, imageIndex) {
@@ -814,31 +807,32 @@ function jumpToImage(index) {
 
 function updateCarouselImage() {
     const mainImage = document.getElementById('carouselMainImage');
+    const type2Image = document.getElementById('type2MainImage');
     const counter = document.getElementById('currentImageNum');
     const thumbnails = document.querySelectorAll('.carousel-thumbnail');
     
-    if (mainImage && window.currentProductImages) {
-        mainImage.src = window.currentProductImages[currentImageIndex];
-        
-        if (counter) {
-            counter.textContent = currentImageIndex + 1;
-        }
-        
-        // Actualizar miniaturas activas
+    const newSrc = window.currentProductImages ? window.currentProductImages[currentImageIndex] : null;
+
+    if (mainImage && newSrc) {
+        mainImage.src = newSrc;
+        if (counter) counter.textContent = currentImageIndex + 1;
         thumbnails.forEach((thumb, idx) => {
             thumb.classList.toggle('active', idx === currentImageIndex);
         });
-        
-        // Si es tipo 2, también actualizar el selector de variantes
-        if (window.currentProduct && window.currentProduct.type === '2') {
-            document.querySelectorAll('.variant-image-container').forEach((container, idx) => {
-                container.classList.toggle('selected', idx === currentImageIndex);
-            });
-            
-            // Actualizar el producto actual a la variante seleccionada
-            const parentProductId = window.currentProduct.parentProduct || window.currentProduct.id;
-            selectImageVariant(parentProductId, currentImageIndex);
-        }
+    }
+
+    // Para tipo 2: actualizar la imagen principal única
+    if (type2Image && newSrc) {
+        type2Image.src = newSrc;
+    }
+
+    // Actualizar selector de variantes si es tipo 2
+    if (window.currentProduct && window.currentProduct.type === '2') {
+        document.querySelectorAll('.variant-image-container').forEach((container, idx) => {
+            container.classList.toggle('selected', idx === currentImageIndex);
+        });
+        const parentProductId = window.currentProduct.parentProduct || window.currentProduct.id;
+        selectImageVariant(parentProductId, currentImageIndex);
     }
 }
 
@@ -875,7 +869,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // ✅ CARGAR CONFIGURACIÓN DESDE EL SERVIDOR O ARCHIVO ESTÁTICO
 async function loadConfig() {
     // ✅ MODO ESTÁTICO: usar config.json si window.STATIC_MODE está activo
-    const endpoint = window.STATIC_MODE ? '/config.json' : '/api/config';
+    const endpoint = window.STATIC_MODE ? './config.json' : '/api/config';
     try {
         const response = await fetch(endpoint);
         if (!response.ok) throw new Error('Error al cargar configuración');
@@ -885,3 +879,73 @@ async function loadConfig() {
         console.warn('Warning: No se pudo cargar config.json, usando valores por defecto');
     }
 }
+// ─────────────────────────────────────────────────────────────────────────────
+// ✅ VISOR 3D CON MODEL-VIEWER (LAZY LOADING)
+// ─────────────────────────────────────────────────────────────────────────────
+
+function open3dViewer(glbUrl, productName) {
+    const overlay = document.getElementById('viewer3dOverlay');
+    const content = document.getElementById('viewer3dContent');
+
+    // Inyectar model-viewer solo cuando el usuario lo pide (lazy)
+    content.innerHTML = `
+        <model-viewer
+            src="${glbUrl}"
+            alt="Modelo 3D de ${productName}"
+            auto-rotate
+            camera-controls
+            shadow-intensity="1"
+            environment-image="neutral"
+            exposure="1"
+            style="width:100%;height:100%;background:transparent;"
+            loading="eager"
+        >
+            <div slot="progress-bar" class="viewer3d-progress">
+                <div class="viewer3d-progress-bar" id="viewer3dProgressBar"></div>
+            </div>
+        </model-viewer>
+    `;
+
+    // Escuchar progreso de carga
+    const mv = content.querySelector('model-viewer');
+    if (mv) {
+        mv.addEventListener('progress', (e) => {
+            const bar = document.getElementById('viewer3dProgressBar');
+            if (bar) bar.style.width = (e.detail.totalProgress * 100) + '%';
+        });
+        mv.addEventListener('load', () => {
+            const bar = document.getElementById('viewer3dProgressBar');
+            if (bar) bar.parentElement.style.opacity = '0';
+        });
+    }
+
+    overlay.classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+function close3dViewer() {
+    const overlay = document.getElementById('viewer3dOverlay');
+    const content = document.getElementById('viewer3dContent');
+    overlay.classList.remove('show');
+    // Destruir model-viewer para liberar memoria WebGL
+    content.innerHTML = '';
+    // Solo restaurar scroll si el modal del producto no está abierto
+    if (!document.getElementById('productModal').classList.contains('show')) {
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// Cerrar visor 3D con Escape
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        const overlay = document.getElementById('viewer3dOverlay');
+        if (overlay && overlay.classList.contains('show')) {
+            close3dViewer();
+        }
+    }
+});
+
+// Cerrar al hacer clic en el fondo
+document.getElementById('viewer3dOverlay')?.addEventListener('click', function(e) {
+    if (e.target === this) close3dViewer();
+});

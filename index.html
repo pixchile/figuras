@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo de Productos</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- model-viewer: carga diferida, solo se activa al abrir el visor 3D -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js" defer></script>
 </head>
 <body>
     <header class="header">
@@ -95,6 +97,25 @@
             <p>&copy; 2025 Catálogo de Productos. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <!-- Visor 3D overlay (lazy) -->
+    <div id="viewer3dOverlay" class="viewer3d-overlay" role="dialog" aria-modal="true" aria-label="Visor 3D">
+        <div class="viewer3d-container">
+            <button class="viewer3d-close" onclick="close3dViewer()" aria-label="Cerrar visor 3D">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+                <span>Cerrar</span>
+            </button>
+            <div id="viewer3dContent" class="viewer3d-content">
+                <!-- model-viewer se inyecta aquí dinámicamente -->
+            </div>
+            <p class="viewer3d-hint">
+                🖱️ Arrastra para rotar &nbsp;·&nbsp; 🔍 Scroll para zoom &nbsp;·&nbsp; Toca con dos dedos para mover
+            </p>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

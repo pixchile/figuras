@@ -23,7 +23,8 @@ const mimeTypes = {
     '.webp': 'image/webp',
     '.gif': 'image/gif',
     '.svg': 'image/svg+xml',
-    '.ico': 'image/x-icon'
+    '.ico': 'image/x-icon',
+    '.glb': 'model/gltf-binary'
 };
 
 // Carpetas y archivos a ignorar
@@ -40,7 +41,8 @@ const IGNORE_ITEMS = [
     'config.json',
     'index.html',
     'README.md',
-    'LICENSE'
+    'LICENSE',
+    'docs'          // ← carpeta generada por export.js
 ];
 
 // Cargar configuración
@@ -162,6 +164,16 @@ function getProductImages(productPath, relPath) {
     console.log(`   📸 Imágenes encontradas en ${relPath}:`, imagePaths);
     
     return imagePaths;
+}
+
+// ✅ NUEVO: Detectar archivo .glb en la carpeta del producto (el primero que encuentre)
+function getProductGlb(productPath, relPath) {
+    if (!fs.existsSync(productPath)) return null;
+    const files = fs.readdirSync(productPath);
+    const glb = files.find(file => path.extname(file).toLowerCase() === '.glb');
+    if (!glb) return null;
+    const base = relPath.startsWith('/') ? relPath : '/' + relPath;
+    return `${base}/${glb}`;
 }
 
 // Procesar template con TODOS los placeholders
@@ -303,7 +315,8 @@ function scanDirectory(dirPath, currentCategory, products, relativeBase = '') {
                         customPrice: null,
                         parentProduct: entry.name, // Referencia al producto padre
                         allVariants: images, // ✅ Guardar todas las imágenes para el selector en el modal
-                        totalVariants: images.length // ✅ Indicar cuántas variantes hay en total
+                        totalVariants: images.length, // ✅ Indicar cuántas variantes hay en total
+                        glbFile: getProductGlb(fullPath, relativePath)
                     });
                 }
             } else {
@@ -351,7 +364,8 @@ function scanDirectory(dirPath, currentCategory, products, relativeBase = '') {
                             isVariable: true,
                             variableName: varInfo.name,
                             customPrice: varInfo.customPrice,
-                            parentProduct: entry.name // Referencia al producto padre
+                            parentProduct: entry.name, // Referencia al producto padre
+                            glbFile: getProductGlb(fullPath, relativePath) // GLB en carpeta padre
                         });
                     }
                 } else {
@@ -372,7 +386,8 @@ function scanDirectory(dirPath, currentCategory, products, relativeBase = '') {
                         // ✅ NUEVO: Marcar como no variable
                         isVariable: false,
                         variableName: null,
-                        customPrice: null
+                        customPrice: null,
+                        glbFile: getProductGlb(fullPath, relativePath)
                     });
                 }
             }
@@ -466,7 +481,8 @@ function scanRootDirectory(rootPath) {
                         customPrice: null,
                         parentProduct: entry.name, // Referencia al producto padre
                         allVariants: images, // ✅ Guardar todas las imágenes para el selector en el modal
-                        totalVariants: images.length // ✅ Indicar cuántas variantes hay en total
+                        totalVariants: images.length, // ✅ Indicar cuántas variantes hay en total
+                        glbFile: getProductGlb(fullPath, relativePath)
                     });
                 }
             } else {
@@ -514,7 +530,7 @@ function scanRootDirectory(rootPath) {
                             isVariable: true,
                             variableName: varInfo.name,
                             customPrice: varInfo.customPrice,
-                            parentProduct: entry.name
+                            parentProduct: entry.name, glbFile: getProductGlb(fullPath, entry.name)
                         });
                     }
                 } else {
@@ -535,7 +551,8 @@ function scanRootDirectory(rootPath) {
                         // ✅ NUEVO: Marcar como no variable
                         isVariable: false,
                         variableName: null,
-                        customPrice: null
+                        customPrice: null,
+                        glbFile: getProductGlb(fullPath, entry.name)
                     });
                 }
             }
