@@ -204,7 +204,7 @@ function updateCartUI() {
 
             return `
                 <div class="cart-item">
-                    <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+                    <img src="${item.image}" alt="${item.name} en el carrito" class="cart-item-image">
                     <div class="cart-item-details">
                         <h4 class="cart-item-name">${item.name}</h4>
                         <p class="cart-item-category">${item.category}</p>
@@ -334,6 +334,26 @@ function formatPrice(price) {
     return '$' + price.toFixed(2);
 }
 
+// ─── ALT TEXT CENTRALIZADO ───────────────────────────────────────────────────
+// Usa el campo altText del JSON si existe; si no, genera uno automático.
+function getAltText(product, context = 'card', index = null) {
+    if (product.altText) return product.altText;
+    const base = product.name || 'Producto';
+    const typeName = product.typeName || '';
+    switch (context) {
+        case 'card':
+            return typeName ? `${base} - ${typeName}` : base;
+        case 'carousel':
+            return index !== null ? `${base} - imagen ${index + 1}` : base;
+        case 'variant':
+            return product.variableName ? `${base} - ${product.variableName}` : base;
+        case 'cart':
+            return `${base} en el carrito`;
+        default:
+            return base;
+    }
+}
+
 // ✅ NUEVO: Redondear precio hacia arriba para que termine en 90
 // Ejemplo: 1718 → 1790, 1700 → 1790, 1750 → 1790
 function roundTo90(price) {
@@ -366,7 +386,7 @@ function createProductCard(product) {
     card.setAttribute('data-category', product.category);
     card.setAttribute('data-id', product.id);
 
-    // ✅ IMAGEN CLICKEABLE CON OVERLAY "VER DETALLES" + BOTÓN AGREGAR AL CARRITO
+    // ✅ IMAGEN CLICKEABLE CON OVERLAY «VER DETALLES» + BOTÓN AGREGAR AL CARRITO
     // ✅ MOSTRAR VARIABLE SI ES UNA VARIANTE
     const variableBadge = product.isVariable
         ? `<span class="variable-badge">${product.variableName}</span>`
@@ -375,7 +395,7 @@ function createProductCard(product) {
     // ✅ MOSTRAR BOTÓN EXTRA PARA TIPO 1
     const templateButton = product.type === '1'
         ? `<button class="add-to-cart-btn template-btn" onclick="event.stopPropagation(); addTemplateOnly('${product.id}')">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                 <polyline points="14 2 14 8 20 8"></polyline>
                 <line x1="16" y1="13" x2="8" y2="13"></line>
@@ -389,15 +409,20 @@ function createProductCard(product) {
     const displayPrice = product.type === '1' ? roundTo90(product.price) : product.price;
 
     card.innerHTML = `
-        <div class="product-image-wrapper" onclick="showProductDetails('${product.id}')">
+        <div class="product-image-wrapper"
+             role="button"
+             tabindex="0"
+             aria-label="Ver detalles de ${getAltText(product, 'card')}"
+             onclick="showProductDetails('${product.id}')"
+             onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showProductDetails('${product.id}')}">
             <img src="${product.mainImage}"
-                 alt="${product.name}"
+                 alt="${getAltText(product, 'card')}"
                  class="product-image"
                  width="280"
                  height="250"
                  loading="lazy"
                  decoding="async">
-            <div class="image-overlay">
+            <div class="image-overlay" aria-hidden="true">
                 <span class="overlay-text">Ver Detalles</span>
             </div>
             ${variableBadge}
@@ -407,7 +432,7 @@ function createProductCard(product) {
             <span class="product-category">${product.category}</span>
             <div class="product-price">${formatPrice(displayPrice)}</div>
             <button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('${product.id}')">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                     <circle cx="9" cy="21" r="1"></circle>
                     <circle cx="20" cy="21" r="1"></circle>
                     <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
@@ -506,7 +531,7 @@ function showProductDetails(productId) {
                 </div>
                 <div class="carousel-thumbnails">
                     ${product.images.map((img, idx) => `
-                        <img src="${img}" alt="${product.name} ${idx + 1}"
+                        <img src="${img}" alt="${getAltText(product, 'carousel', idx)}"
                              class="carousel-thumbnail ${idx === 0 ? 'active' : ''}"
                              data-index="${idx}" width="80" height="80"
                              loading="lazy" decoding="async"
@@ -883,11 +908,23 @@ async function loadConfig() {
 // ✅ VISOR 3D CON MODEL-VIEWER (LAZY LOADING)
 // ─────────────────────────────────────────────────────────────────────────────
 
-function open3dViewer(glbUrl, productName) {
+async function open3dViewer(glbUrl, productName) {
     const overlay = document.getElementById('viewer3dOverlay');
     const content = document.getElementById('viewer3dContent');
 
-    // Inyectar model-viewer solo cuando el usuario lo pide (lazy)
+    // ✅ LAZY LOAD: inyectar el script solo la primera vez que el usuario abre el visor
+    if (!customElements.get('model-viewer')) {
+        await new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            script.type = 'module';
+            script.src = 'https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js';
+            script.onload = resolve;
+            script.onerror = reject;
+            document.head.appendChild(script);
+        });
+    }
+
+    // Inyectar model-viewer solo cuando el usuario lo pide
     content.innerHTML = `
         <model-viewer
             src="${glbUrl}"
