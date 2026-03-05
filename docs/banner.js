@@ -55,7 +55,16 @@ const SLIDES = [
   {
     image:  "banner5.webp",
     alt:    "Contáctanos por Whatsapp +56954678849",
-    link:   "https://web.whatsapp.com/send/?phone=56954678849&text",
+    // Determinamos el link según el dispositivo
+    get link() {
+      const phone = "56954678849";
+      const message = "Hola, me gustaría obtener más información.";
+      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      
+      return isMobile 
+        ? `whatsapp://send?phone=${phone}&text=${encodeURIComponent(message)}` // App móvil
+        : `https://web.whatsapp.com/send/?phone=${phone}&text=${encodeURIComponent(message)}`; // WhatsApp Web
+    },
     target: "_blank",
   },
   // ── Agregá más slides acá ──────────────────────────────────────

@@ -230,9 +230,36 @@ function updateCartUI() {
         }).join('');
     }
     
-    // Calcular total
-    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    cartTotal.textContent = formatPrice(total);
+    // Calcular subtotal, envío y total final
+    const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const shipping = calculateShipping(subtotal);
+    const grandTotal = subtotal + shipping;
+
+    // Subtotal
+    const cartSubtotalEl = document.getElementById('cartSubtotal');
+    if (cartSubtotalEl) cartSubtotalEl.textContent = formatPrice(subtotal);
+
+    // Fila de envío: actualizar etiqueta y valor
+    const cartShippingEl = document.getElementById('cartShipping');
+    if (cartShippingEl) {
+        if (shipping === 0 && subtotal > 0) {
+            cartShippingEl.textContent = 'Gratis 🎉';
+            cartShippingEl.className = 'total-amount shipping-free';
+        } else {
+            cartShippingEl.textContent = subtotal === 0 ? formatPrice(0) : formatPrice(shipping);
+            cartShippingEl.className = 'total-amount';
+        }
+    }
+    const parcelLabel = document.getElementById('cartShippingLabel');
+    if (parcelLabel && subtotal > 0) {
+        const parcels = Math.ceil(subtotal / 49990);
+        parcelLabel.textContent = parcels > 1
+            ? `Envío (${parcels} encomiendas):`
+            : 'Envío:';
+    }
+
+    // Total final
+    cartTotal.textContent = formatPrice(grandTotal);
 }
 
 // ✅ TOGGLE CARRITO (MINIMIZAR/MAXIMIZAR)
@@ -296,9 +323,22 @@ function checkout() {
         message += encodeURIComponent(`─────────────────\n`);
     });
 
-    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const shipping = calculateShipping(subtotal);
+    const grandTotal = subtotal + shipping;
+    const parcels = Math.ceil(subtotal / 49990);
+
     message += encodeURIComponent(`📦 *Total de artículos:* ${itemCount}\n`);
-    message += encodeURIComponent(`💰 *TOTAL A PAGAR:* ${formatPrice(total)}\n\n`);
+    message += encodeURIComponent(`💵 *Subtotal:* ${formatPrice(subtotal)}\n`);
+
+    if (shipping === 0) {
+        message += encodeURIComponent(`🚚 *Envío:* GRATIS 🎉\n`);
+    } else {
+        const parcelNote = parcels > 1 ? ` (${parcels} encomiendas)` : '';
+        message += encodeURIComponent(`🚚 *Envío BlueExpress${parcelNote}:* ${formatPrice(shipping)}\n`);
+    }
+
+    message += encodeURIComponent(`💰 *TOTAL A PAGAR:* ${formatPrice(grandTotal)}\n\n`);
     message += encodeURIComponent(`Por favor confirmar disponibilidad. Gracias! 🙏`);
 
     // Obtener número de WhatsApp desde la configuración
@@ -348,6 +388,45 @@ async function loadProducts() {
 
 function formatPrice(price) {
     return '$' + price.toFixed(2);
+}
+
+// ✅ CALCULAR COSTO DE ENVÍO
+// Cada encomienda cubre hasta $49.990. Si el total supera ese monto,
+// se genera una nueva encomienda con la misma escala de precios.
+//   > $39.989 por encomienda → envío gratis
+//   > $19.989 por encomienda → $2.000
+//   cualquier otro monto     → $4.000
+function calculateShipping(subtotal) {
+    if (subtotal === 0) return 0;
+
+    const PARCEL_LIMIT = 49990;
+    let remaining = subtotal;
+    let totalShipping = 0;
+
+    while (remaining > 0) {
+        const parcelValue = Math.min(remaining, PARCEL_LIMIT);
+        remaining -= parcelValue;
+
+        if (parcelValue > 39989) {
+            totalShipping += 0;       // Envío gratis
+        } else if (parcelValue > 19989) {
+            totalShipping += 2000;    // Tarifa reducida
+        } else {
+            totalShipping += 4000;    // Tarifa estándar
+        }
+    }
+
+    return totalShipping;
+}
+
+function getShippingLabel(subtotal) {
+    if (subtotal === 0) return '';
+    const PARCEL_LIMIT = 49990;
+    const parcels = Math.ceil(subtotal / PARCEL_LIMIT);
+    const shipping = calculateShipping(subtotal);
+    const parcelNote = parcels > 1 ? ` (${parcels} encomiendas)` : '';
+    if (shipping === 0) return `Envío gratis${parcelNote}`;
+    return `Envío BlueExpress${parcelNote}: ${formatPrice(shipping)}`;
 }
 
 // ─── ALT TEXT CENTRALIZADO ───────────────────────────────────────────────────
