@@ -9,38 +9,92 @@
     <!-- model-viewer: se carga dinámicamente solo cuando el usuario abre el visor 3D -->
 </head>
 <body>
-    <header class="header">
-    <div class="container">
-        <h1 class="logo">
-            <span class="visually-hidden">Catálogo de Productos</span>
-        </h1>
-        <!-- El tagline se elimina -->
-    </div>
-</header>
 
-    <!-- ═══════════════════════════════════════════════════════
-         BANNER DE ANUNCIOS
-         Las imágenes van en /banner/ — config en banner.js
-         ═══════════════════════════════════════════════════════ -->
-    <section class="banner-section" aria-label="Anuncios y ofertas">
-        <div id="bannerWrapper" class="banner-wrapper">
-            <!-- Los slides se inyectan dinámicamente por banner.js -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="./" aria-label="Pixchile, ir al inicio">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+                        <rect x="3" y="3" width="8" height="8" rx="2"></rect>
+                        <rect x="13" y="3" width="8" height="8" rx="2"></rect>
+                        <rect x="3" y="13" width="8" height="8" rx="2"></rect>
+                        <rect x="13" y="13" width="8" height="8" rx="2"></rect>
+                    </svg>
+                </span>
+                <span class="brand-text">
+                    <span class="brand-name">Pixchile</span>
+                    <span class="brand-sub">Figuras y kits de armado</span>
+                </span>
+            </a>
+
+            <nav class="site-nav" aria-label="Navegación principal">
+                <a href="#catalogo">Catálogo</a>
+                <a href="#beneficios">Envíos</a>
+                <a class="nav-cta" href="https://wa.me/56954678849" target="_blank" rel="noopener noreferrer">
+                    WhatsApp
+                </a>
+            </nav>
         </div>
-    </section>
+    </header>
 
-    <main class="main-content">
-        <div class="container">
-            <section class="filters">
-                <label for="searchInput" class="visually-hidden">Buscar productos</label>
-                <input type="text" id="searchInput" placeholder="Buscar productos..." class="search-box">
-                <label for="categoryFilter" class="visually-hidden">Filtrar por categoría</label>
-                <select id="categoryFilter" class="category-filter">
-                    <option value="all">Todas las categorías</option>
-                </select>
-            </section>
+    <main>
+        <!-- ═══════════════════════════════════════════════════════
+             BANNER DE ANUNCIOS
+             Las imágenes van en /banner/ — config en banner.js
+             ═══════════════════════════════════════════════════════ -->
+        <section class="hero" aria-label="Anuncios y ofertas">
+            <div class="container">
+                <div class="banner-section">
+                    <div id="bannerWrapper" class="banner-wrapper">
+                        <!-- Los slides se inyectan dinámicamente por banner.js -->
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            <section class="products-section">
-                <h2 class="section-title">Nuestros Productos</h2>
+        <section class="perks" id="beneficios" aria-label="Beneficios de comprar aquí">
+            <div class="container perks-row">
+                <div class="perk">
+                    <strong>Diseños exclusivos</strong>
+                    <span>No los encontrás en otro lugar</span>
+                </div>
+                <div class="perk">
+                    <strong>Envíos a todo Chile</strong>
+                    <span>Gratis sobre $40.000</span>
+                </div>
+                <div class="perk">
+                    <strong>Diseños a pedido</strong>
+                    <span>Contanos qué figura querés</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="catalog" id="catalogo">
+            <div class="container">
+                <div class="catalog-head">
+                    <div>
+                        <p class="eyebrow">Catálogo</p>
+                        <h2 class="section-title">Nuestros productos</h2>
+                        <p class="section-sub">Kits de armado, packs de colores y plantillas digitales.</p>
+                    </div>
+                    <p class="result-count" id="resultCount" aria-live="polite"></p>
+                </div>
+
+                <div class="toolbar">
+                    <div class="search-field">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <circle cx="11" cy="11" r="7"></circle>
+                            <line x1="20" y1="20" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        <input type="text" id="searchInput" placeholder="Buscar productos..." class="search-box" aria-label="Buscar productos">
+                    </div>
+
+                    <label for="categoryFilter" class="visually-hidden">Filtrar por categoría</label>
+                    <select id="categoryFilter" class="category-filter">
+                        <option value="all">Todas las categorías</option>
+                    </select>
+                </div>
+
                 <div id="productsGrid" class="products-grid loading">
                     <!-- Loading spinner -->
                     <div class="loading-spinner">
@@ -48,8 +102,8 @@
                         <p>Cargando productos...</p>
                     </div>
                 </div>
-            </section>
-        </div>
+            </div>
+        </section>
     </main>
 
     <!-- Modal de Producto -->
@@ -115,8 +169,17 @@
     </div>
 
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Catálogo de Productos. Todos los derechos reservados.</p>
+        <div class="container footer-inner">
+            <div>
+                <p class="footer-brand">Pixchile</p>
+                <p class="footer-note">Figuras, kits de armado y plantillas digitales.</p>
+            </div>
+            <a class="footer-link" href="https://wa.me/56954678849" target="_blank" rel="noopener noreferrer">
+                Hablemos por WhatsApp
+            </a>
+        </div>
+        <div class="container footer-legal">
+            <p>&copy; 2026 Pixchile. Todos los derechos reservados.</p>
         </div>
     </footer>
 

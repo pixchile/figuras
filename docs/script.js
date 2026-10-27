@@ -387,7 +387,7 @@ async function loadProducts() {
 }
 
 function formatPrice(price) {
-    return '$' + price.toFixed(2);
+    return '$' + Math.round(price).toLocaleString('es-CL');
 }
 
 // ✅ CALCULAR COSTO DE ENVÍO
@@ -542,6 +542,12 @@ function createProductCard(product) {
 
 function renderProducts(productsToRender) {
     const grid = document.getElementById('productsGrid');
+    const countEl = document.getElementById('resultCount');
+    if (countEl) {
+        countEl.textContent = productsToRender.length === 1
+            ? '1 producto'
+            : `${productsToRender.length} productos`;
+    }
     grid.innerHTML = '';
     if (productsToRender.length === 0) {
         grid.innerHTML = '<div class="no-results">No se encontraron productos.</div>';

@@ -60,8 +60,8 @@ const SLIDES = [
       const phone = "56954678849";
       const message = "Hola, me gustaría obtener más información.";
       const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-      
-      return isMobile 
+
+      return isMobile
         ? `whatsapp://send?phone=${phone}&text=${encodeURIComponent(message)}` // App móvil
         : `https://web.whatsapp.com/send/?phone=${phone}&text=${encodeURIComponent(message)}`; // WhatsApp Web
     },
@@ -83,14 +83,41 @@ const SLIDES = [
 (function () {
   "use strict";
 
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
   let currentSlide = 0;
   let autoTimer = null;
   let isTransitioning = false;
 
+  function getWrapper() {
+    return document.getElementById("bannerWrapper");
+  }
+
+  /** Reinicia la barra de progreso del slide actual */
+  function restartProgress() {
+    const bar = document.querySelector(".banner-progress span");
+    if (!bar) return;
+    bar.style.animation = "none";
+    void bar.offsetWidth;
+    bar.style.animation = "";
+  }
+
+  /** Actualiza contador y progreso */
+  function updateChrome(index) {
+    const counter = document.getElementById("bannerCounter");
+    if (counter) {
+      counter.textContent = (index + 1) + " / " + SLIDES.length;
+    }
+    restartProgress();
+  }
+
   /** Construye el HTML del banner e inyecta los slides */
   function buildBanner() {
-    const wrapper = document.getElementById("bannerWrapper");
+    const wrapper = getWrapper();
     if (!wrapper || SLIDES.length === 0) return;
+
+    wrapper.style.setProperty("--banner-duration", BANNER_CONFIG.interval + "ms");
+    wrapper.setAttribute("aria-label", "Anuncios y ofertas");
 
     /* Track (contiene todos los slides uno al lado del otro) */
     const track = document.createElement("div");
@@ -132,7 +159,7 @@ const SLIDES = [
 
     wrapper.appendChild(track);
 
-    /* Puntos de navegación */
+    /* Puntos de navegación, flechas, contador y progreso */
     if (SLIDES.length > 1) {
       const dotsContainer = document.createElement("div");
       dotsContainer.className    = "banner-dots";
@@ -151,7 +178,6 @@ const SLIDES = [
 
       wrapper.appendChild(dotsContainer);
 
-      /* Flechas de navegación */
       const prevBtn = document.createElement("button");
       prevBtn.className  = "banner-arrow banner-arrow-prev";
       prevBtn.innerHTML  = "&#8249;";
@@ -166,6 +192,18 @@ const SLIDES = [
 
       wrapper.appendChild(prevBtn);
       wrapper.appendChild(nextBtn);
+
+      const counter = document.createElement("div");
+      counter.className = "banner-counter";
+      counter.id = "bannerCounter";
+      counter.textContent = "1 / " + SLIDES.length;
+      wrapper.appendChild(counter);
+
+      const progress = document.createElement("div");
+      progress.className = "banner-progress";
+      progress.setAttribute("aria-hidden", "true");
+      progress.appendChild(document.createElement("span"));
+      wrapper.appendChild(progress);
     }
 
     /* Pausa en hover */
@@ -175,6 +213,12 @@ const SLIDES = [
       wrapper.addEventListener("focusin",    stopAuto);
       wrapper.addEventListener("focusout",   startAuto);
     }
+
+    /* Navegación con teclado */
+    wrapper.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft")  { e.preventDefault(); goToSlide(currentSlide - 1); }
+      if (e.key === "ArrowRight") { e.preventDefault(); goToSlide(currentSlide + 1); }
+    });
 
     /* Soporte táctil (swipe) */
     let touchStartX = 0;
@@ -187,6 +231,12 @@ const SLIDES = [
         goToSlide(delta < 0 ? currentSlide + 1 : currentSlide - 1);
       }
     }, { passive: true });
+
+    /* Pausa cuando la pestaña no está visible */
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) stopAuto();
+      else startAuto();
+    });
   }
 
   /** Muestra el slide indicado */
@@ -201,8 +251,8 @@ const SLIDES = [
 
     isTransitioning = true;
 
-    const slides    = document.querySelectorAll(".banner-slide");
-    const dots      = document.querySelectorAll(".banner-dot");
+    const slides = document.querySelectorAll(".banner-slide");
+    const dots   = document.querySelectorAll(".banner-dot");
 
     slides[currentSlide].classList.remove("active");
     slides[currentSlide].setAttribute("aria-hidden", "true");
@@ -220,6 +270,8 @@ const SLIDES = [
       dots[currentSlide].setAttribute("aria-selected", "true");
     }
 
+    updateChrome(currentSlide);
+
     setTimeout(function () { isTransitioning = false; }, BANNER_CONFIG.transitionDuration);
 
     /* Reinicia el timer para que no cambie justo después de navegar */
@@ -228,14 +280,19 @@ const SLIDES = [
   }
 
   function startAuto() {
-    if (SLIDES.length <= 1) return;
+    const wrapper = getWrapper();
+    if (wrapper) wrapper.classList.remove("is-paused");
+    if (SLIDES.length <= 1 || reduceMotion) return;
     stopAuto();
+    restartProgress();
     autoTimer = setInterval(function () {
       goToSlide(currentSlide + 1);
     }, BANNER_CONFIG.interval);
   }
 
   function stopAuto() {
+    const wrapper = getWrapper();
+    if (wrapper) wrapper.classList.add("is-paused");
     clearInterval(autoTimer);
     autoTimer = null;
   }
