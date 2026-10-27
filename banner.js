@@ -46,7 +46,7 @@ const SLIDES = [
     align:    "left",
     eyebrow:  "A pedido",
     title:    "¿No ves tu figura?",
-    subtitle: "Contanos cuál querés y la diseñamos para vos.",
+    subtitle: "Cuéntanos cuál quieres y la diseñamos para ti.",
     cta:      { label: "Hablemos por WhatsApp", href: "https://wa.me/56954678849" },
   },
   // ── Agregá más slides acá ──────────────────────────────────────
