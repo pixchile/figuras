@@ -85,7 +85,7 @@ function addTemplateOnly(productId) {
     if (product.type !== '1') return;
 
     // ✅ APLICAR REDONDEO A 90 AL PRECIO DE PLANTILLA
-    const templatePrice = roundTo90(config.tipos['1']?.precioPlantillaDigital || 5);
+    const templatePrice = roundTo90(config.tipos['1']?.precioPlantillaDigital ?? 1990);
     const templateName = `Sólo Plantilla - ${product.name}`;
 
     // Verificar si ya existe este producto con precio de plantilla
@@ -230,29 +230,40 @@ function updateCartUI() {
         }).join('');
     }
     
-    // Calcular subtotal, envío y total final
+    // Calcular subtotal, envío y total final.
+    // El envío se calcula solo sobre los productos físicos: las plantillas
+    // digitales nunca pagan envío.
     const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    const shipping = calculateShipping(subtotal);
+    const physicalSubtotal = cart
+        .filter(item => !isDigitalItem(item))
+        .reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const shipping = calculateShipping(physicalSubtotal);
     const grandTotal = subtotal + shipping;
 
     // Subtotal
     const cartSubtotalEl = document.getElementById('cartSubtotal');
     if (cartSubtotalEl) cartSubtotalEl.textContent = formatPrice(subtotal);
 
-    // Fila de envío: actualizar etiqueta y valor
+    // Fila de envío: oculta si el carrito es 100% digital
+    const shippingRow = document.getElementById('cartShippingRow');
+    if (shippingRow) {
+        shippingRow.style.display = physicalSubtotal > 0 ? '' : 'none';
+    }
+
     const cartShippingEl = document.getElementById('cartShipping');
     if (cartShippingEl) {
-        if (shipping === 0 && subtotal > 0) {
+        if (shipping === 0) {
             cartShippingEl.textContent = 'Gratis 🎉';
             cartShippingEl.className = 'total-amount shipping-free';
         } else {
-            cartShippingEl.textContent = subtotal === 0 ? formatPrice(0) : formatPrice(shipping);
+            cartShippingEl.textContent = formatPrice(shipping);
             cartShippingEl.className = 'total-amount';
         }
     }
+
     const parcelLabel = document.getElementById('cartShippingLabel');
-    if (parcelLabel && subtotal > 0) {
-        const parcels = Math.ceil(subtotal / 49990);
+    if (parcelLabel) {
+        const parcels = Math.ceil(physicalSubtotal / 49990);
         parcelLabel.textContent = parcels > 1
             ? `Envío (${parcels} encomiendas):`
             : 'Envío:';
@@ -324,18 +335,24 @@ function checkout() {
     });
 
     const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    const shipping = calculateShipping(subtotal);
+    const physicalSubtotal = cart
+        .filter(item => !isDigitalItem(item))
+        .reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const shipping = calculateShipping(physicalSubtotal);
     const grandTotal = subtotal + shipping;
-    const parcels = Math.ceil(subtotal / 49990);
+    const parcels = Math.ceil(physicalSubtotal / 49990);
 
     message += encodeURIComponent(`📦 *Total de artículos:* ${itemCount}\n`);
     message += encodeURIComponent(`💵 *Subtotal:* ${formatPrice(subtotal)}\n`);
 
-    if (shipping === 0) {
-        message += encodeURIComponent(`🚚 *Envío:* GRATIS 🎉\n`);
-    } else {
-        const parcelNote = parcels > 1 ? ` (${parcels} encomiendas)` : '';
-        message += encodeURIComponent(`🚚 *Envío BlueExpress${parcelNote}:* ${formatPrice(shipping)}\n`);
+    // Solo los productos físicos generan envío
+    if (physicalSubtotal > 0) {
+        if (shipping === 0) {
+            message += encodeURIComponent(`🚚 *Envío:* GRATIS 🎉\n`);
+        } else {
+            const parcelNote = parcels > 1 ? ` (${parcels} encomiendas)` : '';
+            message += encodeURIComponent(`🚚 *Envío BlueExpress${parcelNote}:* ${formatPrice(shipping)}\n`);
+        }
     }
 
     message += encodeURIComponent(`💰 *TOTAL A PAGAR:* ${formatPrice(grandTotal)}\n\n`);
@@ -419,6 +436,11 @@ function calculateShipping(subtotal) {
     return totalShipping;
 }
 
+// Los productos digitales (plantillas) no pagan envío
+function isDigitalItem(item) {
+    return item.isTemplateOnly === true || item.type === '3';
+}
+
 function getShippingLabel(subtotal) {
     if (subtotal === 0) return '';
     const PARCEL_LIMIT = 49990;
@@ -496,7 +518,7 @@ function createProductCard(product) {
                 <line x1="16" y1="13" x2="8" y2="13"></line>
                 <line x1="16" y1="17" x2="8" y2="17"></line>
             </svg>
-            ${formatPrice(roundTo90(config.tipos['1']?.precioPlantillaDigital || 5))} - Plantilla Digital
+            ${formatPrice(roundTo90(config.tipos['1']?.precioPlantillaDigital ?? 1990))} - Plantilla Digital
            </button>`
         : '';
 
@@ -682,7 +704,7 @@ function showProductDetails(productId) {
                 <line x1="16" y1="13" x2="8" y2="13"></line>
                 <line x1="16" y1="17" x2="8" y2="17"></line>
             </svg>
-            ${formatPrice(roundTo90(config.tipos['1']?.precioPlantillaDigital || 5))} - Solo Plantilla Digital
+            ${formatPrice(roundTo90(config.tipos['1']?.precioPlantillaDigital ?? 1990))} - Solo Plantilla Digital
            </button>` : '';
 
     const modalDisplayPrice = product.type === '1' ? roundTo90(product.price) : product.price;
@@ -989,10 +1011,10 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
     loadCart();
-    loadConfig();
-    loadProducts();
+    await loadConfig();
+    await loadProducts();
     document.getElementById('searchInput').addEventListener('input', filterProducts);
     document.getElementById('categoryFilter').addEventListener('change', filterProducts);
     document.querySelector('.close-modal').addEventListener('click', closeModal);

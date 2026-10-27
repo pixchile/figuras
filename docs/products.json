@@ -579,16 +579,13 @@
     "pieces": 1355,
     "buildHours": 5,
     "images": [
-      "League of Legends/1-Malphite Whatsapp 16cm(1355)/0 (1).webp",
-      "League of Legends/1-Malphite Whatsapp 16cm(1355)/0 (2).webp",
-      "League of Legends/1-Malphite Whatsapp 16cm(1355)/0 (3).webp",
-      "League of Legends/1-Malphite Whatsapp 16cm(1355)/0 (4).webp",
-      "League of Legends/1-Malphite Whatsapp 16cm(1355)/0 (5).webp",
-      "League of Legends/1-Malphite Whatsapp 16cm(1355)/0 (6).webp",
-      "League of Legends/1-Malphite Whatsapp 16cm(1355)/0 (7).webp",
-      "League of Legends/1-Malphite Whatsapp 16cm(1355)/0 (8).webp"
+      "League of Legends/1-Malphite Whatsapp 16cm(1355)/malhpite1.webp",
+      "League of Legends/1-Malphite Whatsapp 16cm(1355)/malphite2.webp",
+      "League of Legends/1-Malphite Whatsapp 16cm(1355)/malphite3.webp",
+      "League of Legends/1-Malphite Whatsapp 16cm(1355)/malphite4.webp",
+      "League of Legends/1-Malphite Whatsapp 16cm(1355)/malphite5.webp"
     ],
-    "mainImage": "League of Legends/1-Malphite Whatsapp 16cm(1355)/0 (1).webp",
+    "mainImage": "League of Legends/1-Malphite Whatsapp 16cm(1355)/malhpite1.webp",
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
