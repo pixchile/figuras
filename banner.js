@@ -8,7 +8,7 @@
 
 const BANNER_CONFIG = {
   /** Intervalo entre slides en milisegundos */
-  interval: 4000,
+  interval: 6000,
 
   /** Duración de la animación de transición en ms */
   transitionDuration: 600,
@@ -18,61 +18,46 @@ const BANNER_CONFIG = {
 };
 
 /**
- * Cada slide puede tener:
- *  - image    {string}  Nombre del archivo dentro de /banner/  (requerido)
- *  - alt      {string}  Texto alternativo para accesibilidad y SEO  (requerido)
- *  - link     {string|null}  URL o #id-de-seccion al hacer clic  (opcional)
- *  - target   {string}  "_self" (mismo tab) o "_blank" (nueva pestaña)
+ * Cada slide acepta:
+ *  - image    {string}  Archivo dentro de /banner/                      (requerido)
+ *  - tone     {string}  "dark" | "light"  → color del texto y del velo
+ *  - align    {string}  "left" | "right"  → lado donde se apoya el texto
+ *  - eyebrow  {string}  Antetítulo corto en mayúsculas
+ *  - title    {string}  Titular principal
+ *  - subtitle {string}  Línea de apoyo
+ *  - cta      {object}  { label, href }  → botón opcional
  *
- * Ejemplo de enlace a sección interna:  link: "#productsSection"
- * Ejemplo de enlace externo:            link: "https://web.whatsapp.com/send/?phone=56954678849&text"
+ * Las imágenes deben venir SIN texto. El texto real lo pone este script,
+ * así se adapta a móvil y sigue siendo legible para buscadores.
  */
 const SLIDES = [
   {
-    image:  "banner1.webp",
-    alt:    "Nuestros diseños son exclusivos. No existen en otro lugar.",
-    link:   null,
-    target: "_self",
+    image:    "banner.webp",
+    tone:     "dark",
+    align:    "left",
+    eyebrow:  "Hecho a mano",
+    title:    "Diseños exclusivos",
+    subtitle: "Figuras armables que no vas a encontrar en otro lugar.",
+    cta:      { label: "Ver catálogo", href: "#catalogo" },
   },
   {
-    image:  "banner2.webp",
-    alt:    "Tenemos diseños a pedido del cliente.",
-    link:   null,
-    target: "_self",
-  },
-  {
-    image:  "banner3.webp",
-    alt:    "Envíos a todo Chile por BlueExpres desde $3990 o gratis sobre $40.000",
-    link:   null,
-    target: "_self",
-  },
-  {
-    image:  "banner4.webp",
-    alt:    "¡Aprovecha los packs y paga menos!",
-    link:   null,
-    target: "_self",
-  },
-  {
-    image:  "banner5.webp",
-    alt:    "Contáctanos por Whatsapp +56954678849",
-    // Determinamos el link según el dispositivo
-    get link() {
-      const phone = "56954678849";
-      const message = "Hola, me gustaría obtener más información.";
-      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
-      return isMobile
-        ? `whatsapp://send?phone=${phone}&text=${encodeURIComponent(message)}` // App móvil
-        : `https://web.whatsapp.com/send/?phone=${phone}&text=${encodeURIComponent(message)}`; // WhatsApp Web
-    },
-    target: "_blank",
+    image:    "banner2.webp",
+    tone:     "light",
+    align:    "left",
+    eyebrow:  "A pedido",
+    title:    "¿No ves tu figura?",
+    subtitle: "Contanos cuál querés y la diseñamos para vos.",
+    cta:      { label: "Hablemos por WhatsApp", href: "https://wa.me/56954678849" },
   },
   // ── Agregá más slides acá ──────────────────────────────────────
   // {
-  //   image:  "banner4.png",
-  //   alt:    "Descripción del anuncio",
-  //   link:   "#productsSection",   // o una URL completa
-  //   target: "_self",
+  //   image:    "banner3.webp",
+  //   tone:     "dark",
+  //   align:    "right",
+  //   eyebrow:  "Envíos",
+  //   title:    "A todo Chile",
+  //   subtitle: "BlueExpress, gratis sobre $40.000.",
+  //   cta:      { label: "Ver catálogo", href: "#catalogo" },
   // },
 ];
 
@@ -85,9 +70,13 @@ const SLIDES = [
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  const PAUSE_ICON = '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"></rect><rect x="14" y="5" width="4" height="14" rx="1"></rect></svg>';
+  const PLAY_ICON  = '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>';
+
   let currentSlide = 0;
   let autoTimer = null;
   let isTransitioning = false;
+  let userPaused = false;
 
   function getWrapper() {
     return document.getElementById("bannerWrapper");
@@ -111,12 +100,60 @@ const SLIDES = [
     restartProgress();
   }
 
+  function updatePauseButton() {
+    const btn = document.querySelector(".banner-pause");
+    if (!btn) return;
+    btn.innerHTML = userPaused ? PLAY_ICON : PAUSE_ICON;
+    btn.setAttribute("aria-label", userPaused ? "Reanudar anuncios" : "Pausar anuncios");
+    btn.title = userPaused ? "Reanudar anuncios" : "Pausar anuncios";
+  }
+
+  /** Construye el contenido de texto de un slide */
+  function buildContent(slide) {
+    const content = document.createElement("div");
+    content.className = "banner-content";
+
+    if (slide.eyebrow) {
+      const eyebrow = document.createElement("p");
+      eyebrow.className = "banner-eyebrow";
+      eyebrow.textContent = slide.eyebrow;
+      content.appendChild(eyebrow);
+    }
+
+    const title = document.createElement("p");
+    title.className = "banner-title";
+    title.textContent = slide.title;
+    content.appendChild(title);
+
+    if (slide.subtitle) {
+      const subtitle = document.createElement("p");
+      subtitle.className = "banner-subtitle";
+      subtitle.textContent = slide.subtitle;
+      content.appendChild(subtitle);
+    }
+
+    if (slide.cta && slide.cta.href) {
+      const cta = document.createElement("a");
+      cta.className = "banner-cta";
+      cta.href = slide.cta.href;
+      cta.textContent = slide.cta.label || "Ver más";
+      if (/^https?:/i.test(slide.cta.href)) {
+        cta.target = "_blank";
+        cta.rel = "noopener noreferrer";
+      }
+      content.appendChild(cta);
+    }
+
+    return content;
+  }
+
   /** Construye el HTML del banner e inyecta los slides */
   function buildBanner() {
     const wrapper = getWrapper();
     if (!wrapper || SLIDES.length === 0) return;
 
     wrapper.style.setProperty("--banner-duration", BANNER_CONFIG.interval + "ms");
+    wrapper.setAttribute("role", "region");
     wrapper.setAttribute("aria-label", "Anuncios y ofertas");
 
     /* Track (contiene todos los slides uno al lado del otro) */
@@ -128,30 +165,27 @@ const SLIDES = [
       const item = document.createElement("div");
       item.className = "banner-slide" + (index === 0 ? " active" : "");
       item.setAttribute("aria-hidden", index !== 0 ? "true" : "false");
+      item.dataset.tone = slide.tone || "dark";
+      item.dataset.align = slide.align || "left";
 
       const img = document.createElement("img");
-      img.src     = "./banner/" + slide.image;
-      img.alt     = slide.alt;
-      img.width   = 1200;
-      img.height  = 400;
+      img.src = "./banner/" + slide.image;
+      img.alt = slide.title ? "" : (slide.alt || "");
+      img.width = 2400;
+      img.height = 800;
       /* ✅ Sin lazy loading — se precarga todo junto */
       img.loading = "eager";
       img.fetchPriority = index === 0 ? "high" : "auto";
       img.decoding = "async";
       img.draggable = false;
+      item.appendChild(img);
 
-      if (slide.link) {
-        const anchor = document.createElement("a");
-        anchor.href   = slide.link;
-        anchor.target = slide.target || "_self";
-        if (slide.target === "_blank") {
-          anchor.rel = "noopener noreferrer";
-        }
-        anchor.setAttribute("aria-label", slide.alt);
-        anchor.appendChild(img);
-        item.appendChild(anchor);
-      } else {
-        item.appendChild(img);
+      if (slide.title) {
+        const scrim = document.createElement("div");
+        scrim.className = "banner-scrim";
+        scrim.setAttribute("aria-hidden", "true");
+        item.appendChild(scrim);
+        item.appendChild(buildContent(slide));
       }
 
       track.appendChild(item);
@@ -162,7 +196,7 @@ const SLIDES = [
     /* Puntos de navegación, flechas, contador y progreso */
     if (SLIDES.length > 1) {
       const dotsContainer = document.createElement("div");
-      dotsContainer.className    = "banner-dots";
+      dotsContainer.className = "banner-dots";
       dotsContainer.setAttribute("role", "tablist");
       dotsContainer.setAttribute("aria-label", "Navegación de anuncios");
 
@@ -179,14 +213,14 @@ const SLIDES = [
       wrapper.appendChild(dotsContainer);
 
       const prevBtn = document.createElement("button");
-      prevBtn.className  = "banner-arrow banner-arrow-prev";
-      prevBtn.innerHTML  = "&#8249;";
+      prevBtn.className = "banner-arrow banner-arrow-prev";
+      prevBtn.innerHTML = "&#8249;";
       prevBtn.setAttribute("aria-label", "Anuncio anterior");
       prevBtn.addEventListener("click", function () { goToSlide(currentSlide - 1); });
 
       const nextBtn = document.createElement("button");
-      nextBtn.className  = "banner-arrow banner-arrow-next";
-      nextBtn.innerHTML  = "&#8250;";
+      nextBtn.className = "banner-arrow banner-arrow-next";
+      nextBtn.innerHTML = "&#8250;";
       nextBtn.setAttribute("aria-label", "Siguiente anuncio");
       nextBtn.addEventListener("click", function () { goToSlide(currentSlide + 1); });
 
@@ -199,6 +233,22 @@ const SLIDES = [
       counter.textContent = "1 / " + SLIDES.length;
       wrapper.appendChild(counter);
 
+      if (!reduceMotion) {
+        const pauseBtn = document.createElement("button");
+        pauseBtn.type = "button";
+        pauseBtn.className = "banner-pause";
+        pauseBtn.innerHTML = PAUSE_ICON;
+        pauseBtn.setAttribute("aria-label", "Pausar anuncios");
+        pauseBtn.title = "Pausar anuncios";
+        pauseBtn.addEventListener("click", function () {
+          userPaused = !userPaused;
+          updatePauseButton();
+          if (userPaused) stopAuto();
+          else startAuto();
+        });
+        wrapper.appendChild(pauseBtn);
+      }
+
       const progress = document.createElement("div");
       progress.className = "banner-progress";
       progress.setAttribute("aria-hidden", "true");
@@ -210,8 +260,8 @@ const SLIDES = [
     if (BANNER_CONFIG.pauseOnHover) {
       wrapper.addEventListener("mouseenter", stopAuto);
       wrapper.addEventListener("mouseleave", startAuto);
-      wrapper.addEventListener("focusin",    stopAuto);
-      wrapper.addEventListener("focusout",   startAuto);
+      wrapper.addEventListener("focusin", stopAuto);
+      wrapper.addEventListener("focusout", startAuto);
     }
 
     /* Navegación con teclado */
@@ -279,11 +329,23 @@ const SLIDES = [
     startAuto();
   }
 
+  function clearTimer() {
+    clearInterval(autoTimer);
+    autoTimer = null;
+  }
+
   function startAuto() {
     const wrapper = getWrapper();
-    if (wrapper) wrapper.classList.remove("is-paused");
-    if (SLIDES.length <= 1 || reduceMotion) return;
-    stopAuto();
+    if (!wrapper) return;
+
+    if (SLIDES.length <= 1 || reduceMotion || userPaused || document.hidden) {
+      wrapper.classList.add("is-paused");
+      clearTimer();
+      return;
+    }
+
+    wrapper.classList.remove("is-paused");
+    clearTimer();
     restartProgress();
     autoTimer = setInterval(function () {
       goToSlide(currentSlide + 1);
@@ -293,8 +355,7 @@ const SLIDES = [
   function stopAuto() {
     const wrapper = getWrapper();
     if (wrapper) wrapper.classList.add("is-paused");
-    clearInterval(autoTimer);
-    autoTimer = null;
+    clearTimer();
   }
 
   /** Punto de entrada */
