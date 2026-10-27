@@ -3,4 +3,6 @@ node_modules/
 Thumbs.db
 .vscode/
 .idea/
+.commandcode/
+.claude/
 *.log

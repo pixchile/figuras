@@ -204,7 +204,7 @@ function updateCartUI() {
 
             return `
                 <div class="cart-item">
-                    <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+                    <img src="${item.image}" alt="${item.name} en el carrito" class="cart-item-image">
                     <div class="cart-item-details">
                         <h4 class="cart-item-name">${item.name}</h4>
                         <p class="cart-item-category">${item.category}</p>
@@ -230,9 +230,36 @@ function updateCartUI() {
         }).join('');
     }
     
-    // Calcular total
-    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    cartTotal.textContent = formatPrice(total);
+    // Calcular subtotal, envío y total final
+    const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const shipping = calculateShipping(subtotal);
+    const grandTotal = subtotal + shipping;
+
+    // Subtotal
+    const cartSubtotalEl = document.getElementById('cartSubtotal');
+    if (cartSubtotalEl) cartSubtotalEl.textContent = formatPrice(subtotal);
+
+    // Fila de envío: actualizar etiqueta y valor
+    const cartShippingEl = document.getElementById('cartShipping');
+    if (cartShippingEl) {
+        if (shipping === 0 && subtotal > 0) {
+            cartShippingEl.textContent = 'Gratis 🎉';
+            cartShippingEl.className = 'total-amount shipping-free';
+        } else {
+            cartShippingEl.textContent = subtotal === 0 ? formatPrice(0) : formatPrice(shipping);
+            cartShippingEl.className = 'total-amount';
+        }
+    }
+    const parcelLabel = document.getElementById('cartShippingLabel');
+    if (parcelLabel && subtotal > 0) {
+        const parcels = Math.ceil(subtotal / 49990);
+        parcelLabel.textContent = parcels > 1
+            ? `Envío (${parcels} encomiendas):`
+            : 'Envío:';
+    }
+
+    // Total final
+    cartTotal.textContent = formatPrice(grandTotal);
 }
 
 // ✅ TOGGLE CARRITO (MINIMIZAR/MAXIMIZAR)
@@ -296,9 +323,22 @@ function checkout() {
         message += encodeURIComponent(`─────────────────\n`);
     });
 
-    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const shipping = calculateShipping(subtotal);
+    const grandTotal = subtotal + shipping;
+    const parcels = Math.ceil(subtotal / 49990);
+
     message += encodeURIComponent(`📦 *Total de artículos:* ${itemCount}\n`);
-    message += encodeURIComponent(`💰 *TOTAL A PAGAR:* ${formatPrice(total)}\n\n`);
+    message += encodeURIComponent(`💵 *Subtotal:* ${formatPrice(subtotal)}\n`);
+
+    if (shipping === 0) {
+        message += encodeURIComponent(`🚚 *Envío:* GRATIS 🎉\n`);
+    } else {
+        const parcelNote = parcels > 1 ? ` (${parcels} encomiendas)` : '';
+        message += encodeURIComponent(`🚚 *Envío BlueExpress${parcelNote}:* ${formatPrice(shipping)}\n`);
+    }
+
+    message += encodeURIComponent(`💰 *TOTAL A PAGAR:* ${formatPrice(grandTotal)}\n\n`);
     message += encodeURIComponent(`Por favor confirmar disponibilidad. Gracias! 🙏`);
 
     // Obtener número de WhatsApp desde la configuración
@@ -323,6 +363,22 @@ async function loadProducts() {
         renderProducts(allProducts);
         grid.classList.remove('loading');
         grid.classList.add('loaded');
+
+        // ── Abrir producto desde URL (?producto=slug) ──────────────────────
+        // Las páginas individuales redirigen a ../../?producto=slug,
+        // y aquí detectamos ese parámetro para abrir el modal automáticamente.
+        const params = new URLSearchParams(window.location.search);
+        const slug   = params.get('producto');
+        if (slug) {
+            const match = allProducts.find(p => p.slug === slug);
+            if (match) {
+                setTimeout(() => showProductDetails(match.id), 80);
+            }
+            // Limpiar la URL para que no quede el parámetro visible
+            window.history.replaceState(null, '', window.location.pathname);
+        }
+        // ──────────────────────────────────────────────────────────────────
+
     } catch (error) {
         console.error('Error:', error);
         grid.innerHTML = `<div class="no-results"><p>Error al cargar los productos.</p></div>`;
@@ -332,6 +388,65 @@ async function loadProducts() {
 
 function formatPrice(price) {
     return '$' + price.toFixed(2);
+}
+
+// ✅ CALCULAR COSTO DE ENVÍO
+// Cada encomienda cubre hasta $49.990. Si el total supera ese monto,
+// se genera una nueva encomienda con la misma escala de precios.
+//   > $39.989 por encomienda → envío gratis
+//   > $19.989 por encomienda → $2.000
+//   cualquier otro monto     → $4.000
+function calculateShipping(subtotal) {
+    if (subtotal === 0) return 0;
+
+    const PARCEL_LIMIT = 49990;
+    let remaining = subtotal;
+    let totalShipping = 0;
+
+    while (remaining > 0) {
+        const parcelValue = Math.min(remaining, PARCEL_LIMIT);
+        remaining -= parcelValue;
+
+        if (parcelValue > 39989) {
+            totalShipping += 0;       // Envío gratis
+        } else if (parcelValue > 19989) {
+            totalShipping += 2000;    // Tarifa reducida
+        } else {
+            totalShipping += 4000;    // Tarifa estándar
+        }
+    }
+
+    return totalShipping;
+}
+
+function getShippingLabel(subtotal) {
+    if (subtotal === 0) return '';
+    const PARCEL_LIMIT = 49990;
+    const parcels = Math.ceil(subtotal / PARCEL_LIMIT);
+    const shipping = calculateShipping(subtotal);
+    const parcelNote = parcels > 1 ? ` (${parcels} encomiendas)` : '';
+    if (shipping === 0) return `Envío gratis${parcelNote}`;
+    return `Envío BlueExpress${parcelNote}: ${formatPrice(shipping)}`;
+}
+
+// ─── ALT TEXT CENTRALIZADO ───────────────────────────────────────────────────
+// Usa el campo altText del JSON si existe; si no, genera uno automático.
+function getAltText(product, context = 'card', index = null) {
+    if (product.altText) return product.altText;
+    const base = product.name || 'Producto';
+    const typeName = product.typeName || '';
+    switch (context) {
+        case 'card':
+            return typeName ? `${base} - ${typeName}` : base;
+        case 'carousel':
+            return index !== null ? `${base} - imagen ${index + 1}` : base;
+        case 'variant':
+            return product.variableName ? `${base} - ${product.variableName}` : base;
+        case 'cart':
+            return `${base} en el carrito`;
+        default:
+            return base;
+    }
 }
 
 // ✅ NUEVO: Redondear precio hacia arriba para que termine en 90
@@ -366,7 +481,7 @@ function createProductCard(product) {
     card.setAttribute('data-category', product.category);
     card.setAttribute('data-id', product.id);
 
-    // ✅ IMAGEN CLICKEABLE CON OVERLAY "VER DETALLES" + BOTÓN AGREGAR AL CARRITO
+    // ✅ IMAGEN CLICKEABLE CON OVERLAY «VER DETALLES» + BOTÓN AGREGAR AL CARRITO
     // ✅ MOSTRAR VARIABLE SI ES UNA VARIANTE
     const variableBadge = product.isVariable
         ? `<span class="variable-badge">${product.variableName}</span>`
@@ -375,7 +490,7 @@ function createProductCard(product) {
     // ✅ MOSTRAR BOTÓN EXTRA PARA TIPO 1
     const templateButton = product.type === '1'
         ? `<button class="add-to-cart-btn template-btn" onclick="event.stopPropagation(); addTemplateOnly('${product.id}')">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                 <polyline points="14 2 14 8 20 8"></polyline>
                 <line x1="16" y1="13" x2="8" y2="13"></line>
@@ -389,15 +504,20 @@ function createProductCard(product) {
     const displayPrice = product.type === '1' ? roundTo90(product.price) : product.price;
 
     card.innerHTML = `
-        <div class="product-image-wrapper" onclick="showProductDetails('${product.id}')">
+        <div class="product-image-wrapper"
+             role="button"
+             tabindex="0"
+             aria-label="Ver detalles de ${getAltText(product, 'card')}"
+             onclick="showProductDetails('${product.id}')"
+             onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showProductDetails('${product.id}')}">
             <img src="${product.mainImage}"
-                 alt="${product.name}"
+                 alt="${getAltText(product, 'card')}"
                  class="product-image"
                  width="280"
                  height="250"
                  loading="lazy"
                  decoding="async">
-            <div class="image-overlay">
+            <div class="image-overlay" aria-hidden="true">
                 <span class="overlay-text">Ver Detalles</span>
             </div>
             ${variableBadge}
@@ -407,7 +527,7 @@ function createProductCard(product) {
             <span class="product-category">${product.category}</span>
             <div class="product-price">${formatPrice(displayPrice)}</div>
             <button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('${product.id}')">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                     <circle cx="9" cy="21" r="1"></circle>
                     <circle cx="20" cy="21" r="1"></circle>
                     <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
@@ -506,7 +626,7 @@ function showProductDetails(productId) {
                 </div>
                 <div class="carousel-thumbnails">
                     ${product.images.map((img, idx) => `
-                        <img src="${img}" alt="${product.name} ${idx + 1}"
+                        <img src="${img}" alt="${getAltText(product, 'carousel', idx)}"
                              class="carousel-thumbnail ${idx === 0 ? 'active' : ''}"
                              data-index="${idx}" width="80" height="80"
                              loading="lazy" decoding="async"
@@ -634,6 +754,11 @@ function showProductDetails(productId) {
 
     document.getElementById('productModal').classList.add('show');
     document.body.style.overflow = 'hidden';
+
+    // Actualizar la URL para que sea compartible y funcione con F5
+    if (product.slug) {
+        history.pushState({ productoSlug: product.slug }, '', '?producto=' + encodeURIComponent(product.slug));
+    }
 }
 
 
@@ -840,6 +965,8 @@ function closeModal() {
     document.getElementById('productModal').classList.remove('show');
     document.body.style.overflow = 'auto';
     currentImageIndex = 0;
+    // Restaurar la URL limpia al cerrar el modal
+    history.pushState(null, '', window.location.pathname);
 }
 
 // Soporte para teclas de navegación
@@ -857,13 +984,23 @@ document.addEventListener('keydown', function(e) {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    loadCart(); // ✅ CARGAR CARRITO AL INICIAR
-    loadConfig(); // ✅ CARGAR CONFIGURACIÓN
+    loadCart();
+    loadConfig();
     loadProducts();
     document.getElementById('searchInput').addEventListener('input', filterProducts);
     document.getElementById('categoryFilter').addEventListener('change', filterProducts);
     document.querySelector('.close-modal').addEventListener('click', closeModal);
     window.addEventListener('click', (e) => { if (e.target.id === 'productModal') closeModal(); });
+
+    // Botón atrás del navegador: cerrar modal si está abierto
+    window.addEventListener('popstate', function(e) {
+        const modal = document.getElementById('productModal');
+        if (modal.classList.contains('show')) {
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+            currentImageIndex = 0;
+        }
+    });
 });
 
 // ✅ CARGAR CONFIGURACIÓN DESDE EL SERVIDOR O ARCHIVO ESTÁTICO
@@ -883,11 +1020,23 @@ async function loadConfig() {
 // ✅ VISOR 3D CON MODEL-VIEWER (LAZY LOADING)
 // ─────────────────────────────────────────────────────────────────────────────
 
-function open3dViewer(glbUrl, productName) {
+async function open3dViewer(glbUrl, productName) {
     const overlay = document.getElementById('viewer3dOverlay');
     const content = document.getElementById('viewer3dContent');
 
-    // Inyectar model-viewer solo cuando el usuario lo pide (lazy)
+    // ✅ LAZY LOAD: inyectar el script solo la primera vez que el usuario abre el visor
+    if (!customElements.get('model-viewer')) {
+        await new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            script.type = 'module';
+            script.src = 'https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js';
+            script.onload = resolve;
+            script.onerror = reject;
+            document.head.appendChild(script);
+        });
+    }
+
+    // Inyectar model-viewer solo cuando el usuario lo pide
     content.innerHTML = `
         <model-viewer
             src="${glbUrl}"
