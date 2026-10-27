@@ -295,7 +295,7 @@ function main() {
     console.log('\n🔍 Generando páginas individuales de producto (SEO)...');
 
     const siteTitle = config.titulo || config.nombre || config.siteTitle || 'Mi Tienda';
-    const siteUrl   = (config.siteUrl || 'https://chileclass.github.io/webpage').replace(/\/+$/, '');
+    const siteUrl   = (config.siteUrl || 'https://pixchile.github.io/figuras').replace(/\/+$/, '');
     const currency  = config.moneda || 'CLP';
 
     // Rastrear slugs para detectar duplicados

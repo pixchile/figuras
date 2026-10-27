@@ -66,7 +66,7 @@ if errorlevel 1 (
 
 echo.
 echo Listo. GitHub Pages se actualiza en ~1 minuto:
-echo   https://chileclass.github.io/webpage/
+echo   https://pixchile.github.io/figuras/
 echo.
 pause
 exit /b 0

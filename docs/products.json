@@ -93,7 +93,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Dragon Ball/1-Bardock(407)/Bardock.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "bardock"
@@ -124,7 +124,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Dragon Ball/1-Black Goku Rosé(509)/Goku Rosé.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "black-goku-rose"
@@ -155,7 +155,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Dragon Ball/1-Broly(771)/Broly.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "broly"
@@ -186,7 +186,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Dragon Ball/1-Gogeta Blue(616)/Gogeta.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "gogeta-blue"
@@ -217,7 +217,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Dragon Ball/1-Gohan Futuro(593)/Futuregohan.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "gohan-futuro"
@@ -248,7 +248,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Dragon Ball/1-Gohan SSJ2(233)/Gohanssj2.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "gohan-ssj2"
@@ -283,7 +283,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Dragon Ball/1-Goku 16cm(503)/goku.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "goku-16cm"
@@ -313,7 +313,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Dragon Ball/1-Goku Niño(616)/Gokuniño.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "goku-nino"
@@ -343,7 +343,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Dragon Ball/1-Majin Vegeta(516)/Majinvegeta.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "majin-vegeta"
@@ -374,7 +374,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Dragon Ball/1-Perfect Cell(490)/Cell.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "perfect-cell"
@@ -405,7 +405,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Dragon Ball/1-Shenron(657)/Shenron.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "shenron"
@@ -435,7 +435,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Dragon Ball/1-Vegeto Blue 15cm(619)/vegeto.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "vegeto-blue-15cm"
@@ -497,7 +497,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "League of Legends/1- Thresh Forajido(600)/Thresh.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "thresh-forajido"
@@ -526,7 +526,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "League of Legends/1-Kaisa(390)/Kaisa.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "kaisa"
@@ -557,7 +557,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "League of Legends/1-Lee Sin(555)/Leesin.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "lee-sin"
@@ -592,7 +592,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "League of Legends/1-Malphite Whatsapp 16cm(1355)/malphite.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "malphite-whatsapp-16cm"
@@ -623,7 +623,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "League of Legends/1-Sion(765)/Sion.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "sion"
@@ -654,7 +654,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "League of Legends/1-Velkoz(891)/Velkoz.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "velkoz"
@@ -685,7 +685,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Otros/1-Afro Luffy 21cm(1644)/Afro Luffy.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "afro-luffy-21cm"
@@ -716,7 +716,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Otros/1-Barbilla Roja 16cm(863)/Barbilla Roja.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "barbilla-roja-16cm"
@@ -782,7 +782,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Otros/1-Chavo del 8(469)/Chavo del 8.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "chavo-del-8"
@@ -813,7 +813,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Otros/1-Chimuelo(762)/Chimuelo.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "chimuelo"
@@ -844,7 +844,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Otros/1-Duffman(760)/Duffman.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "duffman"
@@ -875,7 +875,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Otros/1-Ezzio Auditore(980)/Ezzio Auditore.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "ezzio-auditore"
@@ -906,7 +906,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Otros/1-Frieren 12cm(874)/Frieren.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "frieren-12cm"
@@ -937,7 +937,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Otros/1-Furia Luminosa(762)/Chimuela.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "furia-luminosa"
@@ -968,7 +968,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Otros/1-Juan Carlos Bodoque(732)/Juancarlosbodoque.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "juan-carlos-bodoque"
@@ -998,7 +998,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Otros/1-Senko(646)/Senko.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "senko"
@@ -1029,7 +1029,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Otros/1-Spiderman(487)/Spiderman.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "spiderman"
@@ -1059,7 +1059,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Absol 9cm(598)/Absol.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "absol-9cm"
@@ -1090,7 +1090,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Ampharos 12cm(556)/Ampharos.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "ampharos-12cm"
@@ -1121,7 +1121,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Arceus 9cm(578)/Arceus.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "arceus-9cm"
@@ -1152,7 +1152,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Blastoise 12cm(1444)/Blastoise.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "blastoise-12cm"
@@ -1187,7 +1187,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Browt 11cm(654)/Browt.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "browt-11cm"
@@ -1217,7 +1217,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Buizel 9cm(510)/Buizel.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "buizel-9cm"
@@ -1248,7 +1248,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Bulbasaur 6cm(500)/Bulbasaur.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "bulbasaur-6cm"
@@ -1279,7 +1279,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Carterpie 9cm(530)/Caterpie.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "carterpie-9cm"
@@ -1309,7 +1309,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Charizard 10cm(1297)/Charizard.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "charizard-10cm"
@@ -1340,7 +1340,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Charmander 7cm(435)/Charmander.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "charmander-7cm"
@@ -1371,7 +1371,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Chespin 10cm(572)/Chespin.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "chespin-10cm"
@@ -1402,7 +1402,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Chikorita 7cm(516)/Chikorita.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "chikorita-7cm"
@@ -1432,7 +1432,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Chimchar 9cm(432)/Chimchar.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "chimchar-9cm"
@@ -1463,7 +1463,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Cyndaquil 7cm(524)/Cyndaquil.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "cyndaquil-7cm"
@@ -1494,7 +1494,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Eevee 8cm(533)/Eevee.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "eevee-8cm"
@@ -1526,7 +1526,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Espeon 10cm(515)/Espeon.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "espeon-10cm"
@@ -1557,7 +1557,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Fennekin 6cm(614)/Fennekin.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "fennekin-6cm"
@@ -1588,7 +1588,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Flareon 7cm(534)/Flareon.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "flareon-7cm"
@@ -1617,7 +1617,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Flygon 9cm(486)/Flygon.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "flygon-9cm"
@@ -1648,7 +1648,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Froakie 8cm(694)/Froakie.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "froakie-8cm"
@@ -1679,7 +1679,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Fuecoco 9cm(572)/Fuecoco.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "fuecoco-9cm"
@@ -1714,7 +1714,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Gecqua 9cm(757)/Gecqua.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "gecqua-9cm"
@@ -1745,7 +1745,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Gengar 9cm(541)/gengar.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "gengar-9cm"
@@ -1776,7 +1776,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Glaceon 9cm(531)/Glaceon.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "glaceon-9cm"
@@ -1807,7 +1807,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Grookey 9cm(599)/Grookey.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "grookey-9cm"
@@ -1838,7 +1838,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Growlithe 8cm(520)/Growlithe.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "growlithe-8cm"
@@ -1867,7 +1867,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Gyarado 22cm largo(1074)/Gyarados.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "gyarado-22cm-largo"
@@ -1898,7 +1898,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Jigglypuff 8cm(640)/jigglypuff.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "jigglypuff-8cm"
@@ -1929,7 +1929,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Jolteon 6cm(531)/Jolteon.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "jolteon-6cm"
@@ -1959,7 +1959,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Larvitar 9cm(424)/Larvitar.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "larvitar-9cm"
@@ -1990,7 +1990,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Leafeon 9cm(463)/Leafeon.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "leafeon-9cm"
@@ -2021,7 +2021,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Litten 8cm(540)/Litten.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "litten-8cm"
@@ -2052,7 +2052,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Lopunny 11cm(525)/Lopuny.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "lopunny-11cm"
@@ -2083,7 +2083,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Meowscarada 15cm(678)/Meowscarada.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "meowscarada-15cm"
@@ -2114,7 +2114,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Mewtwo 9cm(620)/Mewtwo.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "mewtwo-9cm"
@@ -2145,7 +2145,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Mudkip 10cm(575)/Mudkip.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "mudkip-10cm"
@@ -2175,7 +2175,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Nidoking 7cm(521)/Nidoking.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "nidoking-7cm"
@@ -2205,7 +2205,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Nidoqueen 7cm(520)/Nidoqueen.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "nidoqueen-7cm"
@@ -2236,7 +2236,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Oshowatt 9cm(696)/Oshowatt.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "oshowatt-9cm"
@@ -2267,7 +2267,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Pichu 7cm(321)/Pichu.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "pichu-7cm"
@@ -2300,7 +2300,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Pikachu 9cm(480)/pikachu2.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "pikachu-9cm"
@@ -2330,7 +2330,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Piplup 8cm(544)/Piplup.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "piplup-8cm"
@@ -2359,7 +2359,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Poliwag 6cm(460)/Poliwag.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "poliwag-6cm"
@@ -2390,7 +2390,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Pombon 11cm(714)/Pombon.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "pombon-11cm"
@@ -2421,7 +2421,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Popplio 7cm(608)/Popplio.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "popplio-7cm"
@@ -2452,7 +2452,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Quaxly 9cm(648)/Quaxly.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "quaxly-9cm"
@@ -2483,7 +2483,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Rayquaza 10cm(653)/Rayquaza.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "rayquaza-10cm"
@@ -2514,7 +2514,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Rowlet 8cm(809)/Rowlet.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "rowlet-8cm"
@@ -2545,7 +2545,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Scorbunny 11cm(503)/Scorbunny.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "scorbunny-11cm"
@@ -2576,7 +2576,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Scyther 8cm(532)/Scyther.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "scyther-8cm"
@@ -2607,7 +2607,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Slowpoke 6cm(422)/Slowpoke.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "slowpoke-6cm"
@@ -2638,7 +2638,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Snivy 9cm(574)/Snivy.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "snivy-9cm"
@@ -2669,7 +2669,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Sobble 10cm(535)/Sobble.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "sobble-10cm"
@@ -2700,7 +2700,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Sprigatito 9cm(648)/Sprigatito.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "sprigatito-9cm"
@@ -2731,7 +2731,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Squirtle 8cm(572)/Squirtle.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "squirtle-8cm"
@@ -2762,7 +2762,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Sylveon 9cm(459)/Sylveon.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "sylveon-9cm"
@@ -2793,7 +2793,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Tepig 9cm(637)/Tepig.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "tepig-9cm"
@@ -2823,7 +2823,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Torchic 9cm(443)/Torchic.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "torchic-9cm"
@@ -2854,7 +2854,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Totodile 8cm(576)/Totodile.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "totodile-8cm"
@@ -2885,7 +2885,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Treecko 8cm(406)/Treecko.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "treecko-8cm"
@@ -2916,7 +2916,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Turtwig 8cm(472)/Turtwig.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "turtwig-8cm"
@@ -2948,7 +2948,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Umbreon 8cm(555)/Umbreon.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "umbreon-8cm"
@@ -2979,7 +2979,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Vaporeon 8cm(502)/Vaporeon.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "vaporeon-8cm"
@@ -3010,7 +3010,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Venasaur 11cm(1932)/Venasaur.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "venasaur-11cm"
@@ -3040,7 +3040,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/1-Zorua 9cm(513)/Zorua.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "zorua-9cm"
@@ -3070,7 +3070,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/Entrenadores/1-Aura 10cm(634)/Aura.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "aura-10cm"
@@ -3100,7 +3100,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/Entrenadores/1-Bruno 10cm(625)/Bruno.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "bruno-10cm"
@@ -3130,7 +3130,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/Entrenadores/1-Dawn 10cm(535)/Dawn.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "dawn-10cm"
@@ -3161,7 +3161,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/Entrenadores/1-Hilbert 10cm(606)/Hilbert.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "hilbert-10cm"
@@ -3221,7 +3221,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Pokémon/Entrenadores/1-Lucas 10cm(526)/Lukas.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "lucas-10cm"
@@ -3252,7 +3252,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Vocaloid/1-Kasane Teto(796)/Kasaneteto.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "kasane-teto"
@@ -3283,7 +3283,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Vocaloid/1-Miku(1302)/Mikuvox.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "miku"
@@ -3314,7 +3314,7 @@
     "isVariable": false,
     "variableName": null,
     "customPrice": null,
-    "glbFile": "Vocaloid/1-Teto Pera(872)/Tetopear.glb",
+    "glbFile": null,
     "extraDescription": null,
     "allVariants": [],
     "slug": "teto-pera"

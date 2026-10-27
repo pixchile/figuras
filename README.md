@@ -66,7 +66,7 @@ En Windows podés hacer las dos etapas (export + commit + push) de una vez con *
 - Ve a **Settings → Pages**
 - Source: `Deploy from a branch`
 - Branch: `main` | Folder: `/docs`
-- Guarda, y en ~1 min tu sitio estará en `https://chileclass.github.io/webpage/`
+- Guarda, y en ~1 min tu sitio estará en `https://pixchile.github.io/figuras/`
 
 ---
 
