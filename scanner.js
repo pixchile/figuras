@@ -30,7 +30,9 @@ const DEFAULT_IGNORE_ITEMS = [
     'server.js', 'export.js', 'scanner.js',
     'script.js', 'banner.js', 'styles.css', 'config.json', 'index.html',
     'README.md', 'LICENSE', 'docs', '.gitignore', 'products.json',
-    'banner'   // la carpeta del banner se copia explícitamente en export.js
+    'packs.json', 'admin.html',
+    'banner',  // se copia explícitamente en export.js
+    'packs'    // imágenes propias de packs; también se copian explícitamente
 ];
 
 // ─── PARSERS ────────────────────────────────────────────────────────────────
@@ -163,7 +165,7 @@ function createScanner(config) {
 
                     if (images.length > 0) {
                         products.push({
-                            id: hashId(relativePath + '-0'), name: parsed.displayName, type: '2',
+                            id: hashId(relativePath + '-0'), ref: relativePath, name: parsed.displayName, type: '2',
                             typeName: productInfo.typeName, category: currentCategory || 'General',
                             price: productInfo.price, description: productInfo.description,
                             specs: productInfo.specs, pieces: parsed.multiplier, buildHours: productInfo.buildHours,
@@ -191,7 +193,7 @@ function createScanner(config) {
                             const varExtra        = getExtraDescription(varFullPath) || extraDescription;
 
                             products.push({
-                                id: hashId(relativePath + '/' + varEntry.name),
+                                id: hashId(relativePath + '/' + varEntry.name), ref: varRelativePath,
                                 name: varProductInfo.name, type: varProductInfo.type,
                                 typeName: varProductInfo.typeName, category: currentCategory || 'General',
                                 price: varProductInfo.price, description: varProductInfo.description,
@@ -203,7 +205,7 @@ function createScanner(config) {
                         }
                     } else {
                         products.push({
-                            id: hashId(relativePath),
+                            id: hashId(relativePath), ref: relativePath,
                             name: productInfo.name, type: productInfo.type,
                             typeName: productInfo.typeName, category: currentCategory || 'General',
                             price: productInfo.price, description: productInfo.description,
@@ -240,7 +242,7 @@ function createScanner(config) {
 
                     if (images.length > 0) {
                         products.push({
-                            id: hashId(entry.name + '-0'), name: parsed.displayName, type: '2',
+                            id: hashId(entry.name + '-0'), ref: entry.name, name: parsed.displayName, type: '2',
                             typeName: productInfo.typeName, category: 'General',
                             price: productInfo.price, description: productInfo.description,
                             specs: productInfo.specs, pieces: parsed.multiplier, buildHours: productInfo.buildHours,
@@ -267,7 +269,7 @@ function createScanner(config) {
                             const varExtra        = getExtraDescription(varFullPath) || extraDescription;
 
                             products.push({
-                                id: hashId(entry.name + '/' + varEntry.name),
+                                id: hashId(entry.name + '/' + varEntry.name), ref: varRelativePath,
                                 name: varProductInfo.name, type: varProductInfo.type,
                                 typeName: varProductInfo.typeName, category: 'General',
                                 price: varProductInfo.price, description: varProductInfo.description,
@@ -279,7 +281,7 @@ function createScanner(config) {
                         }
                     } else {
                         products.push({
-                            id: hashId(entry.name),
+                            id: hashId(entry.name), ref: entry.name,
                             name: productInfo.name, type: productInfo.type,
                             typeName: productInfo.typeName, category: 'General',
                             price: productInfo.price, description: productInfo.description,
@@ -299,6 +301,148 @@ function createScanner(config) {
     return { scanRootDirectory };
 }
 
+// ─── PACKS ──────────────────────────────────────────────────────────────────
+// Los packs viven en packs.json y referencian productos existentes por su
+// ruta de carpeta (`ref`) o, como respaldo, por nombre. No duplican productos
+// ni imágenes.
+
+function readPacksFile(rootPath) {
+    const file = path.join(rootPath, 'packs.json');
+    try {
+        if (!fs.existsSync(file)) return { version: 1, packs: [] };
+        const doc = JSON.parse(fs.readFileSync(file, 'utf8'));
+        const packs = Array.isArray(doc) ? doc : (Array.isArray(doc.packs) ? doc.packs : []);
+        return { version: (doc && doc.version) || 1, packs };
+    } catch (e) {
+        console.warn('⚠️  No se pudo leer packs.json:', e.message);
+        return { version: 1, packs: [] };
+    }
+}
+
+function slugifyPack(text) {
+    return String(text)
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-z0-9\s-]/g, '')
+        .trim()
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-') || 'pack';
+}
+
+/**
+ * Convierte la configuración de packs en productos "tipo pack" listos para
+ * la grilla y el carrito. Devuelve solo los packs válidos.
+ */
+function resolvePacks(products, packsDoc) {
+    const configs = (packsDoc && packsDoc.packs) || [];
+    const byRef  = new Map();
+    const byName = new Map();
+
+    for (const p of products) {
+        if (p.ref) byRef.set(p.ref, p);
+        byName.set(String(p.name).trim().toLowerCase(), p);
+    }
+
+    const usedPackIds = new Set();
+    const result = [];
+
+    for (const cfg of configs) {
+        if (!cfg || cfg.enabled === false) continue;
+        if (!cfg.name || !Array.isArray(cfg.items)) continue;
+
+        const resolved = [];
+        let missing = null;
+
+        for (const item of cfg.items) {
+            const ref  = typeof item === 'string' ? item : (item && item.ref);
+            const name = typeof item === 'string' ? null : (item && item.name);
+
+            let product = ref ? byRef.get(ref) : null;
+            if (!product && name) product = byName.get(String(name).trim().toLowerCase());
+
+            if (!product) { missing = ref || name || '(sin referencia)'; break; }
+            if (!resolved.some(p => p.id === product.id)) resolved.push(product);
+        }
+
+        if (missing) {
+            console.warn(`⚠️  Pack "${cfg.name}" omitido: no se encontró "${missing}".`);
+            continue;
+        }
+        if (resolved.length < 2) {
+            console.warn(`⚠️  Pack "${cfg.name}" omitido: necesita al menos 2 productos.`);
+            continue;
+        }
+
+        const regularPrice = resolved.reduce((sum, p) => sum + (Number(p.price) || 0), 0);
+        const discountType = cfg.discountType === 'fixed' ? 'fixed' : 'percent';
+        const percent = Math.min(90, Math.max(0, Number(cfg.discount) || 0));
+
+        let price = discountType === 'fixed'
+            ? Math.round(Number(cfg.price) || 0)
+            : roundTo90(Math.round(regularPrice * (1 - percent / 100)));
+
+        if (!(price > 0) || price >= regularPrice) {
+            console.warn(`⚠️  Pack "${cfg.name}" omitido: el precio (${price}) no es menor al total (${regularPrice}).`);
+            continue;
+        }
+
+        const baseId = slugifyPack(cfg.id || cfg.name);
+        let packId = baseId;
+        let n = 2;
+        while (usedPackIds.has(packId)) packId = `${baseId}-${n++}`;
+        usedPackIds.add(packId);
+
+        const image = cfg.image
+            ? (String(cfg.image).startsWith('/') ? String(cfg.image) : '/' + String(cfg.image))
+            : (resolved[0].mainImage || null);
+
+        const names = resolved.map(p => p.name);
+        const listText = names.length === 2
+            ? `${names[0]} y ${names[1]}`
+            : `${names.slice(0, -1).join(', ')} y ${names[names.length - 1]}`;
+
+        result.push({
+            id: hashId('pack:' + packId),
+            ref: 'pack/' + packId,
+            name: String(cfg.name).trim(),
+            type: 'pack',
+            typeName: 'Pack',
+            category: cfg.category || 'Packs',
+            price,
+            regularPrice,
+            savings: regularPrice - price,
+            discountType,
+            discount: discountType === 'percent' ? percent : null,
+            description: (cfg.description && String(cfg.description).trim()) || `Incluye ${listText}.`,
+            specs: [],
+            pieces: resolved.reduce((sum, p) => sum + (p.pieces || 0), 0),
+            buildHours: resolved.reduce((sum, p) => sum + (p.buildHours || 0), 0),
+            images: image ? [image] : [],
+            mainImage: image,
+            isVariable: false,
+            variableName: null,
+            customPrice: null,
+            glbFile: null,
+            extraDescription: null,
+            isPack: true,
+            isDigital: resolved.every(p => p.type === '3'),
+            memberIds: resolved.map(p => p.id),
+            packItems: resolved.map(p => ({
+                id: p.id,
+                ref: p.ref,
+                name: p.name,
+                price: p.price,
+                mainImage: p.mainImage,
+                images: p.images || [],
+                category: p.category
+            }))
+        });
+    }
+
+    return result;
+}
+
 /**
  * Escanea la raíz y devuelve el listado de productos.
  * Las rutas de imágenes/modelos se devuelven con "/" inicial.
@@ -314,5 +458,8 @@ module.exports = {
     isVariableFolder,
     parseProductName,
     parseVariableInfo,
-    scanProducts
+    scanProducts,
+    readPacksFile,
+    resolvePacks,
+    slugifyPack
 };

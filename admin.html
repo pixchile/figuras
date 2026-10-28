@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Armar packs | Pixchile</title>
+<style>
+    :root {
+        --paper: #f6f2ea;
+        --paper-2: #efe9dd;
+        --surface: #ffffff;
+        --ink: #1c1914;
+        --ink-soft: #625b50;
+        --line: #e2dccf;
+        --accent: #c8452a;
+        --accent-strong: #a9361f;
+        --accent-tint: #f7e3dc;
+        --success: #1f6f54;
+        --danger: #b3261e;
+        --radius: 14px;
+        --shadow: 0 10px 30px rgba(28, 25, 20, 0.08);
+        --font: "Segoe UI", "Trebuchet MS", system-ui, -apple-system, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+        margin: 0;
+        font-family: var(--font);
+        background: var(--paper);
+        color: var(--ink);
+        line-height: 1.5;
+    }
+
+    button, input, select, textarea { font-family: inherit; font-size: 1rem; }
+
+    .wrap {
+        width: min(1180px, 100% - 2.5rem);
+        margin-inline: auto;
+    }
+
+    .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: rgba(246, 242, 234, 0.9);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--line);
+    }
+
+    .topbar .wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.9rem 0;
+    }
+
+    .eyebrow {
+        margin: 0 0 0.15rem;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--accent);
+    }
+
+    h1 { margin: 0; font-size: 1.4rem; letter-spacing: -0.02em; }
+    h2 { margin: 0 0 0.9rem; font-size: 1.05rem; letter-spacing: -0.01em; }
+
+    .topbar a {
+        color: var(--ink-soft);
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 600;
+        padding: 0.5rem 0.9rem;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: var(--surface);
+    }
+
+    .topbar a:hover { color: var(--ink); border-color: #d6cebd; }
+
+    .layout {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 1.25rem;
+        align-items: start;
+        padding: 1.5rem 0;
+    }
+
+    .panel {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 1.1rem;
+    }
+
+    .panel-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .pill {
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: var(--accent);
+        background: var(--accent-tint);
+        padding: 0.25rem 0.65rem;
+        border-radius: 999px;
+        white-space: nowrap;
+    }
+
+    .filters {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .filters input,
+    .filters select {
+        border: 1px solid var(--line);
+        background: var(--paper);
+        border-radius: 10px;
+        padding: 0.55rem 0.75rem;
+        color: var(--ink);
+        min-width: 0;
+    }
+
+    .filters input { flex: 1; }
+    .filters select { max-width: 45%; }
+
+    .product-list {
+        max-height: 58vh;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        padding-right: 0.25rem;
+    }
+
+    .product-row {
+        display: grid;
+        grid-template-columns: auto 44px minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 0.65rem;
+        padding: 0.45rem 0.55rem;
+        border: 1px solid transparent;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    .product-row:hover { background: var(--paper); }
+
+    .product-row.is-selected {
+        background: var(--accent-tint);
+        border-color: #e8c8bf;
+    }
+
+    .product-row input { accent-color: var(--accent); width: 16px; height: 16px; }
+
+    .product-row img {
+        width: 44px;
+        height: 44px;
+        border-radius: 8px;
+        object-fit: cover;
+        background: var(--paper-2);
+    }
+
+    .product-meta { display: flex; flex-direction: column; min-width: 0; }
+
+    .product-name {
+        font-size: 0.9rem;
+        font-weight: 600;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .product-cat { font-size: 0.72rem; color: var(--ink-soft); }
+
+    .product-price { font-size: 0.82rem; font-weight: 700; color: var(--ink-soft); white-space: nowrap; }
+
+    .field { display: flex; flex-direction: column; gap: 0.3rem; margin-bottom: 0.8rem; }
+
+    .field > span { font-size: 0.78rem; font-weight: 700; color: var(--ink-soft); }
+
+    .field input,
+    .field textarea {
+        width: 100%;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 0.6rem 0.75rem;
+        background: var(--paper);
+        color: var(--ink);
+        resize: vertical;
+    }
+
+    .field input:focus,
+    .field textarea:focus,
+    .filters input:focus,
+    .filters select:focus {
+        outline: none;
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(200, 69, 42, 0.12);
+    }
+
+    fieldset {
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 0.7rem 0.8rem 0.8rem;
+        margin: 0 0 0.8rem;
+    }
+
+    legend { font-size: 0.78rem; font-weight: 700; color: var(--ink-soft); padding: 0 0.3rem; }
+
+    .segmented { display: flex; gap: 1rem; margin-bottom: 0.6rem; }
+
+    .segmented label {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-size: 0.88rem;
+        cursor: pointer;
+    }
+
+    .segmented input { accent-color: var(--accent); }
+
+    .summary {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+        padding: 0.8rem;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--paper);
+        margin-bottom: 0.9rem;
+    }
+
+    .summary div { display: flex; flex-direction: column; }
+    .summary span { font-size: 0.72rem; color: var(--ink-soft); }
+    .summary strong { font-size: 1rem; font-variant-numeric: tabular-nums; }
+    .summary .accent { color: var(--accent); }
+    .summary .success { color: var(--success); }
+
+    .actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+    .btn {
+        border: 1px solid var(--line);
+        background: var(--surface);
+        color: var(--ink);
+        padding: 0.6rem 1rem;
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 0.88rem;
+        cursor: pointer;
+        transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .btn.primary:hover { background: var(--accent-strong); border-color: var(--accent-strong); }
+    .btn.ghost:hover { background: var(--paper); }
+    .btn.danger { color: var(--danger); border-color: #e3bdb9; }
+    .btn.danger:hover { background: var(--danger); border-color: var(--danger); color: #fff; }
+    .btn.sm { padding: 0.4rem 0.75rem; font-size: 0.8rem; }
+
+    .status { min-height: 1.2em; margin: 0.8rem 0 0; font-size: 0.85rem; font-weight: 600; }
+    .status.ok { color: var(--success); }
+    .status.error { color: var(--danger); }
+
+    .section-title { margin: 0 0 0.8rem; font-size: 1.05rem; }
+
+    .pack-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 0.75rem;
+        padding-bottom: 3rem;
+    }
+
+    .pack-card {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 0.7rem;
+    }
+
+    .pack-card img {
+        width: 52px;
+        height: 52px;
+        border-radius: 9px;
+        object-fit: cover;
+        background: var(--paper-2);
+        flex-shrink: 0;
+    }
+
+    .pack-card-body { display: flex; flex-direction: column; min-width: 0; flex: 1; }
+    .pack-card-body strong { font-size: 0.92rem; }
+    .pack-card-body span { font-size: 0.76rem; color: var(--ink-soft); }
+
+    .pack-card-actions { display: flex; gap: 0.35rem; flex-shrink: 0; }
+
+    .empty { color: var(--ink-soft); font-size: 0.9rem; padding: 0.5rem 0; }
+
+    @media (max-width: 900px) {
+        .layout { grid-template-columns: 1fr; }
+        .product-list { max-height: 45vh; }
+        .filters select { max-width: none; }
+        .pack-list { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 520px) {
+        .filters { flex-direction: column; }
+        .filters select { max-width: none; }
+        .summary { grid-template-columns: 1fr; }
+        .pack-card { flex-wrap: wrap; }
+        .pack-card-actions { width: 100%; }
+        .pack-card-actions .btn { flex: 1; }
+    }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+    <div class="wrap">
+        <div>
+            <p class="eyebrow">Herramienta local</p>
+            <h1>Armar packs</h1>
+        </div>
+        <a href="/">Ver catálogo</a>
+    </div>
+</header>
+
+<main class="wrap layout">
+    <section class="panel">
+        <div class="panel-head">
+            <h2>Productos</h2>
+            <span class="pill" id="selectedCount">0 seleccionados</span>
+        </div>
+
+        <div class="filters">
+            <input type="search" id="search" placeholder="Buscar producto..." aria-label="Buscar producto">
+            <select id="category" aria-label="Filtrar por categoría">
+                <option value="all">Todas las categorías</option>
+            </select>
+        </div>
+
+        <div class="product-list" id="productList"></div>
+    </section>
+
+    <section class="panel">
+        <h2 id="formTitle">Nuevo pack</h2>
+
+        <form id="packForm" novalidate>
+            <label class="field">
+                <span>Nombre</span>
+                <input type="text" id="name" maxlength="60" placeholder="Pack Iniciales" required>
+            </label>
+
+            <label class="field">
+                <span>Descripción (opcional)</span>
+                <textarea id="description" rows="2" maxlength="200" placeholder="Tres figuras para empezar tu colección."></textarea>
+            </label>
+
+            <fieldset>
+                <legend>Precio del pack</legend>
+                <div class="segmented">
+                    <label><input type="radio" name="discountType" value="percent" checked> Porcentaje</label>
+                    <label><input type="radio" name="discountType" value="fixed"> Precio fijo</label>
+                </div>
+                <label class="field" id="valueField" style="margin-bottom:0">
+                    <span id="valueLabel">Descuento (%)</span>
+                    <input type="number" id="value" min="1" max="90" step="1" value="10">
+                </label>
+            </fieldset>
+
+            <label class="field">
+                <span>Imagen propia (opcional)</span>
+                <input type="text" id="image" placeholder="packs/mi-pack.webp">
+            </label>
+
+            <div class="summary">
+                <div><span>Productos</span><strong id="sumCount">0</strong></div>
+                <div><span>Precio normal</span><strong id="sumRegular">$0</strong></div>
+                <div><span>Precio del pack</span><strong id="sumPrice" class="accent">$0</strong></div>
+                <div><span>Ahorro</span><strong id="sumSaving" class="success">$0</strong></div>
+            </div>
+
+            <div class="actions">
+                <button type="submit" class="btn primary" id="saveBtn">Guardar pack</button>
+                <button type="button" class="btn ghost" id="cancelBtn" hidden>Cancelar edición</button>
+            </div>
+
+            <p class="status" id="status" role="status" aria-live="polite"></p>
+        </form>
+    </section>
+</main>
+
+<section class="wrap">
+    <h2 class="section-title">Packs guardados</h2>
+    <div class="pack-list" id="packList"></div>
+</section>
+
+<script>
+(function () {
+    "use strict";
+
+    const state = {
+        products: [],
+        packs: [],
+        selected: new Set(),
+        editingId: null,
+        productsByRef: new Map()
+    };
+
+    const els = {
+        search: document.getElementById("search"),
+        category: document.getElementById("category"),
+        productList: document.getElementById("productList"),
+        selectedCount: document.getElementById("selectedCount"),
+        packList: document.getElementById("packList"),
+        form: document.getElementById("packForm"),
+        formTitle: document.getElementById("formTitle"),
+        name: document.getElementById("name"),
+        description: document.getElementById("description"),
+        image: document.getElementById("image"),
+        value: document.getElementById("value"),
+        valueLabel: document.getElementById("valueLabel"),
+        valueField: document.getElementById("valueField"),
+        saveBtn: document.getElementById("saveBtn"),
+        cancelBtn: document.getElementById("cancelBtn"),
+        status: document.getElementById("status"),
+        sumCount: document.getElementById("sumCount"),
+        sumRegular: document.getElementById("sumRegular"),
+        sumPrice: document.getElementById("sumPrice"),
+        sumSaving: document.getElementById("sumSaving")
+    };
+
+    // ── Helpers ────────────────────────────────────────────────────────────
+    function formatPrice(value) {
+        return "$" + Math.round(Number(value) || 0).toLocaleString("es-CL");
+    }
+
+    function escapeHtml(value) {
+        return String(value).replace(/[&<>"']/g, ch => ({
+            "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+        }[ch]));
+    }
+
+    function imgUrl(path) {
+        if (!path) return "";
+        return encodeURI(path.startsWith("/") ? path : "/" + path);
+    }
+
+    function slugify(text) {
+        return String(text)
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .replace(/[^a-z0-9\s-]/g, "")
+            .trim()
+            .replace(/\s+/g, "-")
+            .replace(/-+/g, "-") || "pack";
+    }
+
+    function roundTo90(price) {
+        if (price % 10 === 0 && Math.floor(price / 10) % 10 === 9) return price;
+        if (price < 90) return 90;
+        let next = Math.ceil(price / 10) * 10;
+        return next % 100 === 0 ? next + 90 : Math.floor(next / 100) * 100 + 90;
+    }
+
+    function setStatus(message, kind) {
+        els.status.textContent = message || "";
+        els.status.className = "status" + (kind ? " " + kind : "");
+    }
+
+    function discountType() {
+        return document.querySelector('input[name="discountType"]:checked').value;
+    }
+
+    function selectedProducts() {
+        return [...state.selected]
+            .map(ref => state.productsByRef.get(ref))
+            .filter(Boolean);
+    }
+
+    function currentPrice(total) {
+        const value = Number(els.value.value) || 0;
+        if (discountType() === "fixed") return Math.round(value);
+        const percent = Math.min(90, Math.max(0, value));
+        return roundTo90(Math.round(total * (1 - percent / 100)));
+    }
+
+    // ── Render ─────────────────────────────────────────────────────────────
+    function fillCategories() {
+        const categories = [...new Set(state.products.map(p => p.category))].sort();
+        els.category.innerHTML = '<option value="all">Todas las categorías</option>' +
+            categories.map(c => `<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join("");
+    }
+
+    function renderProducts() {
+        const query = els.search.value.trim().toLowerCase();
+        const category = els.category.value;
+
+        const list = state.products.filter(product => {
+            const matchesCategory = category === "all" || product.category === category;
+            const haystack = `${product.name} ${product.category}`.toLowerCase();
+            return matchesCategory && (!query || haystack.includes(query));
+        });
+
+        els.productList.innerHTML = list.map(product => {
+            const ref = product.ref || product.name;
+            const checked = state.selected.has(ref);
+            return `
+                <label class="product-row ${checked ? "is-selected" : ""}">
+                    <input type="checkbox" data-ref="${escapeHtml(ref)}" ${checked ? "checked" : ""}>
+                    <img src="${imgUrl(product.mainImage)}" alt="" loading="lazy">
+                    <span class="product-meta">
+                        <span class="product-name">${escapeHtml(product.name)}</span>
+                        <span class="product-cat">${escapeHtml(product.category || "General")}</span>
+                    </span>
+                    <span class="product-price">${formatPrice(product.price)}</span>
+                </label>`;
+        }).join("") || '<p class="empty">Sin resultados.</p>';
+
+        els.selectedCount.textContent = `${state.selected.size} seleccionado(s)`;
+        updateSummary();
+    }
+
+    function updateSummary() {
+        const items = selectedProducts();
+        const total = items.reduce((sum, p) => sum + (Number(p.price) || 0), 0);
+        const price = currentPrice(total);
+
+        els.selectedCount.textContent = `${state.selected.size} seleccionado(s)`;
+        els.sumCount.textContent = items.length;
+        els.sumRegular.textContent = formatPrice(total);
+        els.sumPrice.textContent = formatPrice(price);
+        els.sumSaving.textContent = formatPrice(Math.max(0, total - price));
+    }
+
+    function renderPacks() {
+        if (!state.packs.length) {
+            els.packList.innerHTML = '<p class="empty">Todavía no hay packs. Arma el primero arriba.</p>';
+            return;
+        }
+
+        els.packList.innerHTML = state.packs.map(pack => {
+            const count = Array.isArray(pack.items) ? pack.items.length : 0;
+            const pricing = pack.discountType === "fixed"
+                ? formatPrice(pack.price)
+                : `${pack.discount}% de descuento`;
+            const image = pack.image ? `<img src="${imgUrl(pack.image)}" alt="">` : "";
+
+            return `
+                <article class="pack-card">
+                    ${image}
+                    <div class="pack-card-body">
+                        <strong>${escapeHtml(pack.name)}</strong>
+                        <span>${count} producto(s) · ${pricing}</span>
+                    </div>
+                    <div class="pack-card-actions">
+                        <button type="button" class="btn ghost sm" data-edit="${escapeHtml(pack.id)}">Editar</button>
+                        <button type="button" class="btn danger sm" data-del="${escapeHtml(pack.id)}">Eliminar</button>
+                    </div>
+                </article>`;
+        }).join("");
+    }
+
+    function updateValueUI() {
+        const isFixed = discountType() === "fixed";
+        els.valueLabel.textContent = isFixed ? "Precio fijo ($)" : "Descuento (%)";
+        els.value.min = "1";
+        if (isFixed) {
+            els.value.removeAttribute("max");
+            if (Number(els.value.value) <= 90) els.value.value = "";
+            els.value.placeholder = "14990";
+        } else {
+            els.value.max = "90";
+            if (!els.value.value || Number(els.value.value) < 1) els.value.value = "10";
+            els.value.placeholder = "10";
+        }
+        updateSummary();
+    }
+
+    // ── Formulario ─────────────────────────────────────────────────────────
+    function resetForm() {
+        state.editingId = null;
+        state.selected = new Set();
+        els.form.reset();
+        document.querySelector('input[name="discountType"][value="percent"]').checked = true;
+        els.value.value = "10";
+        els.formTitle.textContent = "Nuevo pack";
+        els.cancelBtn.hidden = true;
+        updateValueUI();
+        renderProducts();
+    }
+
+    function editPack(id) {
+        const pack = state.packs.find(p => p.id === id);
+        if (!pack) return;
+
+        state.editingId = id;
+        state.selected = new Set(
+            (pack.items || []).map(item => item.ref || item.name).filter(Boolean)
+        );
+
+        els.name.value = pack.name || "";
+        els.description.value = pack.description || "";
+        els.image.value = pack.image || "";
+
+        const type = pack.discountType === "fixed" ? "fixed" : "percent";
+        document.querySelector(`input[name="discountType"][value="${type}"]`).checked = true;
+        els.value.value = type === "fixed" ? (pack.price || "") : (pack.discount ?? 10);
+
+        els.formTitle.textContent = "Editar pack";
+        els.cancelBtn.hidden = false;
+        updateValueUI();
+        renderProducts();
+
+        const missing = (pack.items || []).filter(item => item.ref && !state.productsByRef.has(item.ref));
+        if (missing.length) {
+            setStatus(`Atención: ${missing.length} producto(s) de este pack ya no existen. Revisa la selección.`, "error");
+        } else {
+            setStatus("Editando. Guarda para aplicar los cambios.", "");
+        }
+
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    async function savePacks(next) {
+        const response = await fetch("/api/packs", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ version: 1, packs: next })
+        });
+
+        if (!response.ok) {
+            throw new Error((await response.text()) || "No se pudo guardar packs.json");
+        }
+        return response.json();
+    }
+
+    async function handleSubmit(event) {
+        event.preventDefault();
+
+        const name = els.name.value.trim();
+        const description = els.description.value.trim();
+        const image = els.image.value.trim();
+        const type = discountType();
+        const value = Number(els.value.value);
+        const items = selectedProducts();
+        const total = items.reduce((sum, p) => sum + (Number(p.price) || 0), 0);
+
+        if (!name) return setStatus("Ponle un nombre al pack.", "error");
+        if (items.length < 2) return setStatus("Selecciona al menos 2 productos.", "error");
+        if (type === "percent" && !(value > 0 && value <= 90)) {
+            return setStatus("El descuento debe estar entre 1 y 90 %.", "error");
+        }
+        if (type === "fixed" && !(value > 0)) {
+            return setStatus("El precio fijo debe ser mayor a 0.", "error");
+        }
+        if (type === "fixed" && value >= total) {
+            return setStatus("El precio fijo debe ser menor al precio normal.", "error");
+        }
+
+        const duplicate = state.packs.find(pack =>
+            pack.id !== state.editingId &&
+            String(pack.name).trim().toLowerCase() === name.toLowerCase()
+        );
+        if (duplicate) return setStatus("Ya existe un pack con ese nombre.", "error");
+
+        const id = state.editingId || uniqueId(name);
+
+        const pack = {
+            id,
+            name,
+            items: items.map(product => ({ ref: product.ref || product.name, name: product.name })),
+            discountType: type,
+            enabled: true
+        };
+        if (description) pack.description = description;
+        if (image) pack.image = image;
+        if (type === "percent") pack.discount = value;
+        else pack.price = Math.round(value);
+
+        const next = state.packs.filter(p => p.id !== id).concat(pack);
+
+        els.saveBtn.disabled = true;
+        setStatus("Guardando...", "");
+
+        try {
+            const result = await savePacks(next);
+            state.packs = next;
+            renderPacks();
+            resetForm();
+            setStatus(`Guardado. Hay ${result.total} producto(s) y packs en total. Ejecuta publicar.bat para publicar.`, "ok");
+        } catch (error) {
+            setStatus(error.message, "error");
+        } finally {
+            els.saveBtn.disabled = false;
+        }
+    }
+
+    function uniqueId(name) {
+        const base = slugify(name);
+        const used = new Set(state.packs.map(pack => pack.id));
+        let id = base;
+        let n = 2;
+        while (used.has(id)) id = `${base}-${n++}`;
+        return id;
+    }
+
+    async function deletePack(id) {
+        const pack = state.packs.find(p => p.id === id);
+        if (!pack) return;
+        if (!confirm(`¿Eliminar el pack "${pack.name}"?`)) return;
+
+        const next = state.packs.filter(p => p.id !== id);
+        try {
+            await savePacks(next);
+            state.packs = next;
+            if (state.editingId === id) resetForm();
+            renderPacks();
+            setStatus("Pack eliminado.", "ok");
+        } catch (error) {
+            setStatus(error.message, "error");
+        }
+    }
+
+    // ── Eventos ────────────────────────────────────────────────────────────
+    els.search.addEventListener("input", renderProducts);
+    els.category.addEventListener("change", renderProducts);
+
+    els.productList.addEventListener("change", event => {
+        const checkbox = event.target.closest('input[type="checkbox"]');
+        if (!checkbox) return;
+        if (checkbox.checked) state.selected.add(checkbox.dataset.ref);
+        else state.selected.delete(checkbox.dataset.ref);
+        checkbox.closest(".product-row").classList.toggle("is-selected", checkbox.checked);
+        updateSummary();
+    });
+
+    document.querySelectorAll('input[name="discountType"]').forEach(radio => {
+        radio.addEventListener("change", updateValueUI);
+    });
+
+    els.value.addEventListener("input", updateSummary);
+    els.form.addEventListener("submit", handleSubmit);
+    els.cancelBtn.addEventListener("click", () => {
+        resetForm();
+        setStatus("", "");
+    });
+
+    els.packList.addEventListener("click", event => {
+        const edit = event.target.closest("[data-edit]");
+        if (edit) return editPack(edit.dataset.edit);
+        const del = event.target.closest("[data-del]");
+        if (del) return deletePack(del.dataset.del);
+    });
+
+    // ── Inicio ─────────────────────────────────────────────────────────────
+    async function init() {
+        try {
+            const [productsResponse, packsResponse] = await Promise.all([
+                fetch("/api/products"),
+                fetch("/api/packs")
+            ]);
+            if (!productsResponse.ok || !packsResponse.ok) {
+                throw new Error("No se pudieron cargar los datos. ¿Está corriendo node server.js?");
+            }
+
+            const all = await productsResponse.json();
+            state.products = all.filter(product => !product.isPack);
+            state.productsByRef = new Map(
+                state.products.filter(p => p.ref).map(p => [p.ref, p])
+            );
+
+            const packsDoc = await packsResponse.json();
+            state.packs = Array.isArray(packsDoc.packs) ? packsDoc.packs : [];
+
+            fillCategories();
+            renderProducts();
+            renderPacks();
+            updateValueUI();
+        } catch (error) {
+            setStatus(error.message, "error");
+        }
+    }
+
+    init();
+})();
+</script>
+</body>
+</html>

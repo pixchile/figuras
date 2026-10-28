@@ -1,0 +1,365 @@
+{
+  "version": 1,
+  "packs": [
+    {
+      "id": "fusion-blue",
+      "name": "Fusión Blue",
+      "items": [
+        {
+          "ref": "Dragon Ball/1-Vegeto Blue 15cm(619)",
+          "name": "Vegeto Blue 15cm"
+        },
+        {
+          "ref": "Dragon Ball/1-Gogeta Blue(616)",
+          "name": "Gogeta Blue"
+        }
+      ],
+      "discountType": "percent",
+      "enabled": true,
+      "description": "Las dos fusiones de Goku Blue y Vegeta Blue",
+      "discount": 10
+    },
+    {
+      "id": "iniciales-kanto",
+      "name": "Iniciales Kanto",
+      "items": [
+        {
+          "ref": "Pokémon/1-Bulbasaur 6cm(500)",
+          "name": "Bulbasaur 6cm"
+        },
+        {
+          "ref": "Pokémon/1-Charmander 7cm(435)",
+          "name": "Charmander 7cm"
+        },
+        {
+          "ref": "Pokémon/1-Squirtle 8cm(572)",
+          "name": "Squirtle 8cm"
+        }
+      ],
+      "discountType": "percent",
+      "enabled": true,
+      "description": "El trío inicial original",
+      "discount": 10
+    },
+    {
+      "id": "iniciales-johto",
+      "name": "Iniciales Johto",
+      "items": [
+        {
+          "ref": "Pokémon/1-Totodile 8cm(576)",
+          "name": "Totodile 8cm"
+        },
+        {
+          "ref": "Pokémon/1-Cyndaquil 7cm(524)",
+          "name": "Cyndaquil 7cm"
+        },
+        {
+          "ref": "Pokémon/1-Chikorita 7cm(516)",
+          "name": "Chikorita 7cm"
+        }
+      ],
+      "discountType": "percent",
+      "enabled": true,
+      "description": "Gen 2",
+      "discount": 10
+    },
+    {
+      "id": "pack-alola",
+      "name": "Pack Alola",
+      "items": [
+        {
+          "ref": "Pokémon/1-Rowlet 8cm(809)",
+          "name": "Rowlet 8cm"
+        },
+        {
+          "ref": "Pokémon/1-Litten 8cm(540)",
+          "name": "Litten 8cm"
+        },
+        {
+          "ref": "Pokémon/1-Popplio 7cm(608)",
+          "name": "Popplio 7cm"
+        }
+      ],
+      "discountType": "percent",
+      "enabled": true,
+      "description": "Gen 7",
+      "discount": 10
+    },
+    {
+      "id": "pack-hoenn",
+      "name": "Iniciales Hoenn",
+      "items": [
+        {
+          "ref": "Pokémon/1-Torchic 9cm(443)",
+          "name": "Torchic 9cm"
+        },
+        {
+          "ref": "Pokémon/1-Treecko 8cm(406)",
+          "name": "Treecko 8cm"
+        },
+        {
+          "ref": "Pokémon/1-Mudkip 10cm(575)",
+          "name": "Mudkip 10cm"
+        }
+      ],
+      "discountType": "percent",
+      "enabled": true,
+      "description": "Gen 3",
+      "discount": 10
+    },
+    {
+      "id": "pack-sinnoh",
+      "name": "Iniciales Sinnoh",
+      "items": [
+        {
+          "ref": "Pokémon/1-Piplup 8cm(544)",
+          "name": "Piplup 8cm"
+        },
+        {
+          "ref": "Pokémon/1-Chimchar 9cm(432)",
+          "name": "Chimchar 9cm"
+        },
+        {
+          "ref": "Pokémon/1-Turtwig 8cm(472)",
+          "name": "Turtwig 8cm"
+        }
+      ],
+      "discountType": "percent",
+      "enabled": true,
+      "description": "Gen 4",
+      "discount": 10
+    },
+    {
+      "id": "pack-galar",
+      "name": "Iniciales Galar",
+      "items": [
+        {
+          "ref": "Pokémon/1-Grookey 9cm(599)",
+          "name": "Grookey 9cm"
+        },
+        {
+          "ref": "Pokémon/1-Scorbunny 11cm(503)",
+          "name": "Scorbunny 11cm"
+        },
+        {
+          "ref": "Pokémon/1-Sobble 10cm(535)",
+          "name": "Sobble 10cm"
+        }
+      ],
+      "discountType": "percent",
+      "enabled": true,
+      "description": "Gen 8",
+      "discount": 10
+    },
+    {
+      "id": "pack-paldea",
+      "name": "Iniciales Paldea",
+      "items": [
+        {
+          "ref": "Pokémon/1-Sprigatito 9cm(648)",
+          "name": "Sprigatito 9cm"
+        },
+        {
+          "ref": "Pokémon/1-Fuecoco 9cm(572)",
+          "name": "Fuecoco 9cm"
+        },
+        {
+          "ref": "Pokémon/1-Quaxly 9cm(648)",
+          "name": "Quaxly 9cm"
+        }
+      ],
+      "discountType": "percent",
+      "enabled": true,
+      "description": "Gen 9",
+      "discount": 10
+    },
+    {
+      "id": "pack-gen10",
+      "name": "Iniciales Gen10",
+      "items": [
+        {
+          "ref": "Pokémon/1-Browt 11cm(654)",
+          "name": "Browt 11cm"
+        },
+        {
+          "ref": "Pokémon/1-Pombon 11cm(714)",
+          "name": "Pombon 11cm"
+        },
+        {
+          "ref": "Pokémon/1-Gecqua 9cm(757)",
+          "name": "Gecqua 9cm"
+        }
+      ],
+      "discountType": "percent",
+      "enabled": true,
+      "description": "Gen 10",
+      "discount": 10
+    },
+    {
+      "id": "pack-unova",
+      "name": "Iniciales Unova",
+      "items": [
+        {
+          "ref": "Pokémon/1-Oshowatt 9cm(696)",
+          "name": "Oshowatt 9cm"
+        },
+        {
+          "ref": "Pokémon/1-Tepig 9cm(637)",
+          "name": "Tepig 9cm"
+        },
+        {
+          "ref": "Pokémon/1-Snivy 9cm(574)",
+          "name": "Snivy 9cm"
+        }
+      ],
+      "discountType": "percent",
+      "enabled": true,
+      "description": "Gen 5",
+      "discount": 10
+    },
+    {
+      "id": "pack-kalos",
+      "name": "Iniciales Kalos",
+      "items": [
+        {
+          "ref": "Pokémon/1-Chespin 10cm(572)",
+          "name": "Chespin 10cm"
+        },
+        {
+          "ref": "Pokémon/1-Fennekin 6cm(614)",
+          "name": "Fennekin 6cm"
+        },
+        {
+          "ref": "Pokémon/1-Froakie 8cm(694)",
+          "name": "Froakie 8cm"
+        }
+      ],
+      "discountType": "percent",
+      "enabled": true,
+      "description": "Gen 6",
+      "discount": 10
+    },
+    {
+      "id": "eeveelutions-clasicos",
+      "name": "Eeveelutions Clásicos",
+      "items": [
+        {
+          "ref": "Pokémon/1-Flareon 7cm(534)",
+          "name": "Flareon 7cm"
+        },
+        {
+          "ref": "Pokémon/1-Vaporeon 8cm(502)",
+          "name": "Vaporeon 8cm"
+        },
+        {
+          "ref": "Pokémon/1-Jolteon 6cm(531)",
+          "name": "Jolteon 6cm"
+        }
+      ],
+      "discountType": "percent",
+      "enabled": true,
+      "description": "Las primera 3 evoluciones de Eevee",
+      "discount": 10
+    },
+    {
+      "id": "eeveelutions-2",
+      "name": "Eeveelutions 2",
+      "items": [
+        {
+          "ref": "Pokémon/1-Umbreon 8cm(555)",
+          "name": "Umbreon 8cm"
+        },
+        {
+          "ref": "Pokémon/1-Espeon 10cm(515)",
+          "name": "Espeon 10cm"
+        }
+      ],
+      "discountType": "percent",
+      "enabled": true,
+      "description": "La segunda linea de evoluciones de Eevee",
+      "discount": 10
+    },
+    {
+      "id": "eeveelutions-3",
+      "name": "Eeveelutions 3",
+      "items": [
+        {
+          "ref": "Pokémon/1-Glaceon 9cm(531)",
+          "name": "Glaceon 9cm"
+        },
+        {
+          "ref": "Pokémon/1-Leafeon 9cm(463)",
+          "name": "Leafeon 9cm"
+        }
+      ],
+      "discountType": "percent",
+      "enabled": true,
+      "description": "La tercera entrega de evoluciones de Eevee",
+      "discount": 10
+    },
+    {
+      "id": "full-eevee",
+      "name": "Full Eevee",
+      "items": [
+        {
+          "ref": "Pokémon/1-Espeon 10cm(515)",
+          "name": "Espeon 10cm"
+        },
+        {
+          "ref": "Pokémon/1-Flareon 7cm(534)",
+          "name": "Flareon 7cm"
+        },
+        {
+          "ref": "Pokémon/1-Glaceon 9cm(531)",
+          "name": "Glaceon 9cm"
+        },
+        {
+          "ref": "Pokémon/1-Jolteon 6cm(531)",
+          "name": "Jolteon 6cm"
+        },
+        {
+          "ref": "Pokémon/1-Leafeon 9cm(463)",
+          "name": "Leafeon 9cm"
+        },
+        {
+          "ref": "Pokémon/1-Sylveon 9cm(459)",
+          "name": "Sylveon 9cm"
+        },
+        {
+          "ref": "Pokémon/1-Umbreon 8cm(555)",
+          "name": "Umbreon 8cm"
+        },
+        {
+          "ref": "Pokémon/1-Vaporeon 8cm(502)",
+          "name": "Vaporeon 8cm"
+        },
+        {
+          "ref": "Pokémon/1-Eevee 8cm(533)",
+          "name": "Eevee 8cm"
+        }
+      ],
+      "discountType": "percent",
+      "enabled": true,
+      "description": "La colección completa de Eevee y todas sus evoluciones.",
+      "discount": 10
+    },
+    {
+      "id": "como-entrenar-a-tu-dragon",
+      "name": "Cómo entrenar a tu Dragón",
+      "items": [
+        {
+          "ref": "Otros/1-Furia Luminosa(762)",
+          "name": "Furia Luminosa"
+        },
+        {
+          "ref": "Otros/1-Chimuelo(762)",
+          "name": "Chimuelo"
+        }
+      ],
+      "discountType": "percent",
+      "enabled": true,
+      "description": "Chimuelo y Furia Luminosa",
+      "discount": 10
+    }
+  ]
+}

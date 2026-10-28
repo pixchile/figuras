@@ -68,6 +68,13 @@ function addToCart(productId, customPrice = null, customName = null) {
             cartItem.type = '3';
         }
 
+        if (product.isPack) {
+            cartItem.type = 'pack';
+            cartItem.isPack = true;
+            cartItem.isDigital = product.isDigital === true;
+            cartItem.packItems = (product.packItems || []).map(item => item.name);
+        }
+
         cart.push(cartItem);
     }
 
@@ -202,6 +209,9 @@ function updateCartUI() {
             const quantityInfo = item.displayQuantity ? 
                 `<span class="cart-item-units">${item.displayQuantity} unidad(es)</span>` : '';
 
+            const packInfo = item.isPack && Array.isArray(item.packItems)
+                ? `<p class="cart-item-pack">Incluye: ${item.packItems.join(', ')}</p>` : '';
+
             return `
                 <div class="cart-item">
                     <img src="${item.image}" alt="${item.name} en el carrito" class="cart-item-image">
@@ -209,6 +219,7 @@ function updateCartUI() {
                         <h4 class="cart-item-name">${item.name}</h4>
                         <p class="cart-item-category">${item.category}</p>
                         ${variantInfo}
+                        ${packInfo}
                         <p class="cart-item-price">${formatPrice(itemTotal)}</p>
                         ${quantityInfo}
                     </div>
@@ -330,6 +341,9 @@ function checkout() {
         if (item.variantName) {
             message += encodeURIComponent(`   • Variante: ${item.variantName}\n`);
         }
+        if (item.isPack && Array.isArray(item.packItems)) {
+            message += encodeURIComponent(`   • Incluye: ${item.packItems.join(', ')}\n`);
+        }
         message += encodeURIComponent(`   • Subtotal: ${formatPrice(itemSubtotal)}\n`);
         message += encodeURIComponent(`─────────────────\n`);
     });
@@ -438,7 +452,7 @@ function calculateShipping(subtotal) {
 
 // Los productos digitales (plantillas) no pagan envío
 function isDigitalItem(item) {
-    return item.isTemplateOnly === true || item.type === '3';
+    return item.isDigital === true || item.isTemplateOnly === true || item.type === '3';
 }
 
 function getShippingLabel(subtotal) {
@@ -525,6 +539,18 @@ function createProductCard(product) {
     // ✅ APLICAR REDONDEO A 90 PARA TIPO 1
     const displayPrice = product.type === '1' ? roundTo90(product.price) : product.price;
 
+    const packBadge = product.isPack
+        ? `<span class="pack-badge">Pack</span>`
+        : '';
+
+    const priceOldHtml = product.isPack && product.regularPrice > product.price
+        ? `<span class="price-old">${formatPrice(product.regularPrice)}</span>`
+        : '';
+
+    const savingsHtml = product.isPack && product.savings > 0
+        ? `<p class="product-savings">Ahorras ${formatPrice(product.savings)}</p>`
+        : '';
+
     card.innerHTML = `
         <div class="product-image-wrapper"
              role="button"
@@ -542,12 +568,14 @@ function createProductCard(product) {
             <div class="image-overlay" aria-hidden="true">
                 <span class="overlay-text">Ver Detalles</span>
             </div>
+            ${packBadge}
             ${variableBadge}
         </div>
         <div class="product-info">
             <h3 class="product-name">${product.name}</h3>
             <span class="product-category">${product.category}</span>
-            <div class="product-price">${formatPrice(displayPrice)}</div>
+            <div class="product-price">${priceOldHtml}${formatPrice(displayPrice)}</div>
+            ${savingsHtml}
             <button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('${product.id}')">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                     <circle cx="9" cy="21" r="1"></circle>
@@ -594,8 +622,11 @@ function filterProducts() {
     const searchTerm = document.getElementById('searchInput').value.toLowerCase();
     const selectedCategory = document.getElementById('categoryFilter').value;
     const filteredProducts = allProducts.filter(product => {
-        const matchesSearch = product.name.toLowerCase().includes(searchTerm) ||
-                             product.description.toLowerCase().includes(searchTerm);
+        const packNames = Array.isArray(product.packItems)
+            ? product.packItems.map(item => item.name).join(' ')
+            : '';
+        const haystack = `${product.name} ${product.description || ''} ${packNames}`.toLowerCase();
+        const matchesSearch = haystack.includes(searchTerm);
         const matchesCategory = selectedCategory === 'all' || product.category === selectedCategory;
         return matchesSearch && matchesCategory;
     });
@@ -678,6 +709,10 @@ function showProductDetails(productId) {
         ? product.allVariants
         : (product.images || [product.mainImage]);
 
+    const relatedPacks = !product.isPack
+        ? allProducts.filter(p => p.isPack && Array.isArray(p.memberIds) && p.memberIds.includes(product.id))
+        : [];
+
     // ─── BOTÓN VER EN 3D ────────────────────────────────────────────────────
     const safeName = (product.name || '').replace(/\\/g, '\\\\').replace(/'/g, "\\'");
     const view3dBtn = product.glbFile
@@ -692,6 +727,38 @@ function showProductDetails(productId) {
     // ─── SPECS ──────────────────────────────────────────────────────────────
     const specsHtml = product.specs && product.specs.length > 0
         ? `<ul class="product-specs">${product.specs.map(s => `<li>${s}</li>`).join('')}</ul>` : '';
+
+    // ─── CONTENIDO DEL PACK ─────────────────────────────────────────────────
+    const packContentsHtml = product.isPack && Array.isArray(product.packItems) && product.packItems.length
+        ? `<section class="pack-contents">
+             <h3 class="pack-contents-title">Incluye</h3>
+             <ul class="pack-contents-list">
+               ${product.packItems.map(item => `
+                 <li class="pack-contents-item">
+                   <img src="${item.mainImage || ''}" alt="" loading="lazy">
+                   <span class="pack-contents-name">${item.name}</span>
+                   <span class="pack-contents-price">${formatPrice(item.price)}</span>
+                 </li>`).join('')}
+             </ul>
+             ${product.savings > 0 ? `<p class="pack-saving">Ahorras ${formatPrice(product.savings)} comprando el pack</p>` : ''}
+           </section>`
+        : '';
+
+    // ─── UPSELL: ESTE PRODUCTO ESTÁ EN UN PACK ──────────────────────────────
+    const packUpsellHtml = relatedPacks.length
+        ? `<section class="pack-upsell">
+             <h3 class="pack-upsell-title">También en pack</h3>
+             ${relatedPacks.map(pack => `
+               <div class="pack-upsell-item">
+                 <div class="pack-upsell-info">
+                   <strong>${pack.name}</strong>
+                   <span class="pack-upsell-items">${(pack.packItems || []).map(i => i.name).join(' · ')}</span>
+                   <span class="pack-upsell-price">${formatPrice(pack.price)}${pack.savings > 0 ? ` · ahorras ${formatPrice(pack.savings)}` : ''}</span>
+                 </div>
+                 <button class="pack-upsell-btn" onclick="addToCart('${pack.id}')">Agregar pack</button>
+               </div>`).join('')}
+           </section>`
+        : '';
 
     const variableBadge = product.isVariable
         ? `<span class="variable-badge variable-badge-modal">${product.variableName}</span>` : '';
@@ -750,9 +817,14 @@ function showProductDetails(productId) {
             <span class="unit-price">Precio unitario: ${formatPrice(product.price)}</span>
            </div>` : '';
 
-    const priceDisplayHtml = product.type === '2'
-        ? `<div class="modal-price modal-price-total">Total: <span id="modalTotalPrice">${formatPrice(product.price)}</span></div>`
-        : `<div class="modal-price">${formatPrice(modalDisplayPrice)}</div>`;
+    const priceDisplayHtml = product.isPack
+        ? `<div class="modal-price modal-price-pack">
+             ${product.regularPrice > product.price ? `<span class="price-old">${formatPrice(product.regularPrice)}</span>` : ''}
+             <span>${formatPrice(product.price)}</span>
+           </div>`
+        : product.type === '2'
+            ? `<div class="modal-price modal-price-total">Total: <span id="modalTotalPrice">${formatPrice(product.price)}</span></div>`
+            : `<div class="modal-price">${formatPrice(modalDisplayPrice)}</div>`;
 
     modalBody.innerHTML = `
         ${imagesHtml}
@@ -764,6 +836,7 @@ function showProductDetails(productId) {
             ${variableBadge}
             <span class="modal-category">${product.category}</span>
             <p class="modal-description">${product.description}</p>
+            ${packContentsHtml}
             ${specsHtml}
             ${variantSelectorHtml}
             ${quantitySelectorHtml}
@@ -777,6 +850,7 @@ function showProductDetails(productId) {
                 Agregar al Carrito
             </button>
             ${templateButtonHtml}
+            ${packUpsellHtml}
         </div>
     `;
 

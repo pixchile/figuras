@@ -1,6 +1,1309 @@
 [
   {
+    "id": "pqu1qxu",
+    "ref": "pack/fusion-blue",
+    "name": "Fusión Blue",
+    "type": "pack",
+    "typeName": "Pack",
+    "category": "Packs",
+    "price": 13490,
+    "regularPrice": 14980,
+    "savings": 1490,
+    "discountType": "percent",
+    "discount": 10,
+    "description": "Las dos fusiones de Goku Blue y Vegeta Blue",
+    "specs": [],
+    "pieces": 1235,
+    "buildHours": 4,
+    "images": [
+      "Dragon Ball/1-Vegeto Blue 15cm(619)/vegeto2.webp"
+    ],
+    "mainImage": "Dragon Ball/1-Vegeto Blue 15cm(619)/vegeto2.webp",
+    "isVariable": false,
+    "variableName": null,
+    "customPrice": null,
+    "glbFile": null,
+    "extraDescription": null,
+    "isPack": true,
+    "isDigital": false,
+    "memberIds": [
+      "pgnpego",
+      "pxjbt5e"
+    ],
+    "packItems": [
+      {
+        "id": "pgnpego",
+        "ref": "Dragon Ball/1-Vegeto Blue 15cm(619)",
+        "name": "Vegeto Blue 15cm",
+        "price": 7490,
+        "mainImage": "Dragon Ball/1-Vegeto Blue 15cm(619)/vegeto2.webp",
+        "images": [
+          "Dragon Ball/1-Vegeto Blue 15cm(619)/vegeto2.webp",
+          "Dragon Ball/1-Vegeto Blue 15cm(619)/vegeto3.webp",
+          "Dragon Ball/1-Vegeto Blue 15cm(619)/vegeto4.webp"
+        ],
+        "category": "Dragon Ball"
+      },
+      {
+        "id": "pxjbt5e",
+        "ref": "Dragon Ball/1-Gogeta Blue(616)",
+        "name": "Gogeta Blue",
+        "price": 7490,
+        "mainImage": "Dragon Ball/1-Gogeta Blue(616)/gogeta1.webp",
+        "images": [
+          "Dragon Ball/1-Gogeta Blue(616)/gogeta1.webp",
+          "Dragon Ball/1-Gogeta Blue(616)/gogeta2.webp",
+          "Dragon Ball/1-Gogeta Blue(616)/gogeta3.webp",
+          "Dragon Ball/1-Gogeta Blue(616)/gogeta4.webp"
+        ],
+        "category": "Dragon Ball"
+      }
+    ],
+    "allVariants": [],
+    "slug": "fusion-blue"
+  },
+  {
+    "id": "p4rlxqg",
+    "ref": "pack/iniciales-kanto",
+    "name": "Iniciales Kanto",
+    "type": "pack",
+    "typeName": "Pack",
+    "category": "Packs",
+    "price": 16490,
+    "regularPrice": 18270,
+    "savings": 1780,
+    "discountType": "percent",
+    "discount": 10,
+    "description": "El trío inicial original",
+    "specs": [],
+    "pieces": 1507,
+    "buildHours": 5,
+    "images": [
+      "Pokémon/1-Bulbasaur 6cm(500)/bulbasaur(1).webp"
+    ],
+    "mainImage": "Pokémon/1-Bulbasaur 6cm(500)/bulbasaur(1).webp",
+    "isVariable": false,
+    "variableName": null,
+    "customPrice": null,
+    "glbFile": null,
+    "extraDescription": null,
+    "isPack": true,
+    "isDigital": false,
+    "memberIds": [
+      "py9nket",
+      "pcl37fz",
+      "p8ug8h6"
+    ],
+    "packItems": [
+      {
+        "id": "py9nket",
+        "ref": "Pokémon/1-Bulbasaur 6cm(500)",
+        "name": "Bulbasaur 6cm",
+        "price": 6090,
+        "mainImage": "Pokémon/1-Bulbasaur 6cm(500)/bulbasaur(1).webp",
+        "images": [
+          "Pokémon/1-Bulbasaur 6cm(500)/bulbasaur(1).webp",
+          "Pokémon/1-Bulbasaur 6cm(500)/bulbasaur(2).webp",
+          "Pokémon/1-Bulbasaur 6cm(500)/bulbasaur(3).webp",
+          "Pokémon/1-Bulbasaur 6cm(500)/bulbasaur(4).webp"
+        ],
+        "category": "Pokémon"
+      },
+      {
+        "id": "pcl37fz",
+        "ref": "Pokémon/1-Charmander 7cm(435)",
+        "name": "Charmander 7cm",
+        "price": 5290,
+        "mainImage": "Pokémon/1-Charmander 7cm(435)/char(1).webp",
+        "images": [
+          "Pokémon/1-Charmander 7cm(435)/char(1).webp",
+          "Pokémon/1-Charmander 7cm(435)/char(2).webp",
+          "Pokémon/1-Charmander 7cm(435)/char(3).webp",
+          "Pokémon/1-Charmander 7cm(435)/char(4).webp"
+        ],
+        "category": "Pokémon"
+      },
+      {
+        "id": "p8ug8h6",
+        "ref": "Pokémon/1-Squirtle 8cm(572)",
+        "name": "Squirtle 8cm",
+        "price": 6890,
+        "mainImage": "Pokémon/1-Squirtle 8cm(572)/sq(1).webp",
+        "images": [
+          "Pokémon/1-Squirtle 8cm(572)/sq(1).webp",
+          "Pokémon/1-Squirtle 8cm(572)/sq(2).webp",
+          "Pokémon/1-Squirtle 8cm(572)/sq(3).webp",
+          "Pokémon/1-Squirtle 8cm(572)/sq(4).webp"
+        ],
+        "category": "Pokémon"
+      }
+    ],
+    "allVariants": [],
+    "slug": "iniciales-kanto"
+  },
+  {
+    "id": "p4rayib",
+    "ref": "pack/iniciales-johto",
+    "name": "Iniciales Johto",
+    "type": "pack",
+    "typeName": "Pack",
+    "category": "Packs",
+    "price": 17690,
+    "regularPrice": 19570,
+    "savings": 1880,
+    "discountType": "percent",
+    "discount": 10,
+    "description": "Gen 2",
+    "specs": [],
+    "pieces": 1616,
+    "buildHours": 6,
+    "images": [
+      "Pokémon/1-Totodile 8cm(576)/toto(1).webp"
+    ],
+    "mainImage": "Pokémon/1-Totodile 8cm(576)/toto(1).webp",
+    "isVariable": false,
+    "variableName": null,
+    "customPrice": null,
+    "glbFile": null,
+    "extraDescription": null,
+    "isPack": true,
+    "isDigital": false,
+    "memberIds": [
+      "p84yqd",
+      "ptdk9h5",
+      "p4shuuy"
+    ],
+    "packItems": [
+      {
+        "id": "p84yqd",
+        "ref": "Pokémon/1-Totodile 8cm(576)",
+        "name": "Totodile 8cm",
+        "price": 6990,
+        "mainImage": "Pokémon/1-Totodile 8cm(576)/toto(1).webp",
+        "images": [
+          "Pokémon/1-Totodile 8cm(576)/toto(1).webp",
+          "Pokémon/1-Totodile 8cm(576)/toto(2).webp",
+          "Pokémon/1-Totodile 8cm(576)/toto(3).webp",
+          "Pokémon/1-Totodile 8cm(576)/toto(4).webp"
+        ],
+        "category": "Pokémon"
+      },
+      {
+        "id": "ptdk9h5",
+        "ref": "Pokémon/1-Cyndaquil 7cm(524)",
+        "name": "Cyndaquil 7cm",
+        "price": 6290,
+        "mainImage": "Pokémon/1-Cyndaquil 7cm(524)/cin(1).webp",
+        "images": [
+          "Pokémon/1-Cyndaquil 7cm(524)/cin(1).webp",
+          "Pokémon/1-Cyndaquil 7cm(524)/cin(2).webp",
+          "Pokémon/1-Cyndaquil 7cm(524)/cin(3).webp",
+          "Pokémon/1-Cyndaquil 7cm(524)/cin(4).webp"
+        ],
+        "category": "Pokémon"
+      },
+      {
+        "id": "p4shuuy",
+        "ref": "Pokémon/1-Chikorita 7cm(516)",
+        "name": "Chikorita 7cm",
+        "price": 6290,
+        "mainImage": "Pokémon/1-Chikorita 7cm(516)/Chikor1.webp",
+        "images": [
+          "Pokémon/1-Chikorita 7cm(516)/Chikor1.webp",
+          "Pokémon/1-Chikorita 7cm(516)/Chikor2.webp",
+          "Pokémon/1-Chikorita 7cm(516)/Chikor3.webp",
+          "Pokémon/1-Chikorita 7cm(516)/Chikor4.webp"
+        ],
+        "category": "Pokémon"
+      }
+    ],
+    "allVariants": [],
+    "slug": "iniciales-johto"
+  },
+  {
+    "id": "pigmf8a",
+    "ref": "pack/pack-alola",
+    "name": "Pack Alola",
+    "type": "pack",
+    "typeName": "Pack",
+    "category": "Packs",
+    "price": 21390,
+    "regularPrice": 23670,
+    "savings": 2280,
+    "discountType": "percent",
+    "discount": 10,
+    "description": "Gen 7",
+    "specs": [],
+    "pieces": 1957,
+    "buildHours": 7,
+    "images": [
+      "Pokémon/1-Rowlet 8cm(809)/r(1).webp"
+    ],
+    "mainImage": "Pokémon/1-Rowlet 8cm(809)/r(1).webp",
+    "isVariable": false,
+    "variableName": null,
+    "customPrice": null,
+    "glbFile": null,
+    "extraDescription": null,
+    "isPack": true,
+    "isDigital": false,
+    "memberIds": [
+      "p6jwsmp",
+      "ptah4cc",
+      "py93nln"
+    ],
+    "packItems": [
+      {
+        "id": "p6jwsmp",
+        "ref": "Pokémon/1-Rowlet 8cm(809)",
+        "name": "Rowlet 8cm",
+        "price": 9790,
+        "mainImage": "Pokémon/1-Rowlet 8cm(809)/r(1).webp",
+        "images": [
+          "Pokémon/1-Rowlet 8cm(809)/r(1).webp",
+          "Pokémon/1-Rowlet 8cm(809)/r(2).webp",
+          "Pokémon/1-Rowlet 8cm(809)/r(3).webp",
+          "Pokémon/1-Rowlet 8cm(809)/r(4).webp"
+        ],
+        "category": "Pokémon"
+      },
+      {
+        "id": "ptah4cc",
+        "ref": "Pokémon/1-Litten 8cm(540)",
+        "name": "Litten 8cm",
+        "price": 6490,
+        "mainImage": "Pokémon/1-Litten 8cm(540)/l(1).webp",
+        "images": [
+          "Pokémon/1-Litten 8cm(540)/l(1).webp",
+          "Pokémon/1-Litten 8cm(540)/l(2).webp",
+          "Pokémon/1-Litten 8cm(540)/l(3).webp",
+          "Pokémon/1-Litten 8cm(540)/l(4).webp"
+        ],
+        "category": "Pokémon"
+      },
+      {
+        "id": "py93nln",
+        "ref": "Pokémon/1-Popplio 7cm(608)",
+        "name": "Popplio 7cm",
+        "price": 7390,
+        "mainImage": "Pokémon/1-Popplio 7cm(608)/p(1).webp",
+        "images": [
+          "Pokémon/1-Popplio 7cm(608)/p(1).webp",
+          "Pokémon/1-Popplio 7cm(608)/p(2).webp",
+          "Pokémon/1-Popplio 7cm(608)/p(3).webp",
+          "Pokémon/1-Popplio 7cm(608)/p(4).webp"
+        ],
+        "category": "Pokémon"
+      }
+    ],
+    "allVariants": [],
+    "slug": "pack-alola"
+  },
+  {
+    "id": "picq5h1",
+    "ref": "pack/pack-hoenn",
+    "name": "Iniciales Hoenn",
+    "type": "pack",
+    "typeName": "Pack",
+    "category": "Packs",
+    "price": 15590,
+    "regularPrice": 17270,
+    "savings": 1680,
+    "discountType": "percent",
+    "discount": 10,
+    "description": "Gen 3",
+    "specs": [],
+    "pieces": 1424,
+    "buildHours": 4,
+    "images": [
+      "Pokémon/1-Torchic 9cm(443)/torchic1.webp"
+    ],
+    "mainImage": "Pokémon/1-Torchic 9cm(443)/torchic1.webp",
+    "isVariable": false,
+    "variableName": null,
+    "customPrice": null,
+    "glbFile": null,
+    "extraDescription": null,
+    "isPack": true,
+    "isDigital": false,
+    "memberIds": [
+      "p749bfj",
+      "psqekh4",
+      "plbcdvr"
+    ],
+    "packItems": [
+      {
+        "id": "p749bfj",
+        "ref": "Pokémon/1-Torchic 9cm(443)",
+        "name": "Torchic 9cm",
+        "price": 5390,
+        "mainImage": "Pokémon/1-Torchic 9cm(443)/torchic1.webp",
+        "images": [
+          "Pokémon/1-Torchic 9cm(443)/torchic1.webp",
+          "Pokémon/1-Torchic 9cm(443)/torchic2.webp",
+          "Pokémon/1-Torchic 9cm(443)/torchic3.webp"
+        ],
+        "category": "Pokémon"
+      },
+      {
+        "id": "psqekh4",
+        "ref": "Pokémon/1-Treecko 8cm(406)",
+        "name": "Treecko 8cm",
+        "price": 4890,
+        "mainImage": "Pokémon/1-Treecko 8cm(406)/t(1).webp",
+        "images": [
+          "Pokémon/1-Treecko 8cm(406)/t(1).webp",
+          "Pokémon/1-Treecko 8cm(406)/t(2).webp",
+          "Pokémon/1-Treecko 8cm(406)/t(3).webp",
+          "Pokémon/1-Treecko 8cm(406)/t(4).webp"
+        ],
+        "category": "Pokémon"
+      },
+      {
+        "id": "plbcdvr",
+        "ref": "Pokémon/1-Mudkip 10cm(575)",
+        "name": "Mudkip 10cm",
+        "price": 6990,
+        "mainImage": "Pokémon/1-Mudkip 10cm(575)/mudkp1.webp",
+        "images": [
+          "Pokémon/1-Mudkip 10cm(575)/mudkp1.webp",
+          "Pokémon/1-Mudkip 10cm(575)/mudkp2.webp",
+          "Pokémon/1-Mudkip 10cm(575)/mudkp3.webp",
+          "Pokémon/1-Mudkip 10cm(575)/mudkp4.webp"
+        ],
+        "category": "Pokémon"
+      }
+    ],
+    "allVariants": [],
+    "slug": "iniciales-hoenn"
+  },
+  {
+    "id": "p4eqjwi",
+    "ref": "pack/pack-sinnoh",
+    "name": "Iniciales Sinnoh",
+    "type": "pack",
+    "typeName": "Pack",
+    "category": "Packs",
+    "price": 15790,
+    "regularPrice": 17470,
+    "savings": 1680,
+    "discountType": "percent",
+    "discount": 10,
+    "description": "Gen 4",
+    "specs": [],
+    "pieces": 1448,
+    "buildHours": 5,
+    "images": [
+      "Pokémon/1-Piplup 8cm(544)/p(1).webp"
+    ],
+    "mainImage": "Pokémon/1-Piplup 8cm(544)/p(1).webp",
+    "isVariable": false,
+    "variableName": null,
+    "customPrice": null,
+    "glbFile": null,
+    "extraDescription": null,
+    "isPack": true,
+    "isDigital": false,
+    "memberIds": [
+      "p4igbny",
+      "pl6fvxc",
+      "pkuhuie"
+    ],
+    "packItems": [
+      {
+        "id": "p4igbny",
+        "ref": "Pokémon/1-Piplup 8cm(544)",
+        "name": "Piplup 8cm",
+        "price": 6590,
+        "mainImage": "Pokémon/1-Piplup 8cm(544)/p(1).webp",
+        "images": [
+          "Pokémon/1-Piplup 8cm(544)/p(1).webp",
+          "Pokémon/1-Piplup 8cm(544)/p(2).webp",
+          "Pokémon/1-Piplup 8cm(544)/p(3).webp"
+        ],
+        "category": "Pokémon"
+      },
+      {
+        "id": "pl6fvxc",
+        "ref": "Pokémon/1-Chimchar 9cm(432)",
+        "name": "Chimchar 9cm",
+        "price": 5190,
+        "mainImage": "Pokémon/1-Chimchar 9cm(432)/chimchar.webp",
+        "images": [
+          "Pokémon/1-Chimchar 9cm(432)/chimchar.webp",
+          "Pokémon/1-Chimchar 9cm(432)/chimchar2.webp",
+          "Pokémon/1-Chimchar 9cm(432)/chimchar3.webp"
+        ],
+        "category": "Pokémon"
+      },
+      {
+        "id": "pkuhuie",
+        "ref": "Pokémon/1-Turtwig 8cm(472)",
+        "name": "Turtwig 8cm",
+        "price": 5690,
+        "mainImage": "Pokémon/1-Turtwig 8cm(472)/tur(1).webp",
+        "images": [
+          "Pokémon/1-Turtwig 8cm(472)/tur(1).webp",
+          "Pokémon/1-Turtwig 8cm(472)/tur(2).webp",
+          "Pokémon/1-Turtwig 8cm(472)/tur(3).webp",
+          "Pokémon/1-Turtwig 8cm(472)/tur(4).webp"
+        ],
+        "category": "Pokémon"
+      }
+    ],
+    "allVariants": [],
+    "slug": "iniciales-sinnoh"
+  },
+  {
+    "id": "pidir00",
+    "ref": "pack/pack-galar",
+    "name": "Iniciales Galar",
+    "type": "pack",
+    "typeName": "Pack",
+    "category": "Packs",
+    "price": 17890,
+    "regularPrice": 19770,
+    "savings": 1880,
+    "discountType": "percent",
+    "discount": 10,
+    "description": "Gen 8",
+    "specs": [],
+    "pieces": 1637,
+    "buildHours": 6,
+    "images": [
+      "Pokémon/1-Grookey 9cm(599)/g(1).webp"
+    ],
+    "mainImage": "Pokémon/1-Grookey 9cm(599)/g(1).webp",
+    "isVariable": false,
+    "variableName": null,
+    "customPrice": null,
+    "glbFile": null,
+    "extraDescription": null,
+    "isPack": true,
+    "isDigital": false,
+    "memberIds": [
+      "pf0ngtb",
+      "p97evra",
+      "p1o26te"
+    ],
+    "packItems": [
+      {
+        "id": "pf0ngtb",
+        "ref": "Pokémon/1-Grookey 9cm(599)",
+        "name": "Grookey 9cm",
+        "price": 7190,
+        "mainImage": "Pokémon/1-Grookey 9cm(599)/g(1).webp",
+        "images": [
+          "Pokémon/1-Grookey 9cm(599)/g(1).webp",
+          "Pokémon/1-Grookey 9cm(599)/g(2).webp",
+          "Pokémon/1-Grookey 9cm(599)/g(3).webp",
+          "Pokémon/1-Grookey 9cm(599)/g(4).webp"
+        ],
+        "category": "Pokémon"
+      },
+      {
+        "id": "p97evra",
+        "ref": "Pokémon/1-Scorbunny 11cm(503)",
+        "name": "Scorbunny 11cm",
+        "price": 6090,
+        "mainImage": "Pokémon/1-Scorbunny 11cm(503)/sc(1).webp",
+        "images": [
+          "Pokémon/1-Scorbunny 11cm(503)/sc(1).webp",
+          "Pokémon/1-Scorbunny 11cm(503)/sc(2).webp",
+          "Pokémon/1-Scorbunny 11cm(503)/sc(3).webp",
+          "Pokémon/1-Scorbunny 11cm(503)/sc(4).webp"
+        ],
+        "category": "Pokémon"
+      },
+      {
+        "id": "p1o26te",
+        "ref": "Pokémon/1-Sobble 10cm(535)",
+        "name": "Sobble 10cm",
+        "price": 6490,
+        "mainImage": "Pokémon/1-Sobble 10cm(535)/sob(1).webp",
+        "images": [
+          "Pokémon/1-Sobble 10cm(535)/sob(1).webp",
+          "Pokémon/1-Sobble 10cm(535)/sob(2).webp",
+          "Pokémon/1-Sobble 10cm(535)/sob(3).webp",
+          "Pokémon/1-Sobble 10cm(535)/sob(4).webp"
+        ],
+        "category": "Pokémon"
+      }
+    ],
+    "allVariants": [],
+    "slug": "iniciales-galar"
+  },
+  {
+    "id": "p2v5uc8",
+    "ref": "pack/pack-paldea",
+    "name": "Iniciales Paldea",
+    "type": "pack",
+    "typeName": "Pack",
+    "category": "Packs",
+    "price": 20290,
+    "regularPrice": 22470,
+    "savings": 2180,
+    "discountType": "percent",
+    "discount": 10,
+    "description": "Gen 9",
+    "specs": [],
+    "pieces": 1868,
+    "buildHours": 6,
+    "images": [
+      "Pokémon/1-Sprigatito 9cm(648)/sp(1).webp"
+    ],
+    "mainImage": "Pokémon/1-Sprigatito 9cm(648)/sp(1).webp",
+    "isVariable": false,
+    "variableName": null,
+    "customPrice": null,
+    "glbFile": null,
+    "extraDescription": null,
+    "isPack": true,
+    "isDigital": false,
+    "memberIds": [
+      "pvppidi",
+      "pqetpv0",
+      "pafh67k"
+    ],
+    "packItems": [
+      {
+        "id": "pvppidi",
+        "ref": "Pokémon/1-Sprigatito 9cm(648)",
+        "name": "Sprigatito 9cm",
+        "price": 7790,
+        "mainImage": "Pokémon/1-Sprigatito 9cm(648)/sp(1).webp",
+        "images": [
+          "Pokémon/1-Sprigatito 9cm(648)/sp(1).webp",
+          "Pokémon/1-Sprigatito 9cm(648)/sp(2).webp",
+          "Pokémon/1-Sprigatito 9cm(648)/sp(3).webp",
+          "Pokémon/1-Sprigatito 9cm(648)/sp(4).webp"
+        ],
+        "category": "Pokémon"
+      },
+      {
+        "id": "pqetpv0",
+        "ref": "Pokémon/1-Fuecoco 9cm(572)",
+        "name": "Fuecoco 9cm",
+        "price": 6890,
+        "mainImage": "Pokémon/1-Fuecoco 9cm(572)/f(1).webp",
+        "images": [
+          "Pokémon/1-Fuecoco 9cm(572)/f(1).webp",
+          "Pokémon/1-Fuecoco 9cm(572)/f(2).webp",
+          "Pokémon/1-Fuecoco 9cm(572)/f(3).webp",
+          "Pokémon/1-Fuecoco 9cm(572)/f(4).webp"
+        ],
+        "category": "Pokémon"
+      },
+      {
+        "id": "pafh67k",
+        "ref": "Pokémon/1-Quaxly 9cm(648)",
+        "name": "Quaxly 9cm",
+        "price": 7790,
+        "mainImage": "Pokémon/1-Quaxly 9cm(648)/q(1).webp",
+        "images": [
+          "Pokémon/1-Quaxly 9cm(648)/q(1).webp",
+          "Pokémon/1-Quaxly 9cm(648)/q(2).webp",
+          "Pokémon/1-Quaxly 9cm(648)/q(3).webp",
+          "Pokémon/1-Quaxly 9cm(648)/q(4).webp"
+        ],
+        "category": "Pokémon"
+      }
+    ],
+    "allVariants": [],
+    "slug": "iniciales-paldea"
+  },
+  {
+    "id": "pidg6ro",
+    "ref": "pack/pack-gen10",
+    "name": "Iniciales Gen10",
+    "type": "pack",
+    "typeName": "Pack",
+    "category": "Packs",
+    "price": 23090,
+    "regularPrice": 25570,
+    "savings": 2480,
+    "discountType": "percent",
+    "discount": 10,
+    "description": "Gen 10",
+    "specs": [],
+    "pieces": 2125,
+    "buildHours": 7,
+    "images": [
+      "Pokémon/1-Browt 11cm(654)/Browt (1).webp"
+    ],
+    "mainImage": "Pokémon/1-Browt 11cm(654)/Browt (1).webp",
+    "isVariable": false,
+    "variableName": null,
+    "customPrice": null,
+    "glbFile": null,
+    "extraDescription": null,
+    "isPack": true,
+    "isDigital": false,
+    "memberIds": [
+      "pubhgvi",
+      "pd330tg",
+      "pz3ro8v"
+    ],
+    "packItems": [
+      {
+        "id": "pubhgvi",
+        "ref": "Pokémon/1-Browt 11cm(654)",
+        "name": "Browt 11cm",
+        "price": 7890,
+        "mainImage": "Pokémon/1-Browt 11cm(654)/Browt (1).webp",
+        "images": [
+          "Pokémon/1-Browt 11cm(654)/Browt (1).webp",
+          "Pokémon/1-Browt 11cm(654)/Browt (2).webp",
+          "Pokémon/1-Browt 11cm(654)/Browt (3).webp",
+          "Pokémon/1-Browt 11cm(654)/Browt (4).webp",
+          "Pokémon/1-Browt 11cm(654)/Browt (5).webp",
+          "Pokémon/1-Browt 11cm(654)/Browt (6).webp",
+          "Pokémon/1-Browt 11cm(654)/Browt (7).webp",
+          "Pokémon/1-Browt 11cm(654)/Browt (8).webp"
+        ],
+        "category": "Pokémon"
+      },
+      {
+        "id": "pd330tg",
+        "ref": "Pokémon/1-Pombon 11cm(714)",
+        "name": "Pombon 11cm",
+        "price": 8590,
+        "mainImage": "Pokémon/1-Pombon 11cm(714)/0 (1).webp",
+        "images": [
+          "Pokémon/1-Pombon 11cm(714)/0 (1).webp",
+          "Pokémon/1-Pombon 11cm(714)/0 (2).webp",
+          "Pokémon/1-Pombon 11cm(714)/0 (3).webp",
+          "Pokémon/1-Pombon 11cm(714)/0 (4).webp"
+        ],
+        "category": "Pokémon"
+      },
+      {
+        "id": "pz3ro8v",
+        "ref": "Pokémon/1-Gecqua 9cm(757)",
+        "name": "Gecqua 9cm",
+        "price": 9090,
+        "mainImage": "Pokémon/1-Gecqua 9cm(757)/geckua (1).webp",
+        "images": [
+          "Pokémon/1-Gecqua 9cm(757)/geckua (1).webp",
+          "Pokémon/1-Gecqua 9cm(757)/geckua (2).webp",
+          "Pokémon/1-Gecqua 9cm(757)/geckua (3).webp",
+          "Pokémon/1-Gecqua 9cm(757)/geckua (4).webp",
+          "Pokémon/1-Gecqua 9cm(757)/geckua (5).webp",
+          "Pokémon/1-Gecqua 9cm(757)/geckua (6).webp",
+          "Pokémon/1-Gecqua 9cm(757)/geckua (7).webp",
+          "Pokémon/1-Gecqua 9cm(757)/geckua (8).webp"
+        ],
+        "category": "Pokémon"
+      }
+    ],
+    "allVariants": [],
+    "slug": "iniciales-gen10"
+  },
+  {
+    "id": "pi5l95e",
+    "ref": "pack/pack-unova",
+    "name": "Iniciales Unova",
+    "type": "pack",
+    "typeName": "Pack",
+    "category": "Packs",
+    "price": 20690,
+    "regularPrice": 22970,
+    "savings": 2280,
+    "discountType": "percent",
+    "discount": 10,
+    "description": "Gen 5",
+    "specs": [],
+    "pieces": 1907,
+    "buildHours": 6,
+    "images": [
+      "Pokémon/1-Oshowatt 9cm(696)/o(1).webp"
+    ],
+    "mainImage": "Pokémon/1-Oshowatt 9cm(696)/o(1).webp",
+    "isVariable": false,
+    "variableName": null,
+    "customPrice": null,
+    "glbFile": null,
+    "extraDescription": null,
+    "isPack": true,
+    "isDigital": false,
+    "memberIds": [
+      "pup37li",
+      "pvuu503",
+      "pxzc21z"
+    ],
+    "packItems": [
+      {
+        "id": "pup37li",
+        "ref": "Pokémon/1-Oshowatt 9cm(696)",
+        "name": "Oshowatt 9cm",
+        "price": 8390,
+        "mainImage": "Pokémon/1-Oshowatt 9cm(696)/o(1).webp",
+        "images": [
+          "Pokémon/1-Oshowatt 9cm(696)/o(1).webp",
+          "Pokémon/1-Oshowatt 9cm(696)/o(2).webp",
+          "Pokémon/1-Oshowatt 9cm(696)/o(3).webp",
+          "Pokémon/1-Oshowatt 9cm(696)/o(4).webp"
+        ],
+        "category": "Pokémon"
+      },
+      {
+        "id": "pvuu503",
+        "ref": "Pokémon/1-Tepig 9cm(637)",
+        "name": "Tepig 9cm",
+        "price": 7690,
+        "mainImage": "Pokémon/1-Tepig 9cm(637)/t (1).webp",
+        "images": [
+          "Pokémon/1-Tepig 9cm(637)/t (1).webp",
+          "Pokémon/1-Tepig 9cm(637)/t (2).webp",
+          "Pokémon/1-Tepig 9cm(637)/t (3).webp",
+          "Pokémon/1-Tepig 9cm(637)/t (4).webp"
+        ],
+        "category": "Pokémon"
+      },
+      {
+        "id": "pxzc21z",
+        "ref": "Pokémon/1-Snivy 9cm(574)",
+        "name": "Snivy 9cm",
+        "price": 6890,
+        "mainImage": "Pokémon/1-Snivy 9cm(574)/sn(1).webp",
+        "images": [
+          "Pokémon/1-Snivy 9cm(574)/sn(1).webp",
+          "Pokémon/1-Snivy 9cm(574)/sn(2).webp",
+          "Pokémon/1-Snivy 9cm(574)/sn(3).webp",
+          "Pokémon/1-Snivy 9cm(574)/sn(4).webp"
+        ],
+        "category": "Pokémon"
+      }
+    ],
+    "allVariants": [],
+    "slug": "iniciales-unova"
+  },
+  {
+    "id": "pibbkah",
+    "ref": "pack/pack-kalos",
+    "name": "Iniciales Kalos",
+    "type": "pack",
+    "typeName": "Pack",
+    "category": "Packs",
+    "price": 20490,
+    "regularPrice": 22670,
+    "savings": 2180,
+    "discountType": "percent",
+    "discount": 10,
+    "description": "Gen 6",
+    "specs": [],
+    "pieces": 1880,
+    "buildHours": 6,
+    "images": [
+      "Pokémon/1-Chespin 10cm(572)/chespin (1).webp"
+    ],
+    "mainImage": "Pokémon/1-Chespin 10cm(572)/chespin (1).webp",
+    "isVariable": false,
+    "variableName": null,
+    "customPrice": null,
+    "glbFile": null,
+    "extraDescription": null,
+    "isPack": true,
+    "isDigital": false,
+    "memberIds": [
+      "pbluxdu",
+      "pdj4fri",
+      "plc61qn"
+    ],
+    "packItems": [
+      {
+        "id": "pbluxdu",
+        "ref": "Pokémon/1-Chespin 10cm(572)",
+        "name": "Chespin 10cm",
+        "price": 6890,
+        "mainImage": "Pokémon/1-Chespin 10cm(572)/chespin (1).webp",
+        "images": [
+          "Pokémon/1-Chespin 10cm(572)/chespin (1).webp",
+          "Pokémon/1-Chespin 10cm(572)/chespin (2).webp",
+          "Pokémon/1-Chespin 10cm(572)/chespin (3).webp",
+          "Pokémon/1-Chespin 10cm(572)/chespin (4).webp"
+        ],
+        "category": "Pokémon"
+      },
+      {
+        "id": "pdj4fri",
+        "ref": "Pokémon/1-Fennekin 6cm(614)",
+        "name": "Fennekin 6cm",
+        "price": 7390,
+        "mainImage": "Pokémon/1-Fennekin 6cm(614)/fen(1).webp",
+        "images": [
+          "Pokémon/1-Fennekin 6cm(614)/fen(1).webp",
+          "Pokémon/1-Fennekin 6cm(614)/fen(2).webp",
+          "Pokémon/1-Fennekin 6cm(614)/fen(3).webp",
+          "Pokémon/1-Fennekin 6cm(614)/fen(4).webp"
+        ],
+        "category": "Pokémon"
+      },
+      {
+        "id": "plc61qn",
+        "ref": "Pokémon/1-Froakie 8cm(694)",
+        "name": "Froakie 8cm",
+        "price": 8390,
+        "mainImage": "Pokémon/1-Froakie 8cm(694)/(1).webp",
+        "images": [
+          "Pokémon/1-Froakie 8cm(694)/(1).webp",
+          "Pokémon/1-Froakie 8cm(694)/(2).webp",
+          "Pokémon/1-Froakie 8cm(694)/(3).webp",
+          "Pokémon/1-Froakie 8cm(694)/(4).webp"
+        ],
+        "category": "Pokémon"
+      }
+    ],
+    "allVariants": [],
+    "slug": "iniciales-kalos"
+  },
+  {
+    "id": "p3lalr9",
+    "ref": "pack/eeveelutions-clasicos",
+    "name": "Eeveelutions Clásicos",
+    "type": "pack",
+    "typeName": "Pack",
+    "category": "Packs",
+    "price": 17090,
+    "regularPrice": 18970,
+    "savings": 1880,
+    "discountType": "percent",
+    "discount": 10,
+    "description": "Las primera 3 evoluciones de Eevee",
+    "specs": [],
+    "pieces": 1567,
+    "buildHours": 6,
+    "images": [
+      "Pokémon/1-Flareon 7cm(534)/flar(1).webp"
+    ],
+    "mainImage": "Pokémon/1-Flareon 7cm(534)/flar(1).webp",
+    "isVariable": false,
+    "variableName": null,
+    "customPrice": null,
+    "glbFile": null,
+    "extraDescription": null,
+    "isPack": true,
+    "isDigital": false,
+    "memberIds": [
+      "puejdjr",
+      "pa761pc",
+      "pm6kghv"
+    ],
+    "packItems": [
+      {
+        "id": "puejdjr",
+        "ref": "Pokémon/1-Flareon 7cm(534)",
+        "name": "Flareon 7cm",
+        "price": 6490,
+        "mainImage": "Pokémon/1-Flareon 7cm(534)/flar(1).webp",
+        "images": [
+          "Pokémon/1-Flareon 7cm(534)/flar(1).webp",
+          "Pokémon/1-Flareon 7cm(534)/flar(2).webp",
+          "Pokémon/1-Flareon 7cm(534)/flar(3).webp",
+          "Pokémon/1-Flareon 7cm(534)/flar(4).webp"
+        ],
+        "category": "Pokémon"
+      },
+      {
+        "id": "pa761pc",
+        "ref": "Pokémon/1-Vaporeon 8cm(502)",
+        "name": "Vaporeon 8cm",
+        "price": 6090,
+        "mainImage": "Pokémon/1-Vaporeon 8cm(502)/vap(1).webp",
+        "images": [
+          "Pokémon/1-Vaporeon 8cm(502)/vap(1).webp",
+          "Pokémon/1-Vaporeon 8cm(502)/vap(2).webp",
+          "Pokémon/1-Vaporeon 8cm(502)/vap(3).webp",
+          "Pokémon/1-Vaporeon 8cm(502)/vap(4).webp"
+        ],
+        "category": "Pokémon"
+      },
+      {
+        "id": "pm6kghv",
+        "ref": "Pokémon/1-Jolteon 6cm(531)",
+        "name": "Jolteon 6cm",
+        "price": 6390,
+        "mainImage": "Pokémon/1-Jolteon 6cm(531)/jolt1.webp",
+        "images": [
+          "Pokémon/1-Jolteon 6cm(531)/jolt1.webp",
+          "Pokémon/1-Jolteon 6cm(531)/jolt2.webp",
+          "Pokémon/1-Jolteon 6cm(531)/jolt3.webp",
+          "Pokémon/1-Jolteon 6cm(531)/jolt4.webp"
+        ],
+        "category": "Pokémon"
+      }
+    ],
+    "allVariants": [],
+    "slug": "eeveelutions-clasicos"
+  },
+  {
+    "id": "p7h1t3u",
+    "ref": "pack/eeveelutions-2",
+    "name": "Eeveelutions 2",
+    "type": "pack",
+    "typeName": "Pack",
+    "category": "Packs",
+    "price": 11690,
+    "regularPrice": 12880,
+    "savings": 1190,
+    "discountType": "percent",
+    "discount": 10,
+    "description": "La segunda linea de evoluciones de Eevee",
+    "specs": [],
+    "pieces": 1070,
+    "buildHours": 4,
+    "images": [
+      "Pokémon/1-Umbreon 8cm(555)/0 (1).webp"
+    ],
+    "mainImage": "Pokémon/1-Umbreon 8cm(555)/0 (1).webp",
+    "isVariable": false,
+    "variableName": null,
+    "customPrice": null,
+    "glbFile": null,
+    "extraDescription": null,
+    "isPack": true,
+    "isDigital": false,
+    "memberIds": [
+      "puehnh6",
+      "pv08gpf"
+    ],
+    "packItems": [
+      {
+        "id": "puehnh6",
+        "ref": "Pokémon/1-Umbreon 8cm(555)",
+        "name": "Umbreon 8cm",
+        "price": 6690,
+        "mainImage": "Pokémon/1-Umbreon 8cm(555)/0 (1).webp",
+        "images": [
+          "Pokémon/1-Umbreon 8cm(555)/0 (1).webp",
+          "Pokémon/1-Umbreon 8cm(555)/0 (6).webp",
+          "Pokémon/1-Umbreon 8cm(555)/0 (7).webp",
+          "Pokémon/1-Umbreon 8cm(555)/0 (8).webp",
+          "Pokémon/1-Umbreon 8cm(555)/0 (9).webp"
+        ],
+        "category": "Pokémon"
+      },
+      {
+        "id": "pv08gpf",
+        "ref": "Pokémon/1-Espeon 10cm(515)",
+        "name": "Espeon 10cm",
+        "price": 6190,
+        "mainImage": "Pokémon/1-Espeon 10cm(515)/espeon1.webp",
+        "images": [
+          "Pokémon/1-Espeon 10cm(515)/espeon1.webp",
+          "Pokémon/1-Espeon 10cm(515)/espeon2.webp",
+          "Pokémon/1-Espeon 10cm(515)/espeon3.webp",
+          "Pokémon/1-Espeon 10cm(515)/espeon4.webp",
+          "Pokémon/1-Espeon 10cm(515)/espeon5.webp"
+        ],
+        "category": "Pokémon"
+      }
+    ],
+    "allVariants": [],
+    "slug": "eeveelutions-2"
+  },
+  {
+    "id": "p7h1t3t",
+    "ref": "pack/eeveelutions-3",
+    "name": "Eeveelutions 3",
+    "type": "pack",
+    "typeName": "Pack",
+    "category": "Packs",
+    "price": 10790,
+    "regularPrice": 11980,
+    "savings": 1190,
+    "discountType": "percent",
+    "discount": 10,
+    "description": "La tercera entrega de evoluciones de Eevee",
+    "specs": [],
+    "pieces": 994,
+    "buildHours": 4,
+    "images": [
+      "Pokémon/1-Glaceon 9cm(531)/glaceon1.webp"
+    ],
+    "mainImage": "Pokémon/1-Glaceon 9cm(531)/glaceon1.webp",
+    "isVariable": false,
+    "variableName": null,
+    "customPrice": null,
+    "glbFile": null,
+    "extraDescription": null,
+    "isPack": true,
+    "isDigital": false,
+    "memberIds": [
+      "pkjwnyy",
+      "p2ch95f"
+    ],
+    "packItems": [
+      {
+        "id": "pkjwnyy",
+        "ref": "Pokémon/1-Glaceon 9cm(531)",
+        "name": "Glaceon 9cm",
+        "price": 6390,
+        "mainImage": "Pokémon/1-Glaceon 9cm(531)/glaceon1.webp",
+        "images": [
+          "Pokémon/1-Glaceon 9cm(531)/glaceon1.webp",
+          "Pokémon/1-Glaceon 9cm(531)/glaceon2.webp",
+          "Pokémon/1-Glaceon 9cm(531)/glaceon3.webp",
+          "Pokémon/1-Glaceon 9cm(531)/glaceon4.webp"
+        ],
+        "category": "Pokémon"
+      },
+      {
+        "id": "p2ch95f",
+        "ref": "Pokémon/1-Leafeon 9cm(463)",
+        "name": "Leafeon 9cm",
+        "price": 5590,
+        "mainImage": "Pokémon/1-Leafeon 9cm(463)/leafeon.webp",
+        "images": [
+          "Pokémon/1-Leafeon 9cm(463)/leafeon.webp",
+          "Pokémon/1-Leafeon 9cm(463)/leafeon2.webp",
+          "Pokémon/1-Leafeon 9cm(463)/leafeon3.webp",
+          "Pokémon/1-Leafeon 9cm(463)/leafeon4.webp"
+        ],
+        "category": "Pokémon"
+      }
+    ],
+    "allVariants": [],
+    "slug": "eeveelutions-3"
+  },
+  {
+    "id": "ppjbkxz",
+    "ref": "pack/full-eevee",
+    "name": "Full Eevee",
+    "type": "pack",
+    "typeName": "Pack",
+    "category": "Packs",
+    "price": 50390,
+    "regularPrice": 55910,
+    "savings": 5520,
+    "discountType": "percent",
+    "discount": 10,
+    "description": "La colección completa de Eevee y todas sus evoluciones.",
+    "specs": [],
+    "pieces": 4623,
+    "buildHours": 18,
+    "images": [
+      "Pokémon/1-Espeon 10cm(515)/espeon1.webp"
+    ],
+    "mainImage": "Pokémon/1-Espeon 10cm(515)/espeon1.webp",
+    "isVariable": false,
+    "variableName": null,
+    "customPrice": null,
+    "glbFile": null,
+    "extraDescription": null,
+    "isPack": true,
+    "isDigital": false,
+    "memberIds": [
+      "pv08gpf",
+      "puejdjr",
+      "pkjwnyy",
+      "pm6kghv",
+      "p2ch95f",
+      "pbug7z6",
+      "puehnh6",
+      "pa761pc",
+      "phhrd4w"
+    ],
+    "packItems": [
+      {
+        "id": "pv08gpf",
+        "ref": "Pokémon/1-Espeon 10cm(515)",
+        "name": "Espeon 10cm",
+        "price": 6190,
+        "mainImage": "Pokémon/1-Espeon 10cm(515)/espeon1.webp",
+        "images": [
+          "Pokémon/1-Espeon 10cm(515)/espeon1.webp",
+          "Pokémon/1-Espeon 10cm(515)/espeon2.webp",
+          "Pokémon/1-Espeon 10cm(515)/espeon3.webp",
+          "Pokémon/1-Espeon 10cm(515)/espeon4.webp",
+          "Pokémon/1-Espeon 10cm(515)/espeon5.webp"
+        ],
+        "category": "Pokémon"
+      },
+      {
+        "id": "puejdjr",
+        "ref": "Pokémon/1-Flareon 7cm(534)",
+        "name": "Flareon 7cm",
+        "price": 6490,
+        "mainImage": "Pokémon/1-Flareon 7cm(534)/flar(1).webp",
+        "images": [
+          "Pokémon/1-Flareon 7cm(534)/flar(1).webp",
+          "Pokémon/1-Flareon 7cm(534)/flar(2).webp",
+          "Pokémon/1-Flareon 7cm(534)/flar(3).webp",
+          "Pokémon/1-Flareon 7cm(534)/flar(4).webp"
+        ],
+        "category": "Pokémon"
+      },
+      {
+        "id": "pkjwnyy",
+        "ref": "Pokémon/1-Glaceon 9cm(531)",
+        "name": "Glaceon 9cm",
+        "price": 6390,
+        "mainImage": "Pokémon/1-Glaceon 9cm(531)/glaceon1.webp",
+        "images": [
+          "Pokémon/1-Glaceon 9cm(531)/glaceon1.webp",
+          "Pokémon/1-Glaceon 9cm(531)/glaceon2.webp",
+          "Pokémon/1-Glaceon 9cm(531)/glaceon3.webp",
+          "Pokémon/1-Glaceon 9cm(531)/glaceon4.webp"
+        ],
+        "category": "Pokémon"
+      },
+      {
+        "id": "pm6kghv",
+        "ref": "Pokémon/1-Jolteon 6cm(531)",
+        "name": "Jolteon 6cm",
+        "price": 6390,
+        "mainImage": "Pokémon/1-Jolteon 6cm(531)/jolt1.webp",
+        "images": [
+          "Pokémon/1-Jolteon 6cm(531)/jolt1.webp",
+          "Pokémon/1-Jolteon 6cm(531)/jolt2.webp",
+          "Pokémon/1-Jolteon 6cm(531)/jolt3.webp",
+          "Pokémon/1-Jolteon 6cm(531)/jolt4.webp"
+        ],
+        "category": "Pokémon"
+      },
+      {
+        "id": "p2ch95f",
+        "ref": "Pokémon/1-Leafeon 9cm(463)",
+        "name": "Leafeon 9cm",
+        "price": 5590,
+        "mainImage": "Pokémon/1-Leafeon 9cm(463)/leafeon.webp",
+        "images": [
+          "Pokémon/1-Leafeon 9cm(463)/leafeon.webp",
+          "Pokémon/1-Leafeon 9cm(463)/leafeon2.webp",
+          "Pokémon/1-Leafeon 9cm(463)/leafeon3.webp",
+          "Pokémon/1-Leafeon 9cm(463)/leafeon4.webp"
+        ],
+        "category": "Pokémon"
+      },
+      {
+        "id": "pbug7z6",
+        "ref": "Pokémon/1-Sylveon 9cm(459)",
+        "name": "Sylveon 9cm",
+        "price": 5590,
+        "mainImage": "Pokémon/1-Sylveon 9cm(459)/syl(1).webp",
+        "images": [
+          "Pokémon/1-Sylveon 9cm(459)/syl(1).webp",
+          "Pokémon/1-Sylveon 9cm(459)/syl(2).webp",
+          "Pokémon/1-Sylveon 9cm(459)/syl(3).webp",
+          "Pokémon/1-Sylveon 9cm(459)/syl(4).webp"
+        ],
+        "category": "Pokémon"
+      },
+      {
+        "id": "puehnh6",
+        "ref": "Pokémon/1-Umbreon 8cm(555)",
+        "name": "Umbreon 8cm",
+        "price": 6690,
+        "mainImage": "Pokémon/1-Umbreon 8cm(555)/0 (1).webp",
+        "images": [
+          "Pokémon/1-Umbreon 8cm(555)/0 (1).webp",
+          "Pokémon/1-Umbreon 8cm(555)/0 (6).webp",
+          "Pokémon/1-Umbreon 8cm(555)/0 (7).webp",
+          "Pokémon/1-Umbreon 8cm(555)/0 (8).webp",
+          "Pokémon/1-Umbreon 8cm(555)/0 (9).webp"
+        ],
+        "category": "Pokémon"
+      },
+      {
+        "id": "pa761pc",
+        "ref": "Pokémon/1-Vaporeon 8cm(502)",
+        "name": "Vaporeon 8cm",
+        "price": 6090,
+        "mainImage": "Pokémon/1-Vaporeon 8cm(502)/vap(1).webp",
+        "images": [
+          "Pokémon/1-Vaporeon 8cm(502)/vap(1).webp",
+          "Pokémon/1-Vaporeon 8cm(502)/vap(2).webp",
+          "Pokémon/1-Vaporeon 8cm(502)/vap(3).webp",
+          "Pokémon/1-Vaporeon 8cm(502)/vap(4).webp"
+        ],
+        "category": "Pokémon"
+      },
+      {
+        "id": "phhrd4w",
+        "ref": "Pokémon/1-Eevee 8cm(533)",
+        "name": "Eevee 8cm",
+        "price": 6490,
+        "mainImage": "Pokémon/1-Eevee 8cm(533)/ev(1).webp",
+        "images": [
+          "Pokémon/1-Eevee 8cm(533)/ev(1).webp",
+          "Pokémon/1-Eevee 8cm(533)/ev(2).webp",
+          "Pokémon/1-Eevee 8cm(533)/ev(3).webp",
+          "Pokémon/1-Eevee 8cm(533)/ev(4).webp"
+        ],
+        "category": "Pokémon"
+      }
+    ],
+    "allVariants": [],
+    "slug": "full-eevee"
+  },
+  {
+    "id": "py8rkdh",
+    "ref": "pack/como-entrenar-a-tu-dragon",
+    "name": "Cómo entrenar a tu Dragón",
+    "type": "pack",
+    "typeName": "Pack",
+    "category": "Packs",
+    "price": 16590,
+    "regularPrice": 18380,
+    "savings": 1790,
+    "discountType": "percent",
+    "discount": 10,
+    "description": "Chimuelo y Furia Luminosa",
+    "specs": [],
+    "pieces": 1524,
+    "buildHours": 6,
+    "images": [
+      "Otros/1-Furia Luminosa(762)/chimuela (1).webp"
+    ],
+    "mainImage": "Otros/1-Furia Luminosa(762)/chimuela (1).webp",
+    "isVariable": false,
+    "variableName": null,
+    "customPrice": null,
+    "glbFile": null,
+    "extraDescription": null,
+    "isPack": true,
+    "isDigital": false,
+    "memberIds": [
+      "plq2839",
+      "pocqwag"
+    ],
+    "packItems": [
+      {
+        "id": "plq2839",
+        "ref": "Otros/1-Furia Luminosa(762)",
+        "name": "Furia Luminosa",
+        "price": 9190,
+        "mainImage": "Otros/1-Furia Luminosa(762)/chimuela (1).webp",
+        "images": [
+          "Otros/1-Furia Luminosa(762)/chimuela (1).webp",
+          "Otros/1-Furia Luminosa(762)/chimuela (2).webp",
+          "Otros/1-Furia Luminosa(762)/chimuela (3).webp",
+          "Otros/1-Furia Luminosa(762)/chimuela (5).webp"
+        ],
+        "category": "Otros"
+      },
+      {
+        "id": "pocqwag",
+        "ref": "Otros/1-Chimuelo(762)",
+        "name": "Chimuelo",
+        "price": 9190,
+        "mainImage": "Otros/1-Chimuelo(762)/chimuelo (1).webp",
+        "images": [
+          "Otros/1-Chimuelo(762)/chimuelo (1).webp",
+          "Otros/1-Chimuelo(762)/chimuelo (2).webp",
+          "Otros/1-Chimuelo(762)/chimuelo (3).webp",
+          "Otros/1-Chimuelo(762)/chimuelo (5).webp"
+        ],
+        "category": "Otros"
+      }
+    ],
+    "allVariants": [],
+    "slug": "como-entrenar-a-tu-dragon"
+  },
+  {
     "id": "pfqa5qe",
+    "ref": "Colores/2-Pack Colores",
     "name": "Pack Colores",
     "type": "2",
     "typeName": "Pack Color",
@@ -70,6 +1373,7 @@
   },
   {
     "id": "p4j614f",
+    "ref": "Dragon Ball/1-Bardock(407)",
     "name": "Bardock",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -100,6 +1404,7 @@
   },
   {
     "id": "p20b7zi",
+    "ref": "Dragon Ball/1-Black Goku Rosé(509)",
     "name": "Black Goku Rosé",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -131,6 +1436,7 @@
   },
   {
     "id": "pxi16ib",
+    "ref": "Dragon Ball/1-Broly(771)",
     "name": "Broly",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -162,6 +1468,7 @@
   },
   {
     "id": "pxjbt5e",
+    "ref": "Dragon Ball/1-Gogeta Blue(616)",
     "name": "Gogeta Blue",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -193,6 +1500,7 @@
   },
   {
     "id": "pe65uyr",
+    "ref": "Dragon Ball/1-Gohan Futuro(593)",
     "name": "Gohan Futuro",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -224,6 +1532,7 @@
   },
   {
     "id": "pgf06qt",
+    "ref": "Dragon Ball/1-Gohan SSJ2(233)",
     "name": "Gohan SSJ2",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -255,6 +1564,7 @@
   },
   {
     "id": "pc96psr",
+    "ref": "Dragon Ball/1-Goku 16cm(503)",
     "name": "Goku 16cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -290,6 +1600,7 @@
   },
   {
     "id": "p1cye7i",
+    "ref": "Dragon Ball/1-Goku Niño(616)",
     "name": "Goku Niño",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -320,6 +1631,7 @@
   },
   {
     "id": "palpftz",
+    "ref": "Dragon Ball/1-Majin Vegeta(516)",
     "name": "Majin Vegeta",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -350,6 +1662,7 @@
   },
   {
     "id": "pkaqzqq",
+    "ref": "Dragon Ball/1-Perfect Cell(490)",
     "name": "Perfect Cell",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -381,6 +1694,7 @@
   },
   {
     "id": "phsg0xn",
+    "ref": "Dragon Ball/1-Shenron(657)",
     "name": "Shenron",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -412,6 +1726,7 @@
   },
   {
     "id": "pgnpego",
+    "ref": "Dragon Ball/1-Vegeto Blue 15cm(619)",
     "name": "Vegeto Blue 15cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -442,6 +1757,7 @@
   },
   {
     "id": "padrnzu",
+    "ref": "Escenario/1-Jardín Sakura(2554)",
     "name": "Jardín Sakura",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -473,6 +1789,7 @@
   },
   {
     "id": "pagi260",
+    "ref": "League of Legends/1- Thresh Forajido(600)",
     "name": "Thresh Forajido",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -504,6 +1821,7 @@
   },
   {
     "id": "pbrdrs3",
+    "ref": "League of Legends/1-Kaisa(390)",
     "name": "Kaisa",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -533,6 +1851,7 @@
   },
   {
     "id": "pjqv71n",
+    "ref": "League of Legends/1-Lee Sin(555)",
     "name": "Lee Sin",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -564,6 +1883,7 @@
   },
   {
     "id": "pok675v",
+    "ref": "League of Legends/1-Malphite Whatsapp 16cm(1355)",
     "name": "Malphite Whatsapp 16cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -596,6 +1916,7 @@
   },
   {
     "id": "psjlouh",
+    "ref": "League of Legends/1-Sion(765)",
     "name": "Sion",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -627,6 +1948,7 @@
   },
   {
     "id": "pjle40b",
+    "ref": "League of Legends/1-Velkoz(891)",
     "name": "Velkoz",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -658,6 +1980,7 @@
   },
   {
     "id": "pw3hik9",
+    "ref": "Otros/1-Afro Luffy 21cm(1644)",
     "name": "Afro Luffy 21cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -689,6 +2012,7 @@
   },
   {
     "id": "p2y1m8w",
+    "ref": "Otros/1-Barbilla Roja 16cm(863)",
     "name": "Barbilla Roja 16cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -720,6 +2044,7 @@
   },
   {
     "id": "pi1msfv",
+    "ref": "Otros/1-Charlie 9cm(506)",
     "name": "Charlie 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -755,6 +2080,7 @@
   },
   {
     "id": "p8ecy4c",
+    "ref": "Otros/1-Chavo del 8(469)",
     "name": "Chavo del 8",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -786,6 +2112,7 @@
   },
   {
     "id": "pocqwag",
+    "ref": "Otros/1-Chimuelo(762)",
     "name": "Chimuelo",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -817,6 +2144,7 @@
   },
   {
     "id": "pmcxpin",
+    "ref": "Otros/1-Duffman(760)",
     "name": "Duffman",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -848,6 +2176,7 @@
   },
   {
     "id": "p1nbrbq",
+    "ref": "Otros/1-Ezzio Auditore(980)",
     "name": "Ezzio Auditore",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -879,6 +2208,7 @@
   },
   {
     "id": "pw11ryu",
+    "ref": "Otros/1-Frieren 12cm(874)",
     "name": "Frieren 12cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -910,6 +2240,7 @@
   },
   {
     "id": "plq2839",
+    "ref": "Otros/1-Furia Luminosa(762)",
     "name": "Furia Luminosa",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -941,6 +2272,7 @@
   },
   {
     "id": "plk3dmg",
+    "ref": "Otros/1-Juan Carlos Bodoque(732)",
     "name": "Juan Carlos Bodoque",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -972,6 +2304,7 @@
   },
   {
     "id": "pkecf65",
+    "ref": "Otros/1-Senko(646)",
     "name": "Senko",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1002,6 +2335,7 @@
   },
   {
     "id": "p3ykst9",
+    "ref": "Otros/1-Spiderman(487)",
     "name": "Spiderman",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1033,6 +2367,7 @@
   },
   {
     "id": "ph480lj",
+    "ref": "Pokémon/1-Absol 9cm(598)",
     "name": "Absol 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1063,6 +2398,7 @@
   },
   {
     "id": "p8vb1vp",
+    "ref": "Pokémon/1-Ampharos 12cm(556)",
     "name": "Ampharos 12cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1094,6 +2430,7 @@
   },
   {
     "id": "pmcr3v9",
+    "ref": "Pokémon/1-Arceus 9cm(578)",
     "name": "Arceus 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1125,6 +2462,7 @@
   },
   {
     "id": "pt4omxt",
+    "ref": "Pokémon/1-Blastoise 12cm(1444)",
     "name": "Blastoise 12cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1156,6 +2494,7 @@
   },
   {
     "id": "pubhgvi",
+    "ref": "Pokémon/1-Browt 11cm(654)",
     "name": "Browt 11cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1191,6 +2530,7 @@
   },
   {
     "id": "p5rgbf1",
+    "ref": "Pokémon/1-Buizel 9cm(510)",
     "name": "Buizel 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1221,6 +2561,7 @@
   },
   {
     "id": "py9nket",
+    "ref": "Pokémon/1-Bulbasaur 6cm(500)",
     "name": "Bulbasaur 6cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1252,6 +2593,7 @@
   },
   {
     "id": "puurjcp",
+    "ref": "Pokémon/1-Carterpie 9cm(530)",
     "name": "Carterpie 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1283,6 +2625,7 @@
   },
   {
     "id": "pfvkb7p",
+    "ref": "Pokémon/1-Charizard 10cm(1297)",
     "name": "Charizard 10cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1313,6 +2656,7 @@
   },
   {
     "id": "pcl37fz",
+    "ref": "Pokémon/1-Charmander 7cm(435)",
     "name": "Charmander 7cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1344,6 +2688,7 @@
   },
   {
     "id": "pbluxdu",
+    "ref": "Pokémon/1-Chespin 10cm(572)",
     "name": "Chespin 10cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1375,6 +2720,7 @@
   },
   {
     "id": "p4shuuy",
+    "ref": "Pokémon/1-Chikorita 7cm(516)",
     "name": "Chikorita 7cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1406,6 +2752,7 @@
   },
   {
     "id": "pl6fvxc",
+    "ref": "Pokémon/1-Chimchar 9cm(432)",
     "name": "Chimchar 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1436,6 +2783,7 @@
   },
   {
     "id": "ptdk9h5",
+    "ref": "Pokémon/1-Cyndaquil 7cm(524)",
     "name": "Cyndaquil 7cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1467,6 +2815,7 @@
   },
   {
     "id": "phhrd4w",
+    "ref": "Pokémon/1-Eevee 8cm(533)",
     "name": "Eevee 8cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1498,6 +2847,7 @@
   },
   {
     "id": "pv08gpf",
+    "ref": "Pokémon/1-Espeon 10cm(515)",
     "name": "Espeon 10cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1530,6 +2880,7 @@
   },
   {
     "id": "pdj4fri",
+    "ref": "Pokémon/1-Fennekin 6cm(614)",
     "name": "Fennekin 6cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1561,6 +2912,7 @@
   },
   {
     "id": "puejdjr",
+    "ref": "Pokémon/1-Flareon 7cm(534)",
     "name": "Flareon 7cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1592,6 +2944,7 @@
   },
   {
     "id": "pvgg5jh",
+    "ref": "Pokémon/1-Flygon 9cm(486)",
     "name": "Flygon 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1621,6 +2974,7 @@
   },
   {
     "id": "plc61qn",
+    "ref": "Pokémon/1-Froakie 8cm(694)",
     "name": "Froakie 8cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1652,6 +3006,7 @@
   },
   {
     "id": "pqetpv0",
+    "ref": "Pokémon/1-Fuecoco 9cm(572)",
     "name": "Fuecoco 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1683,6 +3038,7 @@
   },
   {
     "id": "pz3ro8v",
+    "ref": "Pokémon/1-Gecqua 9cm(757)",
     "name": "Gecqua 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1718,6 +3074,7 @@
   },
   {
     "id": "p33ncig",
+    "ref": "Pokémon/1-Gengar 9cm(541)",
     "name": "Gengar 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1749,6 +3106,7 @@
   },
   {
     "id": "pkjwnyy",
+    "ref": "Pokémon/1-Glaceon 9cm(531)",
     "name": "Glaceon 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1780,6 +3138,7 @@
   },
   {
     "id": "pf0ngtb",
+    "ref": "Pokémon/1-Grookey 9cm(599)",
     "name": "Grookey 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1811,6 +3170,7 @@
   },
   {
     "id": "pdwa0yf",
+    "ref": "Pokémon/1-Growlithe 8cm(520)",
     "name": "Growlithe 8cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1842,6 +3202,7 @@
   },
   {
     "id": "phpmtc7",
+    "ref": "Pokémon/1-Gyarado 22cm largo(1074)",
     "name": "Gyarado 22cm largo",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1871,6 +3232,7 @@
   },
   {
     "id": "paganw0",
+    "ref": "Pokémon/1-Jigglypuff 8cm(640)",
     "name": "Jigglypuff 8cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1902,6 +3264,7 @@
   },
   {
     "id": "pm6kghv",
+    "ref": "Pokémon/1-Jolteon 6cm(531)",
     "name": "Jolteon 6cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1933,6 +3296,7 @@
   },
   {
     "id": "p166fc7",
+    "ref": "Pokémon/1-Larvitar 9cm(424)",
     "name": "Larvitar 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1963,6 +3327,7 @@
   },
   {
     "id": "p2ch95f",
+    "ref": "Pokémon/1-Leafeon 9cm(463)",
     "name": "Leafeon 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -1994,6 +3359,7 @@
   },
   {
     "id": "ptah4cc",
+    "ref": "Pokémon/1-Litten 8cm(540)",
     "name": "Litten 8cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2025,6 +3391,7 @@
   },
   {
     "id": "pvibef0",
+    "ref": "Pokémon/1-Lopunny 11cm(525)",
     "name": "Lopunny 11cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2056,6 +3423,7 @@
   },
   {
     "id": "pqljusz",
+    "ref": "Pokémon/1-Meowscarada 15cm(678)",
     "name": "Meowscarada 15cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2087,6 +3455,7 @@
   },
   {
     "id": "pa262vj",
+    "ref": "Pokémon/1-Mewtwo 9cm(620)",
     "name": "Mewtwo 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2118,6 +3487,7 @@
   },
   {
     "id": "plbcdvr",
+    "ref": "Pokémon/1-Mudkip 10cm(575)",
     "name": "Mudkip 10cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2149,6 +3519,7 @@
   },
   {
     "id": "prs7zs3",
+    "ref": "Pokémon/1-Nidoking 7cm(521)",
     "name": "Nidoking 7cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2179,6 +3550,7 @@
   },
   {
     "id": "pdatiaz",
+    "ref": "Pokémon/1-Nidoqueen 7cm(520)",
     "name": "Nidoqueen 7cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2209,6 +3581,7 @@
   },
   {
     "id": "pup37li",
+    "ref": "Pokémon/1-Oshowatt 9cm(696)",
     "name": "Oshowatt 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2240,6 +3613,7 @@
   },
   {
     "id": "pfqomjn",
+    "ref": "Pokémon/1-Pichu 7cm(321)",
     "name": "Pichu 7cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2271,6 +3645,7 @@
   },
   {
     "id": "pn4p16r",
+    "ref": "Pokémon/1-Pikachu 9cm(480)",
     "name": "Pikachu 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2304,6 +3679,7 @@
   },
   {
     "id": "p4igbny",
+    "ref": "Pokémon/1-Piplup 8cm(544)",
     "name": "Piplup 8cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2334,6 +3710,7 @@
   },
   {
     "id": "p4wwbpa",
+    "ref": "Pokémon/1-Poliwag 6cm(460)",
     "name": "Poliwag 6cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2363,6 +3740,7 @@
   },
   {
     "id": "pd330tg",
+    "ref": "Pokémon/1-Pombon 11cm(714)",
     "name": "Pombon 11cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2394,6 +3772,7 @@
   },
   {
     "id": "py93nln",
+    "ref": "Pokémon/1-Popplio 7cm(608)",
     "name": "Popplio 7cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2425,6 +3804,7 @@
   },
   {
     "id": "pafh67k",
+    "ref": "Pokémon/1-Quaxly 9cm(648)",
     "name": "Quaxly 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2456,6 +3836,7 @@
   },
   {
     "id": "poek8wa",
+    "ref": "Pokémon/1-Rayquaza 10cm(653)",
     "name": "Rayquaza 10cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2487,6 +3868,7 @@
   },
   {
     "id": "p6jwsmp",
+    "ref": "Pokémon/1-Rowlet 8cm(809)",
     "name": "Rowlet 8cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2518,6 +3900,7 @@
   },
   {
     "id": "p97evra",
+    "ref": "Pokémon/1-Scorbunny 11cm(503)",
     "name": "Scorbunny 11cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2549,6 +3932,7 @@
   },
   {
     "id": "pslww99",
+    "ref": "Pokémon/1-Scyther 8cm(532)",
     "name": "Scyther 8cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2580,6 +3964,7 @@
   },
   {
     "id": "ply6yqv",
+    "ref": "Pokémon/1-Slowpoke 6cm(422)",
     "name": "Slowpoke 6cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2611,6 +3996,7 @@
   },
   {
     "id": "pxzc21z",
+    "ref": "Pokémon/1-Snivy 9cm(574)",
     "name": "Snivy 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2642,6 +4028,7 @@
   },
   {
     "id": "p1o26te",
+    "ref": "Pokémon/1-Sobble 10cm(535)",
     "name": "Sobble 10cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2673,6 +4060,7 @@
   },
   {
     "id": "pvppidi",
+    "ref": "Pokémon/1-Sprigatito 9cm(648)",
     "name": "Sprigatito 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2704,6 +4092,7 @@
   },
   {
     "id": "p8ug8h6",
+    "ref": "Pokémon/1-Squirtle 8cm(572)",
     "name": "Squirtle 8cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2735,6 +4124,7 @@
   },
   {
     "id": "pbug7z6",
+    "ref": "Pokémon/1-Sylveon 9cm(459)",
     "name": "Sylveon 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2766,6 +4156,7 @@
   },
   {
     "id": "pvuu503",
+    "ref": "Pokémon/1-Tepig 9cm(637)",
     "name": "Tepig 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2797,6 +4188,7 @@
   },
   {
     "id": "p749bfj",
+    "ref": "Pokémon/1-Torchic 9cm(443)",
     "name": "Torchic 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2827,6 +4219,7 @@
   },
   {
     "id": "p84yqd",
+    "ref": "Pokémon/1-Totodile 8cm(576)",
     "name": "Totodile 8cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2858,6 +4251,7 @@
   },
   {
     "id": "psqekh4",
+    "ref": "Pokémon/1-Treecko 8cm(406)",
     "name": "Treecko 8cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2889,6 +4283,7 @@
   },
   {
     "id": "pkuhuie",
+    "ref": "Pokémon/1-Turtwig 8cm(472)",
     "name": "Turtwig 8cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2920,6 +4315,7 @@
   },
   {
     "id": "puehnh6",
+    "ref": "Pokémon/1-Umbreon 8cm(555)",
     "name": "Umbreon 8cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2952,6 +4348,7 @@
   },
   {
     "id": "pa761pc",
+    "ref": "Pokémon/1-Vaporeon 8cm(502)",
     "name": "Vaporeon 8cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -2983,6 +4380,7 @@
   },
   {
     "id": "p74dvzv",
+    "ref": "Pokémon/1-Venasaur 11cm(1932)",
     "name": "Venasaur 11cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -3014,6 +4412,7 @@
   },
   {
     "id": "pqi2eyy",
+    "ref": "Pokémon/1-Zorua 9cm(513)",
     "name": "Zorua 9cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -3044,6 +4443,7 @@
   },
   {
     "id": "p1ywazf",
+    "ref": "Pokémon/Entrenadores/1-Aura 10cm(634)",
     "name": "Aura 10cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -3074,6 +4474,7 @@
   },
   {
     "id": "phrx81e",
+    "ref": "Pokémon/Entrenadores/1-Bruno 10cm(625)",
     "name": "Bruno 10cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -3104,6 +4505,7 @@
   },
   {
     "id": "phlv584",
+    "ref": "Pokémon/Entrenadores/1-Dawn 10cm(535)",
     "name": "Dawn 10cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -3134,6 +4536,7 @@
   },
   {
     "id": "ptfwqhh",
+    "ref": "Pokémon/Entrenadores/1-Hilbert 10cm(606)",
     "name": "Hilbert 10cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -3165,6 +4568,7 @@
   },
   {
     "id": "p6615py",
+    "ref": "Pokémon/Entrenadores/1-Hilda 10cm(641)",
     "name": "Hilda 10cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -3195,6 +4599,7 @@
   },
   {
     "id": "p548310",
+    "ref": "Pokémon/Entrenadores/1-Lucas 10cm(526)",
     "name": "Lucas 10cm",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -3225,6 +4630,7 @@
   },
   {
     "id": "pt3nn6q",
+    "ref": "Vocaloid/1-Kasane Teto(796)",
     "name": "Kasane Teto",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -3256,6 +4662,7 @@
   },
   {
     "id": "pe6376h",
+    "ref": "Vocaloid/1-Miku(1302)",
     "name": "Miku",
     "type": "1",
     "typeName": "Kit de Armado",
@@ -3287,6 +4694,7 @@
   },
   {
     "id": "pnjv0ik",
+    "ref": "Vocaloid/1-Teto Pera(872)",
     "name": "Teto Pera",
     "type": "1",
     "typeName": "Kit de Armado",

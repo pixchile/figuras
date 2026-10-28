@@ -12,7 +12,7 @@
 
 const fs   = require('fs');
 const path = require('path');
-const { scanProducts, DEFAULT_IGNORE_ITEMS } = require('./scanner');
+const { scanProducts, readPacksFile, resolvePacks, DEFAULT_IGNORE_ITEMS } = require('./scanner');
 
 const ROOT     = __dirname;
 const OUT_DIR  = path.join(ROOT, 'docs');
@@ -49,6 +49,33 @@ function copyDirSync(src, dest) {
             fs.copyFileSync(srcPath, destPath);
         }
     }
+}
+
+/**
+ * Borra una carpeta de forma confiable.
+ * En Windows, fs.rmSync puede fallar en silencio (sin lanzar error) según el
+ * entorno; por eso se verifica y se cae a un borrado manual con unlink/rmdir.
+ */
+function removeDirSync(dir) {
+    if (!fs.existsSync(dir)) return;
+
+    try {
+        fs.rmSync(dir, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
+    } catch (e) {
+        // sigue el fallback
+    }
+
+    if (!fs.existsSync(dir)) return;
+
+    const walk = target => {
+        for (const entry of fs.readdirSync(target, { withFileTypes: true })) {
+            const full = path.join(target, entry.name);
+            if (entry.isDirectory()) walk(full);
+            else fs.unlinkSync(full);
+        }
+        fs.rmdirSync(target);
+    };
+    walk(dir);
 }
 
 // ─── SEO: GENERACIÓN DE PÁGINAS POR PRODUCTO ─────────────────────────────────
@@ -102,6 +129,10 @@ function generateProductHTML(product, options) {
     const specsHTML   = (product.specs || [])
         .map(s => `<li>${escapeHtml(s)}</li>`)
         .join('\n            ');
+
+    const packItemsHTML = product.isPack && Array.isArray(product.packItems)
+        ? `<section><h2>Incluye</h2><ul>${product.packItems.map(item => `<li>${escapeHtml(item.name)}</li>`).join('')}</ul></section>`
+        : '';
 
     // Schema.org Product para rich results en Google
     const schema = {
@@ -172,6 +203,7 @@ ${JSON.stringify(schema, null, 2)}
     <p>${escapeHtml(product.category || 'General')} · ${escapeHtml(product.typeName || '')}</p>
     <p>$${product.price.toLocaleString('es-CL')}</p>
     <p>${escapeHtml(product.description || '')}</p>
+    ${packItemsHTML}
     ${specsHTML ? `<ul>${specsHTML}</ul>` : ''}
     ${product.extraDescription ? `<section><h2>Información adicional</h2><p>${escapeHtml(product.extraDescription)}</p></section>` : ''}
     <div>${images.map(img => `<img src="${img}" alt="${escapeHtml(product.name)}">`).join('')}</div>
@@ -198,15 +230,17 @@ function main() {
 
     // 1. Limpiar y recrear docs/
     if (fs.existsSync(OUT_DIR)) {
-        fs.rmSync(OUT_DIR, { recursive: true, force: true });
+        removeDirSync(OUT_DIR);
         console.log('🗑️  docs/ anterior eliminada.');
     }
     fs.mkdirSync(OUT_DIR, { recursive: true });
 
-    // 2. Escanear productos
+    // 2. Escanear productos y resolver packs
     console.log('📦 Escaneando productos...');
-    const products = scanProducts(ROOT, config, IGNORE_ITEMS);
-    console.log(`   ✅ ${products.length} producto(s) encontrados.\n`);
+    const baseProducts = scanProducts(ROOT, config, IGNORE_ITEMS);
+    const packs = resolvePacks(baseProducts, readPacksFile(ROOT));
+    const products = [...packs, ...baseProducts];
+    console.log(`   ✅ ${baseProducts.length} producto(s) y ${packs.length} pack(s) encontrados.\n`);
 
     // 3. Normalizar rutas de imágenes a relativas (sin / inicial)
     // GitHub Pages sirve desde /tu-repo/, no desde /, así que rutas absolutas no funcionan
@@ -217,6 +251,12 @@ function main() {
         product.allVariants = (product.allVariants  || []).map(fixPath);
         if (product.variantImage) product.variantImage = fixPath(product.variantImage);
         if (product.glbFile)      product.glbFile      = fixPath(product.glbFile);
+        if (Array.isArray(product.packItems)) {
+            product.packItems.forEach(item => {
+                item.images    = (item.images || []).map(fixPath);
+                item.mainImage = fixPath(item.mainImage);
+            });
+        }
     });
 
     // 3b. Escribir products.json y config.json en docs/
@@ -276,6 +316,12 @@ function main() {
         console.log('🖼️  Carpeta banner/ copiada.');
     } else {
         console.warn('⚠️  No se encontró la carpeta banner/ — el banner no tendrá imágenes.');
+    }
+
+    const packsSrc = path.join(ROOT, 'packs');
+    if (fs.existsSync(packsSrc)) {
+        copyDirSync(packsSrc, path.join(OUT_DIR, 'packs'));
+        console.log('🖼️  Carpeta packs/ copiada.');
     }
 
     const rootImageExts = new Set(['.jpg', '.jpeg', '.png', '.gif', '.svg', '.webp', '.ico']);

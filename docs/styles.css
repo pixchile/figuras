@@ -1379,6 +1379,160 @@ a { color: inherit; }
     flex-shrink: 0;
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   PACKS
+   ═══════════════════════════════════════════════════════════════ */
+.pack-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 5;
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    box-shadow: 0 2px 8px rgba(200, 69, 42, 0.35);
+}
+
+.price-old {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--ink-soft);
+    text-decoration: line-through;
+    margin-right: 0.35rem;
+    opacity: 0.75;
+}
+
+.product-savings {
+    margin: -0.45rem 0 0.75rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--success);
+}
+
+.modal-price-pack {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+
+.modal-price-pack .price-old { font-size: 1.1rem; }
+
+.pack-contents {
+    margin: 1.25rem 0;
+    padding: 1rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--paper);
+}
+
+.pack-contents-title,
+.pack-upsell-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+}
+
+.pack-contents-title { color: var(--ink-soft); }
+.pack-upsell-title { color: var(--accent); }
+
+.pack-contents-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.pack-contents-item {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-size: 0.92rem;
+}
+
+.pack-contents-item img {
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    object-fit: cover;
+    background: var(--paper-2);
+    flex-shrink: 0;
+}
+
+.pack-contents-name { flex: 1; min-width: 0; }
+
+.pack-contents-price {
+    font-weight: 700;
+    color: var(--ink-soft);
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+.pack-saving {
+    margin-top: 0.7rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--success);
+}
+
+.pack-upsell {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--paper);
+}
+
+.pack-upsell-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.7rem 0;
+}
+
+.pack-upsell-item + .pack-upsell-item { border-top: 1px solid var(--line); }
+
+.pack-upsell-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 0;
+}
+
+.pack-upsell-info strong { font-size: 0.95rem; }
+.pack-upsell-items { font-size: 0.8rem; color: var(--ink-soft); }
+.pack-upsell-price { font-size: 0.85rem; font-weight: 700; color: var(--accent); }
+
+.pack-upsell-btn {
+    flex-shrink: 0;
+    border: 1px solid var(--accent);
+    background: transparent;
+    color: var(--accent);
+    padding: 0.55rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.pack-upsell-btn:hover { background: var(--accent); color: #fff; }
+
+.cart-item-pack {
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+    margin: 0.15rem 0;
+    line-height: 1.35;
+}
+
 /* ✅ NUEVO: SELECTOR DE IMÁGENES PARA VARIANTES (TIPO 2) */
 .image-variant-selector {
     margin: 1rem 0;
@@ -2100,6 +2254,11 @@ a { color: inherit; }
     .banner-subtitle { font-size: 0.85rem; max-width: 30ch; }
     .banner-cta { margin-top: 0.4rem; padding: 0.55rem 1rem; font-size: 0.8rem; }
     .banner-slide[data-align="right"] .banner-cta { align-self: flex-start; }
+
+    .pack-upsell-item { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+    .pack-upsell-btn { width: 100%; }
+    .pack-contents-item img { width: 36px; height: 36px; }
+    .modal-price-pack { flex-wrap: wrap; gap: 0.35rem; }
 
     .catalog { padding-top: 1.75rem; }
     .catalog-head { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
